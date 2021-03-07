@@ -71,6 +71,7 @@
     <Compile Include="Assets\Character\Player.cs" />
     <Compile Include="Assets\Character\PlayerLanded.cs" />
     <Compile Include="Assets\Character\PlayerStopJump.cs" />
+    <Compile Include="Assets\GameManegaer\SceneManeger.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.20f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -255,13 +256,13 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.20f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/CutWist/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/編集用/CutWist/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/CutWist/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/編集用/CutWist/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/CutWist/Library/PackageCache/com.unity.analytics@3.3.5/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/編集用/CutWist/Library/PackageCache/com.unity.analytics@3.3.5/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.20f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -609,55 +610,55 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.20f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/CutWist/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/編集用/CutWist/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Monetization">
-      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/CutWist/Library/ScriptAssemblies/UnityEngine.Monetization.dll</HintPath>
+      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/編集用/CutWist/Library/ScriptAssemblies/UnityEngine.Monetization.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/CutWist/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/編集用/CutWist/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Advertisements">
-      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/CutWist/Library/ScriptAssemblies/UnityEngine.Advertisements.dll</HintPath>
+      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/編集用/CutWist/Library/ScriptAssemblies/UnityEngine.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Purchasing">
-      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/CutWist/Library/ScriptAssemblies/UnityEngine.Purchasing.dll</HintPath>
+      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/編集用/CutWist/Library/ScriptAssemblies/UnityEngine.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
-      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/CutWist/Library/ScriptAssemblies/UnityEditor.Purchasing.dll</HintPath>
+      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/編集用/CutWist/Library/ScriptAssemblies/UnityEditor.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/CutWist/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/編集用/CutWist/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/CutWist/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/編集用/CutWist/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/CutWist/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/編集用/CutWist/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/CutWist/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/編集用/CutWist/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/CutWist/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/編集用/CutWist/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/CutWist/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/編集用/CutWist/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/CutWist/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/編集用/CutWist/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Advertisements.Editor">
-      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/CutWist/Library/ScriptAssemblies/UnityEngine.Advertisements.Editor.dll</HintPath>
+      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/編集用/CutWist/Library/ScriptAssemblies/UnityEngine.Advertisements.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/CutWist/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/編集用/CutWist/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/CutWist/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/編集用/CutWist/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/CutWist/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/菊池　海璃/Desktop/ゲーム大賞/プロジェクト/編集用/CutWist/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup></ItemGroup>
