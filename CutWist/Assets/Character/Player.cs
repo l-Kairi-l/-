@@ -39,14 +39,12 @@ public class Player : KinematicObject
     public const float jumpTakeOffSpeed = 8;
 
     //カーソル
-    GameObject CursorGameObject;
     GameObject Camera;
 
     void Awake()
     {
       //  rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        CursorGameObject = GameObject.Find("0Center");//.GetComponent<CursorManeger>();
         Camera = GameObject.Find("Main Camera");//.GetComponent<CursorManeger>();
 
     }
@@ -57,8 +55,6 @@ public class Player : KinematicObject
     protected override void Update()
     {
 
-        CursorGameObject = GameObject.Find("0Center");//.GetComponent<CursorManeger>();
-        if (!CursorGameObject) return;
        
             if (controlEnabled)
             {
