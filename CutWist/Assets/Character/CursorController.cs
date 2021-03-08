@@ -1,0 +1,117 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using Platformer.Mechanics;
+
+public class CursorController : MonoBehaviour
+{
+    public GameObject Cursor;
+    public GameObject Player;
+    //public GameObject Block;
+    //public GameObject Goal_false;
+    //public GameObject Goal_true;
+    //public GameObject Tile;
+    //public GameObject Diamond;
+    //public GameObject Frame;
+    
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+
+        //color.a = (DebugImage.GetComponent<CursorController>().== 1) ? 1.0f : 0.0f;
+
+        //spriteRenderer.material.color = color;
+
+        //imageBackItem[1].GetComponent<Image>().color = new Color(255.0f, 255.0f, 255.0f);
+        //GetComponent<Image>().color = new Color(255.0f, 255.0f, 255.0f);
+
+
+        if (Player.GetComponent<Player>().CursorMode == 0)
+        {
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            {
+                Cursor.transform.position += new Vector3(0.1f, 0, 0);
+                if (Cursor.transform.position.x >= 25.0f)
+                {
+                    Cursor.transform.position = new Vector3(
+                        25.0f, Cursor.transform.position.y, Cursor.transform.position.z);
+                }
+
+            }
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+            {
+                Cursor.transform.position += new Vector3(-0.1f, 0, 0);
+                if (Cursor.transform.position.x <= -25.0f)
+                {
+                    Cursor.transform.position = new Vector3(
+                        -25.0f, Cursor.transform.position.y, Cursor.transform.position.z);
+                }
+            }
+
+            Cursor.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+
+        }
+        else
+        {
+            Cursor.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+
+        }
+
+
+        if (Player.GetComponent<Player>().CursorMode == -1 && Input.GetKeyDown(KeyCode.K))
+        {
+            //if(Block.transform.position.x <= Cursor.transform.position.x)
+            //{
+            //    Block.transform.position = new Vector3(
+            //    Block.transform.position.x, Block.transform.position.y * -1.0f, Block.transform.position.z);
+            //}
+            //if(Goal_false.transform.position.x<=Cursor.transform.position.x)
+            //{
+            //    Goal_false.transform.position = new Vector3(
+            //   Goal_false.transform.position.x, Goal_false.transform.position.y * -1.0f, Goal_false.transform.position.z);
+            //    Goal_false.transform.Rotate(new Vector3(0.0f, 0.0f, 180.0f));
+            //}
+
+            //if (Goal_true.transform.position.x <= Cursor.transform.position.x)
+            //{
+            //    Goal_true.transform.position = new Vector3(
+            //   Goal_true.transform.position.x, Goal_true.transform.position.y * -1.0f, Goal_true.transform.position.z);
+            //    Goal_true.transform.Rotate(new Vector3(0.0f, 0.0f, 180.0f));
+            //}
+
+            //if (Tile.transform.position.x <= Cursor.transform.position.x)
+            //{
+            //    Tile.transform.position = new Vector3(
+            //   Tile.transform.position.x, Tile.transform.position.y * -1.0f, Tile.transform.position.z);
+            //}
+
+            //if (Diamond.transform.position.x <= Cursor.transform.position.x)
+            //{
+            //    Diamond.transform.position = new Vector3(
+            //   Diamond.transform.position.x, Diamond.transform.position.y * -1.0f, Diamond.transform.position.z);
+            //}
+
+            //if (Frame.transform.position.x <= Cursor.transform.position.x)
+            //{
+            //    Frame.transform.position = new Vector3(
+            //   Frame.transform.position.x, Frame.transform.position.y * -1.0f, Frame.transform.position.z);
+            //}
+
+            //if (Player.transform.position.x <= Cursor.transform.position.x)
+            //{
+            //    Player.transform.position = new Vector3(
+            //   Player.transform.position.x, Player.transform.position.y * -1.0f, Player.transform.position.z);
+            //}
+        }
+        
+    }
+}

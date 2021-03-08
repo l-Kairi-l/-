@@ -41,12 +41,15 @@ public class Player : KinematicObject
     //カーソル
     GameObject Camera;
 
+    public int CursorMode;
+
     void Awake()
     {
       //  rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         Camera = GameObject.Find("Main Camera");//.GetComponent<CursorManeger>();
 
+        CursorMode = -1;
     }
 
     // Update is called once per frame
@@ -58,31 +61,38 @@ public class Player : KinematicObject
        
             if (controlEnabled)
             {
-                move.x = Input.GetAxis("Horizontal");
-                if (jumpState == JumpState.Grounded && Input.GetButtonDown("Jump"))
-                    jumpState = JumpState.PrepareToJump;
-                else if (Input.GetButtonUp("Jump"))
+                if (CursorMode == -1)
                 {
-                    stopJump = true;
-                    Schedule<PlayerStopJump>().player = this;
-
-                }
-                if (Input.GetKey(KeyCode.LeftShift))
-                {
-                    move.x *= 1.5f;
-                  //  SceneManager.LoadScene("Scene2");
-
-                }
-                if (Input.GetKeyDown(KeyCode.RightShift))
-                {
-
-                        move.x = 0;
+                    move.x = Input.GetAxis("Horizontal");
+                    if (jumpState == JumpState.Grounded && Input.GetButtonDown("Jump"))
+                        jumpState = JumpState.PrepareToJump;
+                    else if (Input.GetButtonUp("Jump"))
+                    {
+                      stopJump = true;
+                        Schedule<PlayerStopJump>().player = this;
+                        
+                    }
+                    if (Input.GetKey(KeyCode.LeftShift))
+                    {
+                        move.x *= 1.5f;
+                        //  SceneManager.LoadScene("Scene2");
+    
+                    }
                 }
             }
             else
             {
                 move.x = 0;
             }
+
+        if (Input.GetKeyDown(KeyCode.RightShift))
+        {
+            CursorMode = CursorMode == -1 ? 0 : -1;
+        }
+        if (Input.GetKeyDown(KeyCode.RightControl))
+        {
+            CursorMode = CursorMode == -1 ? -1 : CursorMode == 0 ? 1 : 0;
+        }
 
         UpdateJumpState();
         base.Update();
