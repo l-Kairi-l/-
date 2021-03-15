@@ -6,8 +6,9 @@ using Platformer.Mechanics;
 
 public class CursorController2 : MonoBehaviour
 {
-    public GameObject Cursor2;
-    public GameObject Player2;
+    public GameObject Cursor;
+    public GameObject Player;
+    public int Count;
     //public GameObject Goal_false2;
     //public GameObject Goal_true2;
     //public GameObject Needle_0;
@@ -27,34 +28,34 @@ public class CursorController2 : MonoBehaviour
     void Update()
     {
 
-        if (Player2.GetComponent<Player>().CursorMode == 1)
+        if (Player.GetComponent<Player>().CursorMode == 1)
         {
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
-                Cursor2.transform.position += new Vector3(0, 0.1f, 0);
-                if (Cursor2.transform.position.y >= 13.4f)
+                Cursor.transform.position += new Vector3(0, 0.1f, 0);
+                if (Cursor.transform.position.y >= 13.4f)
                 {
-                    Cursor2.transform.position = new Vector3(
-                        Cursor2.transform.position.x, 13.4f, Cursor2.transform.position.z);
+                    Cursor.transform.position = new Vector3(
+                        Cursor.transform.position.x, 13.4f, Cursor.transform.position.z);
                 }
             }
             if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
-                Cursor2.transform.position += new Vector3(0, -0.1f, 0);
-                if (Cursor2.transform.position.y <= -13.4f)
+                Cursor.transform.position += new Vector3(0, -0.1f, 0);
+                if (Cursor.transform.position.y <= -13.4f)
                 {
-                    Cursor2.transform.position = new Vector3(
-                        Cursor2.transform.position.x, -13.4f, Cursor2.transform.position.z);
+                    Cursor.transform.position = new Vector3(
+                        Cursor.transform.position.x, -13.4f, Cursor.transform.position.z);
                 }
             }
-            Cursor2.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            Cursor.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
         }
         else
         {
-            Cursor2.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+            Cursor.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
         }
 
-        if (Player2.GetComponent<Player>().CursorMode == 1 && Input.GetKeyDown(KeyCode.K))
+        if (Player.GetComponent<Player>().CursorMode == 1 && Input.GetKeyDown(KeyCode.K))
         {
             //Goal_false2.transform.position = new Vector3(
             //   Goal_false2.transform.position.x * -1.0f, Goal_false2.transform.position.y, Goal_false2.transform.position.z);
@@ -76,6 +77,24 @@ public class CursorController2 : MonoBehaviour
 
             //Needle_4.transform.position = new Vector3(
             //   Needle_4.transform.position.x * -1.0f, Needle_4.transform.position.y, Needle_4.transform.position.z);
+
+            GameObject[] objects = GameObject.FindGameObjectsWithTag("Object");
+
+            Count = objects.Length;
+
+            bool TranLeft = Player.transform.position.y <= Cursor.transform.position.y ? false : true;
+
+            for (int i = 0; i < Count; i++)
+            {
+                //切り取り線を参照しプレイヤーと異なる側のブロックを反転
+                if (objects[i].transform.position.y <= Cursor.transform.position.y && TranLeft || objects[i].transform.position.y > Cursor.transform.position.y && !TranLeft)
+                {
+                    objects[i].transform.position = new Vector3(objects[i].transform.position.x * -1.0f, objects[i].transform.position.y , objects[i].transform.position.z * -1.0f);
+                    //左右反転だから左か右に向いてるブロックの向きだけを反転するようにする
+                    objects[i].GetComponent<BlockDirection>().blkDirection = (objects[i].GetComponent<BlockDirection>().blkDirection % 2) == 1 ? (objects[i].GetComponent<BlockDirection>().blkDirection + 2) % 4 : objects[i].GetComponent<BlockDirection>().blkDirection;
+                }
+
+            }
         }
 
         //DebugImage2.color = color;

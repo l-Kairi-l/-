@@ -8,6 +8,7 @@ public class CursorController : MonoBehaviour
 {
     public GameObject Cursor;
     public GameObject Player;
+    public int Count;
     //public GameObject Block;
     //public GameObject Goal_false;
     //public GameObject Goal_true;
@@ -67,7 +68,7 @@ public class CursorController : MonoBehaviour
         }
 
 
-        if (Player.GetComponent<Player>().CursorMode == -1 && Input.GetKeyDown(KeyCode.K))
+        if (Player.GetComponent<Player>().CursorMode == 0 && Input.GetKeyDown(KeyCode.K))
         {
             //if(Block.transform.position.x <= Cursor.transform.position.x)
             //{
@@ -111,6 +112,24 @@ public class CursorController : MonoBehaviour
             //    Player.transform.position = new Vector3(
             //   Player.transform.position.x, Player.transform.position.y * -1.0f, Player.transform.position.z);
             //}
+
+            GameObject[] objects = GameObject.FindGameObjectsWithTag("Object");
+
+            Count = objects.Length;
+
+            bool TranLeft = Player.transform.position.x <= Cursor.transform.position.x ? false : true;
+
+            for (int i = 0;i < Count; i++)
+            {
+                //切り取り線を参照しプレイヤーと異なる側のブロックを反転
+                if (objects[i].transform.position.x <= Cursor.transform.position.x && TranLeft || objects[i].transform.position.x > Cursor.transform.position.x && !TranLeft)
+                {
+                    objects[i].transform.position = new Vector3(objects[i].transform.position.x, objects[i].transform.position.y * -1.0f, objects[i].transform.position.z);
+                    //上下反転だから上か下に向いてるブロックの向きだけを反転するようにする
+                    objects[i].GetComponent<BlockDirection>().blkDirection = (objects[i].GetComponent<BlockDirection>().blkDirection % 2) == 0 ? (objects[i].GetComponent<BlockDirection>().blkDirection + 2) % 4 : objects[i].GetComponent<BlockDirection>().blkDirection;
+                }
+                
+            }
         }
         
     }
