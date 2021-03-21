@@ -77,6 +77,8 @@
     <Compile Include="Assets\GameManegaer\SceneMagegerPrt.cs" />
     <Compile Include="Assets\GameManegaer\SceneManeger.cs" />
     <Compile Include="Assets\StageObject\NewBehaviourScript.cs" />
+    <Compile Include="Assets\StageSelect\StageSelectPrt.cs" />
+    <Compile Include="Assets\Title\Title.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.20f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

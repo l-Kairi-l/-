@@ -178,7 +178,6 @@ public class Player : KinematicObject
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-
         if (other.gameObject.tag == "Toge")//条件式：衝突したオブジェクトのタグが"Player"の場合
         {
             Destroy(gameObject);//衝突したオブジェクトを削除
