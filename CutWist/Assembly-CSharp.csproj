@@ -67,6 +67,7 @@
     <Compile Include="Assets\Character\CursorController2.cs" />
     <Compile Include="Assets\Character\HeapQueue.cs" />
     <Compile Include="Assets\Character\KinematicObject.cs" />
+    <Compile Include="Assets\Character\NeedleManeger.cs" />
     <Compile Include="Assets\Character\ObjectManeger.cs" />
     <Compile Include="Assets\Character\ObjectManegerEvent.cs" />
     <Compile Include="Assets\Character\ObjectManegerInstanceRegister.cs" />
