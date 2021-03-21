@@ -119,6 +119,8 @@ public class CursorController : MonoBehaviour
 
             bool TranLeft = Player.transform.position.x <= Cursor.transform.position.x ? false : true;
 
+            TranLeft = Player.GetComponent<SpriteRenderer>().flipX;
+
             for (int i = 0;i < Count; i++)
             {
                 //切り取り線を参照しプレイヤーと異なる側のブロックを反転
@@ -126,7 +128,7 @@ public class CursorController : MonoBehaviour
                 {
                     objects[i].transform.position = new Vector3(objects[i].transform.position.x, objects[i].transform.position.y * -1.0f, objects[i].transform.position.z);
                     //上下反転だから上か下に向いてるブロックの向きだけを反転するようにする
-                    objects[i].GetComponent<BlockDirection>().blkDirection = (objects[i].GetComponent<BlockDirection>().blkDirection % 2) == 0 ? (objects[i].GetComponent<BlockDirection>().blkDirection + 2) % 4 : objects[i].GetComponent<BlockDirection>().blkDirection;
+                 //   objects[i].GetComponent<BlockDirection>().blkDirection = (objects[i].GetComponent<BlockDirection>().blkDirection % 2) == 0 ? (objects[i].GetComponent<BlockDirection>().blkDirection + 2) % 4 : objects[i].GetComponent<BlockDirection>().blkDirection;
                 }
                 
             }
