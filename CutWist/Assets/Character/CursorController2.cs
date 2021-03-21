@@ -9,6 +9,7 @@ public class CursorController2 : MonoBehaviour
     public GameObject Cursor;
     public GameObject Player;
     public int Count;
+
     //public GameObject Goal_false2;
     //public GameObject Goal_true2;
     //public GameObject Needle_0;
@@ -77,12 +78,16 @@ public class CursorController2 : MonoBehaviour
 
             //Needle_4.transform.position = new Vector3(
             //   Needle_4.transform.position.x * -1.0f, Needle_4.transform.position.y, Needle_4.transform.position.z);
+            GameObject[] objects;
 
-            GameObject[] objects = GameObject.FindGameObjectsWithTag("Object");
+            objects = GameObject.FindGameObjectsWithTag("Object");
 
             Count = objects.Length;
-
+            
             bool TranLeft = Player.transform.position.y <= Cursor.transform.position.y ? false : true;
+
+
+            TranLeft = Player.GetComponent<SpriteRenderer>().flipX;
 
             for (int i = 0; i < Count; i++)
             {
@@ -91,7 +96,7 @@ public class CursorController2 : MonoBehaviour
                 {
                     objects[i].transform.position = new Vector3(objects[i].transform.position.x * -1.0f, objects[i].transform.position.y , objects[i].transform.position.z * -1.0f);
                     //左右反転だから左か右に向いてるブロックの向きだけを反転するようにする
-                    objects[i].GetComponent<BlockDirection>().blkDirection = (objects[i].GetComponent<BlockDirection>().blkDirection % 2) == 1 ? (objects[i].GetComponent<BlockDirection>().blkDirection + 2) % 4 : objects[i].GetComponent<BlockDirection>().blkDirection;
+                  //  objects[i].GetComponent<BlockDirection>().blkDirection = (objects[i].GetComponent<BlockDirection>().blkDirection % 2) == 1 ? (objects[i].GetComponent<BlockDirection>().blkDirection + 2) % 4 : objects[i].GetComponent<BlockDirection>().blkDirection;
                 }
 
             }

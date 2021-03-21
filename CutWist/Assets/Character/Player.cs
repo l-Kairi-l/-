@@ -79,8 +79,13 @@ public class Player : KinematicObject
     
                     }
                 }
-            }
             else
+            {
+                move.x = 0;
+            }
+
+        }
+        else
             {
                 move.x = 0;
             }
