@@ -22,8 +22,6 @@ public class Player : KinematicObject
     Vector2 move;
     //操作できるかの有無
     public bool controlEnabled = true;
-    // 消滅判定
-    public bool destroy = false;
 
    // private bool stopJump;
     //座標変換
@@ -103,12 +101,7 @@ public class Player : KinematicObject
 
         UpdateJumpState();
         base.Update();
-
-        // 消滅判定がtrueになったら
-        if (destroy == true)
-        {
-            gameObject.GetComponent<Renderer>().material.color += new Color(0.0f, 0.0f, 0.0f, -0.01f);
-        }
+        
     }
 
 
@@ -190,13 +183,9 @@ public class Player : KinematicObject
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // トゲにあたった場合
-        if (other.gameObject.tag == "Needle")
+        if (other.gameObject.tag == "Toge")//条件式：衝突したオブジェクトのタグが"Player"の場合
         {
-            // プレイヤーが消える
-            destroy = true;
-            // 動かせなくなる
-            controlEnabled = false;
+            Destroy(gameObject);//衝突したオブジェクトを削除
         }
         else if(other.gameObject.tag == "Goal")
         {
