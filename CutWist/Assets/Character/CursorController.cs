@@ -41,20 +41,20 @@ public class CursorController : MonoBehaviour
             if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
                 Cursor.transform.position += new Vector3(0.1f, 0, 0);
-                if (Cursor.transform.position.x >= 25.0f)
+                if (Cursor.transform.position.x >= 26.34f)
                 {
                     Cursor.transform.position = new Vector3(
-                        25.0f, Cursor.transform.position.y, Cursor.transform.position.z);
+                        26.34f, Cursor.transform.position.y, Cursor.transform.position.z);
                 }
 
             }
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
                 Cursor.transform.position += new Vector3(-0.1f, 0, 0);
-                if (Cursor.transform.position.x <= -25.0f)
+                if (Cursor.transform.position.x <= -26.34f)
                 {
                     Cursor.transform.position = new Vector3(
-                        -25.0f, Cursor.transform.position.y, Cursor.transform.position.z);
+                        -26.34f, Cursor.transform.position.y, Cursor.transform.position.z);
                 }
             }
 
@@ -128,7 +128,7 @@ public class CursorController : MonoBehaviour
                 {
                     objects[i].transform.position = new Vector3(objects[i].transform.position.x, objects[i].transform.position.y * -1.0f, objects[i].transform.position.z);
                     //上下反転だから上か下に向いてるブロックの向きだけを反転するようにする
-                 //   objects[i].GetComponent<BlockDirection>().blkDirection = (objects[i].GetComponent<BlockDirection>().blkDirection % 2) == 0 ? (objects[i].GetComponent<BlockDirection>().blkDirection + 2) % 4 : objects[i].GetComponent<BlockDirection>().blkDirection;
+                    //objects[i].GetComponent<BlockDirection>().blkDirection = (objects[i].GetComponent<BlockDirection>().blkDirection % 2) == 0 ? (objects[i].GetComponent<BlockDirection>().blkDirection + 2) % 4 : objects[i].GetComponent<BlockDirection>().blkDirection;[i].GetComponent<BlockDirection>().blkDirection % 2) == 0 ? (objects[i].GetComponent<BlockDirection>().blkDirection + 2) % 4 : objects[i].GetComponent<BlockDirection>().blkDirection;
                 }
                 
             }
