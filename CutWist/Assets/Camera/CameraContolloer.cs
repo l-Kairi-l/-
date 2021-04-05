@@ -29,8 +29,8 @@ public class CameraContolloer : MonoBehaviour
         {
             NowCamera = !NowCamera;
             //サブカメラをアクティブに設定
-            PlayCamera.SetActive(NowCamera);
-            EditCamera.SetActive(!NowCamera);
+            PlayCamera.SetActive(!NowCamera);
+            EditCamera.SetActive(NowCamera);
         }
     }
 }

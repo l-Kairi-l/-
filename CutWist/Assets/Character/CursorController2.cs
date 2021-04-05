@@ -94,9 +94,15 @@ public class CursorController2 : MonoBehaviour
                 //切り取り線を参照しプレイヤーと異なる側のブロックを反転
                 if (objects[i].transform.position.y <= Cursor.transform.position.y && TranLeft || objects[i].transform.position.y > Cursor.transform.position.y && !TranLeft)
                 {
-                    objects[i].transform.position = new Vector3(objects[i].transform.position.x * -1.0f, objects[i].transform.position.y , objects[i].transform.position.z * -1.0f);
+                    // objects[i].transform.position = new Vector3(objects[i].transform.position.x * -1.0f, objects[i].transform.position.y , objects[i].transform.position.z * -1.0f);
                     //左右反転だから左か右に向いてるブロックの向きだけを反転するようにする
-                  //  objects[i].GetComponent<BlockDirection>().blkDirection = (objects[i].GetComponent<BlockDirection>().blkDirection % 2) == 1 ? (objects[i].GetComponent<BlockDirection>().blkDirection + 2) % 4 : objects[i].GetComponent<BlockDirection>().blkDirection;
+                    //  objects[i].GetComponent<BlockDirection>().blkDirection = (objects[i].GetComponent<BlockDirection>().blkDirection % 2) == 1 ? (objects[i].GetComponent<BlockDirection>().blkDirection + 2) % 4 : objects[i].GetComponent<BlockDirection>().blkDirection;
+
+                    BlockDirection blk = objects[i].GetComponent<BlockDirection>();
+                    blk.StartPosition = objects[i].transform.position;
+                    blk.EndPosition = new Vector3(objects[i].transform.position.x * -1.0f, objects[i].transform.position.y, objects[i].transform.position.z * -1.0f);
+                    blk.RotateSpeed = 2.0f * Mathf.Abs(objects[i].transform.position.x) / blk.RotateTime;
+                    blk.MaxRotateScale = 2.0f * Mathf.Abs(objects[i].transform.position.x) / 28.0f * 2.0f;
                 }
 
             }

@@ -186,10 +186,16 @@ namespace Platformer.Mechanics
             body.position = body.position + move.normalized * distance;
         }
 
-        public void SetPos(Vector2 pos)
+        protected void SetPos(Vector2 pos)
         {
             body.position = pos;
         }
+
+        protected Vector2 GetPos()
+        {
+            return body.position;
+        }
+
         private void OnTriggerStay2D(Collider2D other)
         {
             //if (CursorTrigger==-1)

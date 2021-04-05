@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Camera\CameraContolloer.cs" />
+    <Compile Include="Assets\Camera\PlayCamera.cs" />
     <Compile Include="Assets\Character\BlockDirection.cs" />
     <Compile Include="Assets\Character\CursorController.cs" />
     <Compile Include="Assets\Character\CursorController2.cs" />
