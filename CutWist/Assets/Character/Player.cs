@@ -40,7 +40,7 @@ public class Player : KinematicObject
 
     //ジャンプ関係
     bool jump;
-    public const float jumpTakeOffSpeed = 8;
+    public const float jumpTakeOffSpeed = 5;
 
     //カーソル
     GameObject Camera;
@@ -52,7 +52,7 @@ public class Player : KinematicObject
     {
       //  rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        Camera = GameObject.Find("Main Camera");//.GetComponent<CursorManeger>();
+        Camera = GameObject.Find("PlayCamera");//.GetComponent<CursorManeger>();
 
         CursorMode = -1;
     }
@@ -83,6 +83,8 @@ public class Player : KinematicObject
                         //  SceneManager.LoadScene("Scene2");
     
                     }
+
+
                 }
             else
             {
@@ -117,6 +119,7 @@ public class Player : KinematicObject
             gameObject.GetComponent<Renderer>().material.color += new Color(0.0f, 0.0f, 0.0f, -0.01f);
         }
 
+<<<<<<< HEAD
         // クリア判定がtrueになったら
         if (Clear == true)
         {
@@ -128,6 +131,11 @@ public class Player : KinematicObject
         {
             GameClear.GetComponent<Renderer>().material.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
         }
+=======
+      //  Camera.GetComponent<PlayCamera>().AddPosition(new Vector3(targetVelocity.x, targetVelocity.y, 0.0f));
+        Camera.GetComponent<PlayCamera>().SetPosition(new Vector3(GetPos().x, GetPos().y+2.0f, -150.0f));
+
+>>>>>>> 2e14d27dbaddce118caa7d5eba4db3ad0893ffcd
     }
 
 
@@ -160,6 +168,8 @@ public class Player : KinematicObject
                 jumpState = JumpState.Grounded;
                 break;
         }
+
+
     }
 
     //ジャンプの関数
