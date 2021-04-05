@@ -24,6 +24,8 @@ public class Player : KinematicObject
     public bool controlEnabled = true;
     // 消滅判定
     public bool destroy = false;
+    // クリア判定
+    public bool Clear = false;
 
    // private bool stopJump;
     //座標変換
@@ -44,6 +46,7 @@ public class Player : KinematicObject
     GameObject Camera;
 
     public int CursorMode;
+    public GameObject GameClear;
 
     void Awake()
     {
@@ -92,14 +95,18 @@ public class Player : KinematicObject
                 move.x = 0;
             }
 
-        if (Input.GetKeyDown(KeyCode.RightShift))
+        if (controlEnabled)
         {
-            CursorMode = CursorMode == -1 ? 0 : -1;
+            if (Input.GetKeyDown(KeyCode.RightShift))
+            {
+                CursorMode = CursorMode == -1 ? 0 : -1;
+            }
+            if (Input.GetKeyDown(KeyCode.RightControl))
+            {
+                CursorMode = CursorMode == -1 ? -1 : CursorMode == 0 ? 1 : 0;
+            }
         }
-        if (Input.GetKeyDown(KeyCode.RightControl))
-        {
-            CursorMode = CursorMode == -1 ? -1 : CursorMode == 0 ? 1 : 0;
-        }
+        
 
         UpdateJumpState();
         base.Update();
@@ -108,6 +115,18 @@ public class Player : KinematicObject
         if (destroy == true)
         {
             gameObject.GetComponent<Renderer>().material.color += new Color(0.0f, 0.0f, 0.0f, -0.01f);
+        }
+
+        // クリア判定がtrueになったら
+        if (Clear == true)
+        {
+            GameClear.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            GameClear.transform.position = new Vector3(0.0f,-1.0f,-100.0f);
+
+        }
+        else
+        {
+            GameClear.GetComponent<Renderer>().material.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
         }
     }
 
@@ -200,7 +219,10 @@ public class Player : KinematicObject
         }
         else if(other.gameObject.tag == "Goal")
         {
-            Debug.Log("ゴール");
+            // クリア判定
+            Clear = true;
+            // 動かせなくなる
+            controlEnabled = false;
         }
     }
       //  SceneManager.LoadScene("Clear");
