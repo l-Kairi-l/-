@@ -7,7 +7,6 @@ TagManager:
   - Object
   - Needle
   - Goal
-  - Cloud
   layers:
   - Default
   - TransparentFX

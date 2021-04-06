@@ -24,8 +24,6 @@ public class Player : KinematicObject
     public bool controlEnabled = true;
     // 消滅判定
     public bool destroy = false;
-    // クリア判定
-    public bool Clear = false;
 
    // private bool stopJump;
     //座標変換
@@ -46,7 +44,6 @@ public class Player : KinematicObject
     GameObject Camera;
 
     public int CursorMode;
-    public GameObject GameClear;
 
     void Awake()
     {
@@ -97,18 +94,14 @@ public class Player : KinematicObject
                 move.x = 0;
             }
 
-        if (controlEnabled)
+        if (Input.GetKeyDown(KeyCode.RightShift))
         {
-            if (Input.GetKeyDown(KeyCode.RightShift))
-            {
-                CursorMode = CursorMode == -1 ? 0 : -1;
-            }
-            if (Input.GetKeyDown(KeyCode.RightControl))
-            {
-                CursorMode = CursorMode == -1 ? -1 : CursorMode == 0 ? 1 : 0;
-            }
+            CursorMode = CursorMode == -1 ? 0 : -1;
         }
-        
+        if (Input.GetKeyDown(KeyCode.RightControl))
+        {
+            CursorMode = CursorMode == -1 ? -1 : CursorMode == 0 ? 1 : 0;
+        }
 
         UpdateJumpState();
         base.Update();
@@ -119,23 +112,9 @@ public class Player : KinematicObject
             gameObject.GetComponent<Renderer>().material.color += new Color(0.0f, 0.0f, 0.0f, -0.01f);
         }
 
-<<<<<<< HEAD
-        // クリア判定がtrueになったら
-        if (Clear == true)
-        {
-            GameClear.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-            GameClear.transform.position = new Vector3(0.0f,-1.0f,-100.0f);
-
-        }
-        else
-        {
-            GameClear.GetComponent<Renderer>().material.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
-        }
-=======
-      //  Camera.GetComponent<PlayCamera>().AddPosition(new Vector3(targetVelocity.x, targetVelocity.y, 0.0f));
+        //  Camera.GetComponent<PlayCamera>().AddPosition(new Vector3(targetVelocity.x, targetVelocity.y, 0.0f));
         Camera.GetComponent<PlayCamera>().SetPosition(new Vector3(GetPos().x, GetPos().y+2.0f, -150.0f));
 
->>>>>>> 2e14d27dbaddce118caa7d5eba4db3ad0893ffcd
     }
 
 
@@ -229,10 +208,7 @@ public class Player : KinematicObject
         }
         else if(other.gameObject.tag == "Goal")
         {
-            // クリア判定
-            Clear = true;
-            // 動かせなくなる
-            controlEnabled = false;
+            Debug.Log("ゴール");
         }
     }
       //  SceneManager.LoadScene("Clear");
