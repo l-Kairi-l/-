@@ -34,19 +34,19 @@ public class CursorController2 : MonoBehaviour
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
                 Cursor.transform.position += new Vector3(0, 0.1f, 0);
-                if (Cursor.transform.position.y >= 14.62f)
+                if (Cursor.transform.position.y >= 11.9f)
                 {
                     Cursor.transform.position = new Vector3(
-                        Cursor.transform.position.x, 14.62f, Cursor.transform.position.z);
+                        Cursor.transform.position.x, 11.9f, Cursor.transform.position.z);
                 }
             }
             if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
                 Cursor.transform.position += new Vector3(0, -0.1f, 0);
-                if (Cursor.transform.position.y <= -14.62f)
+                if (Cursor.transform.position.y <= -11.9f)
                 {
                     Cursor.transform.position = new Vector3(
-                        Cursor.transform.position.x, -14.62f, Cursor.transform.position.z);
+                        Cursor.transform.position.x, -11.9f, Cursor.transform.position.z);
                 }
             }
             Cursor.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
