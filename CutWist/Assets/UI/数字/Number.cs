@@ -45,8 +45,10 @@ public class Number : MonoBehaviour
         color.material.color = c;
     }
 
-    public void SetNumber(int number)
+    public void SetType(int number)
     {
+        MainSprite = GetComponent<SpriteRenderer>();
+
         switch (number)
         {
             case 0:
