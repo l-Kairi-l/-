@@ -15,12 +15,14 @@ public class CursorController : MonoBehaviour
     //public GameObject Tile;
     //public GameObject Diamond;
     //public GameObject Frame;
-    
+    static public int rotatecount = 0;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -67,6 +69,7 @@ public class CursorController : MonoBehaviour
 
         }
 
+        
 
         if (Player.GetComponent<Player>().CursorMode == 0 && Input.GetKeyDown(KeyCode.K))
         {
@@ -120,25 +123,63 @@ public class CursorController : MonoBehaviour
             bool TranLeft = Player.transform.position.x <= Cursor.transform.position.x ? false : true;
 
             TranLeft = Player.GetComponent<SpriteRenderer>().flipX;
-
-            for (int i = 0;i < Count; i++)
+            if (BlockDirection.RotationState == BlockDirection.ROTATION_STATE_NAME.Rotated)
             {
-                //切り取り線を参照しプレイヤーと異なる側のブロックを反転
-                if (objects[i].transform.position.x <= Cursor.transform.position.x && TranLeft || objects[i].transform.position.x > Cursor.transform.position.x && !TranLeft)
-                {
-                    //objects[i].transform.position = new Vector3(objects[i].transform.position.x, objects[i].transform.position.y * -1.0f, objects[i].transform.position.z);
-                    //上下反転だから上か下に向いてるブロックの向きだけを反転するようにする
-                    //objects[i].GetComponent<BlockDirection>().blkDirection = (objects[i].GetComponent<BlockDirection>().blkDirection % 2) == 0 ? (objects[i].GetComponent<BlockDirection>().blkDirection + 2) % 4 : objects[i].GetComponent<BlockDirection>().blkDirection;[i].GetComponent<BlockDirection>().blkDirection % 2) == 0 ? (objects[i].GetComponent<BlockDirection>().blkDirection + 2) % 4 : objects[i].GetComponent<BlockDirection>().blkDirection;
-
-                    BlockDirection blk = objects[i].GetComponent<BlockDirection>();
-                    blk.StartPosition = objects[i].transform.position;
-                    blk.EndPosition = new Vector3(objects[i].transform.position.x, objects[i].transform.position.y * -1.0f, objects[i].transform.position.z);
-                    blk.RotateSpeed = 2.0f * Mathf.Abs(objects[i].transform.position.y) / blk.RotateTime;
-                    blk.MaxRotateScale = 2.0f * Mathf.Abs(objects[i].transform.position.y) / 28.0f * 2.0f;
-                }
                 
+                for (int i = 0; i < Count; i++)
+                {
+                    //切り取り線を参照しプレイヤーと異なる側のブロックを反転
+                    if (objects[i].transform.position.x <= Cursor.transform.position.x && TranLeft || objects[i].transform.position.x > Cursor.transform.position.x && !TranLeft)
+                    {
+                        //objects[i].transform.position = new Vector3(objects[i].transform.position.x, objects[i].transform.position.y * -1.0f, objects[i].transform.position.z);
+                        //上下反転だから上か下に向いてるブロックの向きだけを反転するようにする
+                        //objects[i].GetComponent<BlockDirection>().blkDirection = (objects[i].GetComponent<BlockDirection>().blkDirection % 2) == 0 ? (objects[i].GetComponent<BlockDirection>().blkDirection + 2) % 4 : objects[i].GetComponent<BlockDirection>().blkDirection;[i].GetComponent<BlockDirection>().blkDirection % 2) == 0 ? (objects[i].GetComponent<BlockDirection>().blkDirection + 2) % 4 : objects[i].GetComponent<BlockDirection>().blkDirection;
+
+
+                        rotatecount++;
+                        BlockDirection blk = objects[i].GetComponent<BlockDirection>();
+                        blk.StartPosition = objects[i].transform.position;
+                        blk.EndPosition = new Vector3(objects[i].transform.position.x, objects[i].transform.position.y * -1.0f, objects[i].transform.position.z);
+                        blk.RotateSpeed = 2.0f * Mathf.Abs(objects[i].transform.position.y) / BlockDirection.RotateTime;
+                        blk.MaxRotateScale = 2.0f * Mathf.Abs(objects[i].transform.position.y) / 28.0f * 2.0f;
+
+
+                    }
+
+                }
+
+                if (rotatecount != 0)
+                {
+                    BlockDirection.RotationState = BlockDirection.ROTATION_STATE_NAME.Rotating;
+                    rotatecount = 0;
+                }
+            }
+            else
+            {
+                BlockDirection.PassedTime = BlockDirection.RotateTime - BlockDirection.PassedTime;
+                for (int i = 0; i < Count; i++)
+                {
+                    
+                    BlockDirection blk = objects[i].GetComponent<BlockDirection>();
+                    Vector3 startPos = blk.StartPosition;
+                    blk.StartPosition = blk.EndPosition;
+                    blk.EndPosition = startPos;
+                }
             }
         }
-        
+
+        if (BlockDirection.RotationState == BlockDirection.ROTATION_STATE_NAME.Rotating)
+        {
+
+
+            BlockDirection.PassedTime += 1.0f;
+            if (BlockDirection.PassedTime > BlockDirection.RotateTime)
+            {
+                BlockDirection.PassedTime = 0.0f;
+                BlockDirection.RotationState = BlockDirection.ROTATION_STATE_NAME.Rotated;
+
+            }
+
+        }
     }
 }
