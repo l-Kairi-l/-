@@ -7,6 +7,7 @@ TagManager:
   - Object
   - Needle
   - Goal
+  - CoursolPoint
   layers:
   - Default
   - TransparentFX
