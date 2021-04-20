@@ -17,6 +17,8 @@ public class BlockDirection : MonoBehaviour
     public float RotateSpeed;
     private Vector3 BlockDefaultScale;
 
+
+
     public enum ROTATION_STATE_NAME
     {
         Rotating,
@@ -37,21 +39,22 @@ public class BlockDirection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         if (Mathf.Abs(EndPosition.y - gameObject.GetComponent<Transform>().position.y) > 0.001f)
         {
             float posy = gameObject.GetComponent<Transform>().position.y;
-            float sscale = (0.5f - Mathf.Abs((posy - StartPosition.y) / (EndPosition.y - StartPosition.y) - 0.5f)) * 2.0f * MaxRotateScale;
+            float sscale = (0.5f - Mathf.Abs((posy - StartPosition.y) / (EndPosition.y - StartPosition.y) - 0.5f)) * MaxRotateScale;
 
             posy += (EndPosition.y - StartPosition.y) / Mathf.Abs(EndPosition.y - StartPosition.y) * RotateSpeed;
 
             gameObject.GetComponent<Transform>().position = new Vector3(gameObject.GetComponent<Transform>().position.x, posy, gameObject.GetComponent<Transform>().position.z);
             gameObject.GetComponent<Transform>().localScale = BlockDefaultScale * (1.0f + sscale);
 
-        }else if(Mathf.Abs(EndPosition.x - gameObject.GetComponent<Transform>().position.x) > 0.001f)
+        }
+        else if (Mathf.Abs(EndPosition.x - gameObject.GetComponent<Transform>().position.x) > 0.001f)
         {
             float posx = gameObject.GetComponent<Transform>().position.x;
-            float sscale = (0.5f - Mathf.Abs((posx - StartPosition.x) / (EndPosition.x - StartPosition.x) - 0.5f)) * 2.0f * MaxRotateScale;
+            float sscale = (0.5f - Mathf.Abs((posx - StartPosition.x) / (EndPosition.x - StartPosition.x) - 0.5f)) * MaxRotateScale;
 
             posx += (EndPosition.x - StartPosition.x) / Mathf.Abs(EndPosition.x - StartPosition.x) * RotateSpeed;
 
@@ -60,7 +63,7 @@ public class BlockDirection : MonoBehaviour
         }
         else
         {
-            gameObject.GetComponent<Transform>().position = new Vector3(EndPosition.x,EndPosition.y,-EndPosition.x);
+            gameObject.GetComponent<Transform>().position = new Vector3(EndPosition.x, EndPosition.y, -EndPosition.x);
             gameObject.GetComponent<Transform>().localScale = BlockDefaultScale;
             StartPosition = gameObject.GetComponent<Transform>().position;
             EndPosition = StartPosition;

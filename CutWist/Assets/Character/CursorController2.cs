@@ -10,7 +10,7 @@ public class CursorController2 : MonoBehaviour
     public GameObject Player;
     public int Count;
 
-   
+
 
     //public GameObject Goal_false2;
     //public GameObject Goal_true2;
@@ -24,7 +24,7 @@ public class CursorController2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -85,17 +85,17 @@ public class CursorController2 : MonoBehaviour
             objects = GameObject.FindGameObjectsWithTag("Object");
 
             Count = objects.Length;
-            
+
             bool TranLeft = Player.transform.position.y <= Cursor.transform.position.y ? false : true;
 
 
-            TranLeft = Player.GetComponent<SpriteRenderer>().flipX;
+            // TranLeft = Player.GetComponent<SpriteRenderer>().flipX;
             if (BlockDirection.RotationState == BlockDirection.ROTATION_STATE_NAME.Rotated)
             {
-               
+
                 for (int i = 0; i < Count; i++)
                 {
-                   
+
                     //切り取り線を参照しプレイヤーと異なる側のブロックを反転
                     if (objects[i].transform.position.y <= Cursor.transform.position.y && TranLeft || objects[i].transform.position.y > Cursor.transform.position.y && !TranLeft)
                     {
@@ -104,12 +104,12 @@ public class CursorController2 : MonoBehaviour
                         //  objects[i].GetComponent<BlockDirection>().blkDirection = (objects[i].GetComponent<BlockDirection>().blkDirection % 2) == 1 ? (objects[i].GetComponent<BlockDirection>().blkDirection + 2) % 4 : objects[i].GetComponent<BlockDirection>().blkDirection;
 
                         CursorController.rotatecount++;
-                        
+
                         BlockDirection blk = objects[i].GetComponent<BlockDirection>();
                         blk.StartPosition = objects[i].transform.position;
                         blk.EndPosition = new Vector3(objects[i].transform.position.x * -1.0f, objects[i].transform.position.y, objects[i].transform.position.z * -1.0f);
                         blk.RotateSpeed = 2.0f * Mathf.Abs(objects[i].transform.position.x) / BlockDirection.RotateTime;
-                        blk.MaxRotateScale = 2.0f * Mathf.Abs(objects[i].transform.position.x) / 28.0f * 2.0f;
+                        blk.MaxRotateScale = 2.0f * objects[i].transform.position.x / 28.0f * 2.0f;
 
 
 
@@ -129,7 +129,7 @@ public class CursorController2 : MonoBehaviour
                 BlockDirection.PassedTime = BlockDirection.RotateTime - BlockDirection.PassedTime;
                 for (int i = 0; i < Count; i++)
                 {
-                    
+
                     BlockDirection blk = objects[i].GetComponent<BlockDirection>();
                     Vector3 startPos = blk.StartPosition;
                     blk.StartPosition = blk.EndPosition;

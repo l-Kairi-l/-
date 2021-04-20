@@ -69,7 +69,7 @@ public class CursorController : MonoBehaviour
 
         }
 
-        
+
 
         if (Player.GetComponent<Player>().CursorMode == 0 && Input.GetKeyDown(KeyCode.K))
         {
@@ -122,10 +122,10 @@ public class CursorController : MonoBehaviour
 
             bool TranLeft = Player.transform.position.x <= Cursor.transform.position.x ? false : true;
 
-            TranLeft = Player.GetComponent<SpriteRenderer>().flipX;
+            //TranLeft = Player.GetComponent<SpriteRenderer>().flipX;
             if (BlockDirection.RotationState == BlockDirection.ROTATION_STATE_NAME.Rotated)
             {
-                
+
                 for (int i = 0; i < Count; i++)
                 {
                     //切り取り線を参照しプレイヤーと異なる側のブロックを反転
@@ -141,7 +141,7 @@ public class CursorController : MonoBehaviour
                         blk.StartPosition = objects[i].transform.position;
                         blk.EndPosition = new Vector3(objects[i].transform.position.x, objects[i].transform.position.y * -1.0f, objects[i].transform.position.z);
                         blk.RotateSpeed = 2.0f * Mathf.Abs(objects[i].transform.position.y) / BlockDirection.RotateTime;
-                        blk.MaxRotateScale = 2.0f * Mathf.Abs(objects[i].transform.position.y) / 28.0f * 2.0f;
+                        blk.MaxRotateScale = 2.0f * objects[i].transform.position.y / 28.0f * 2.0f;
 
 
                     }
@@ -159,7 +159,7 @@ public class CursorController : MonoBehaviour
                 BlockDirection.PassedTime = BlockDirection.RotateTime - BlockDirection.PassedTime;
                 for (int i = 0; i < Count; i++)
                 {
-                    
+
                     BlockDirection blk = objects[i].GetComponent<BlockDirection>();
                     Vector3 startPos = blk.StartPosition;
                     blk.StartPosition = blk.EndPosition;
