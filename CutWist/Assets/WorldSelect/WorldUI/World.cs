@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class World : MonoBehaviour
 {
@@ -45,16 +46,11 @@ public class World : MonoBehaviour
         // トゲにあたった場合
         if (other.gameObject.tag == "CoursolPoint" && Input.GetMouseButtonDown(0))
         {
-            switch (number)
-            {
-                case 1:
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
+            string s_name = "World";
+            string s_number = "" + number;
 
-            }
+            SceneManager.LoadScene(s_name+ s_number);
+
         }
     }
 

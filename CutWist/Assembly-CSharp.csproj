@@ -86,6 +86,7 @@
     <Compile Include="Assets\StageObject\Block\NewBehaviourScript.cs" />
     <Compile Include="Assets\Title\Title.cs" />
     <Compile Include="Assets\UI\CursolPoint\CursorPoint.cs" />
+    <Compile Include="Assets\UI\StageSelect\StageSelect_stage.cs" />
     <Compile Include="Assets\UI\数字\Number.cs" />
     <Compile Include="Assets\UI\数字\NumberResources.cs" />
     <Compile Include="Assets\WorldSelect\WorldSelectPrt.cs" />
