@@ -49,7 +49,12 @@ public class World : MonoBehaviour
             string s_name = "World";
             string s_number = "" + number;
 
-            SceneManager.LoadScene(s_name+ s_number);
+            // プレハブをGameObject型で取得
+            GameObject obj = (GameObject)Resources.Load("Transition_1");
+            obj.GetComponent<Transition>().SetNextScene(s_name + s_number);
+
+            // プレハブを元に、インスタンスを生成、
+            Instantiate(obj, new Vector3(0.0f, 0.0f, -90.0f), Quaternion.identity);
 
         }
     }

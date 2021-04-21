@@ -78,6 +78,9 @@
     <Compile Include="Assets\Character\PlayerLanded.cs" />
     <Compile Include="Assets\Character\PlayerStopJump.cs" />
     <Compile Include="Assets\Character\SteelBlockController.cs" />
+    <Compile Include="Assets\GameManegaer\Resources\Transition.cs" />
+    <Compile Include="Assets\GameManegaer\Resources\TransitionResources.cs" />
+    <Compile Include="Assets\GameManegaer\SaveData.cs" />
     <Compile Include="Assets\GameManegaer\SceneMagegerPrt.cs" />
     <Compile Include="Assets\GameManegaer\SceneManeger.cs" />
     <Compile Include="Assets\Logo\Logo.cs" />

@@ -16,7 +16,7 @@ public class CloudResources : MonoBehaviour
     void Update()
     {
         //一番手前
-        if (Random.value <= 0.001f)
+        if (Random.value <= 0.0001f)
         {
             // CubeプレハブをGameObject型で取得
             GameObject obj = (GameObject)Resources.Load("cloud");
@@ -27,7 +27,7 @@ public class CloudResources : MonoBehaviour
         }
 
         //真ん中
-        if (Random.value <= 0.001f)
+        if (Random.value <= 0.0001f)
         {
             // CubeプレハブをGameObject型で取得
             GameObject obj = (GameObject)Resources.Load("cloud");
@@ -38,7 +38,7 @@ public class CloudResources : MonoBehaviour
         }
 
         //後ろ
-        if (Random.value <= 0.001f)
+        if (Random.value <= 0.0001f)
         {
             // CubeプレハブをGameObject型で取得
             GameObject obj = (GameObject)Resources.Load("cloud");
