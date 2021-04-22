@@ -26,7 +26,7 @@ public class StageSelect_stage : MonoBehaviour
         {
 
             string s_name = "Stage";
-            string s_number="" + stagenumber;
+            string s_number= "" + stagenumber;
 
             SceneManager.LoadScene(s_name + s_number);
 
