@@ -11,12 +11,14 @@ public class BlockDirection : MonoBehaviour
 
     public Vector3 StartPosition;
     public Vector3 EndPosition;
-    public float MaxRotateScale;
+   // public Quaternion StartRotation;
+   // public Quaternion EndRotation;
+    //public float MaxRotateScale;
     static public float RotateTime = 240.0f;
     static public float PassedTime;
-    public float RotateSpeed;
-    private Vector3 BlockDefaultScale;
-
+    //public float RotateSpeed;
+    // private Vector3 BlockDefaultScale;
+    private Vector3 DefaultPosition;
 
 
     public enum ROTATION_STATE_NAME
@@ -31,7 +33,10 @@ public class BlockDirection : MonoBehaviour
     {
         StartPosition = gameObject.GetComponent<Transform>().position;
         EndPosition = StartPosition;
-        BlockDefaultScale = gameObject.GetComponent<Transform>().localScale;
+       // StartRotation = gameObject.GetComponent<Transform>().rotation;
+        //EndRotation = StartRotation;
+        DefaultPosition = StartPosition;
+        //BlockDefaultScale = gameObject.GetComponent<Transform>().localScale;
         RotationState = ROTATION_STATE_NAME.Rotated;
         PassedTime = 0.0f;
     }
@@ -39,35 +44,27 @@ public class BlockDirection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        gameObject.GetComponent<Transform>().rotation = Quaternion.Euler(-Mathf.Rad2Deg * Mathf.Acos(gameObject.GetComponent<Transform>().position.y / DefaultPosition.y), -Mathf.Rad2Deg*Mathf.Acos(gameObject.GetComponent<Transform>().position.x / DefaultPosition.x), 0.0f);
         if (Mathf.Abs(EndPosition.y - gameObject.GetComponent<Transform>().position.y) > 0.001f)
         {
-            float posy = gameObject.GetComponent<Transform>().position.y;
-            float sscale = (0.5f - Mathf.Abs((posy - StartPosition.y) / (EndPosition.y - StartPosition.y) - 0.5f)) * MaxRotateScale;
 
-            posy += (EndPosition.y - StartPosition.y) / Mathf.Abs(EndPosition.y - StartPosition.y) * RotateSpeed;
-
-            gameObject.GetComponent<Transform>().position = new Vector3(gameObject.GetComponent<Transform>().position.x, posy, gameObject.GetComponent<Transform>().position.z);
-            gameObject.GetComponent<Transform>().localScale = BlockDefaultScale * (1.0f + sscale);
+            gameObject.GetComponent<Transform>().position = new Vector3(gameObject.GetComponent<Transform>().position.x, StartPosition.y * Mathf.Cos(Mathf.PI * PassedTime / RotateTime), -Mathf.Abs(StartPosition.y) * Mathf.Sin(Mathf.PI * PassedTime / RotateTime));
 
         }
         else if (Mathf.Abs(EndPosition.x - gameObject.GetComponent<Transform>().position.x) > 0.001f)
         {
-            float posx = gameObject.GetComponent<Transform>().position.x;
-            float sscale = (0.5f - Mathf.Abs((posx - StartPosition.x) / (EndPosition.x - StartPosition.x) - 0.5f)) * MaxRotateScale;
 
-            posx += (EndPosition.x - StartPosition.x) / Mathf.Abs(EndPosition.x - StartPosition.x) * RotateSpeed;
-
-            gameObject.GetComponent<Transform>().position = new Vector3(posx, gameObject.GetComponent<Transform>().position.y, gameObject.GetComponent<Transform>().position.z);
-            gameObject.GetComponent<Transform>().localScale = BlockDefaultScale * (1.0f + sscale);
+            gameObject.GetComponent<Transform>().position = new Vector3(StartPosition.x * Mathf.Cos(Mathf.PI * PassedTime / RotateTime), gameObject.GetComponent<Transform>().position.y, -Mathf.Abs(StartPosition.x) * Mathf.Sin(Mathf.PI * PassedTime / RotateTime));
         }
         else
         {
-            gameObject.GetComponent<Transform>().position = new Vector3(EndPosition.x, EndPosition.y, -EndPosition.x);
-            gameObject.GetComponent<Transform>().localScale = BlockDefaultScale;
-            StartPosition = gameObject.GetComponent<Transform>().position;
-            EndPosition = StartPosition;
+            gameObject.GetComponent<Transform>().position = EndPosition;
+           
+            StartPosition = EndPosition;
+          
+
 
         }
+        
     }
 }

@@ -140,8 +140,8 @@ public class CursorController : MonoBehaviour
                         BlockDirection blk = objects[i].GetComponent<BlockDirection>();
                         blk.StartPosition = objects[i].transform.position;
                         blk.EndPosition = new Vector3(objects[i].transform.position.x, objects[i].transform.position.y * -1.0f, objects[i].transform.position.z);
-                        blk.RotateSpeed = 2.0f * Mathf.Abs(objects[i].transform.position.y) / BlockDirection.RotateTime;
-                        blk.MaxRotateScale = 2.0f * objects[i].transform.position.y / 28.0f * 2.0f;
+                       // blk.RotateSpeed = 2.0f * Mathf.Abs(objects[i].transform.position.y) / BlockDirection.RotateTime;
+                       // blk.MaxRotateScale = 2.0f * objects[i].transform.position.y / 28.0f * 2.0f;
 
 
                     }
