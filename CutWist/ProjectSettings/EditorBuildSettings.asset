@@ -44,7 +44,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Stage1/1/Stage1.unity
     guid: b28078921e103a64a9a00bdaf83a8a8e
-  - enabled: 1
-    path: "Assets/3d\u5B9F\u9A13/3dStgae0.unity"
-    guid: 3825659d3502997499dfbc02def6c2f8
   m_configObjects: {}

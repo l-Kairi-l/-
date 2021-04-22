@@ -1,9 +1,1 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":0.0,"y":0.0,"z":-148.9099884033203},"rotation":{"x":0.0,"y":0.7071068286895752,"z":0.0,"w":0.7071068286895752},"size":188.68270874023438,"orthographic":false}
-=======
-﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":true,"pivot":{"x":-0.33590516448020937,"y":0.48892515897750857,"z":-1.8066706657409669},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":0.4083701968193054,"orthographic":true}
->>>>>>> 57f14d6330136f8450d30e8d2f30a3d9244454a5
-=======
-﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":true,"pivot":{"x":9.264074325561524,"y":-1.750108003616333,"z":-557.8269653320313},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":16.69994354248047,"orthographic":true}
->>>>>>> parent of 8f60a24... no message
