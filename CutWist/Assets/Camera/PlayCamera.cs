@@ -19,12 +19,12 @@ public class PlayCamera : MonoBehaviour
 
     public void AddPosition(Vector3 vector)
     {
-        transform.position += vector;
+        //transform.position += vector;
     }
 
     public void SetPosition(Vector3 vector)
     {
-        transform.position = vector;
+       // transform.position = vector;
     }
 
 }
