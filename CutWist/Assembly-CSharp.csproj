@@ -88,15 +88,6 @@
     <Compile Include="Assets\Stage0\Resources\Cloud.cs" />
     <Compile Include="Assets\Stage0\Resources\CloudResources.cs" />
     <Compile Include="Assets\StageObject\Block\NewBehaviourScript.cs" />
-<<<<<<< HEAD
-    <Compile Include="Assets\StageObject\Effect\World1CursorEffect.cs" />
-    <Compile Include="Assets\StageObject\Effect\World1CursorParticle.cs" />
-    <Compile Include="Assets\StageObject\Effect\World1EffectResources.cs" />
-    <Compile Include="Assets\StageObject\Effect\World2CursorEffect.cs" />
-    <Compile Include="Assets\StageObject\Effect\World2CursorParticle.cs" />
-    <Compile Include="Assets\StageObject\Effect\World2EffectResources.cs" />
-=======
->>>>>>> 72d567ace838944e4e2c86b44522e481ef35886d
     <Compile Include="Assets\Title\Title.cs" />
     <Compile Include="Assets\UI\CursolPoint\CursorPoint.cs" />
     <Compile Include="Assets\UI\StageSelect\StageSelect_stage.cs" />
