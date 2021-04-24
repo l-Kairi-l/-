@@ -79,6 +79,7 @@
     <Compile Include="Assets\Character\PlayerLanded.cs" />
     <Compile Include="Assets\Character\PlayerStopJump.cs" />
     <Compile Include="Assets\Character\SteelBlockController.cs" />
+    <Compile Include="Assets\GameManegaer\EditManager\EditManager.cs" />
     <Compile Include="Assets\GameManegaer\Resources\Transition.cs" />
     <Compile Include="Assets\GameManegaer\Resources\TransitionResources.cs" />
     <Compile Include="Assets\GameManegaer\SaveData.cs" />
@@ -87,10 +88,17 @@
     <Compile Include="Assets\Logo\Logo.cs" />
     <Compile Include="Assets\Stage0\Resources\Cloud.cs" />
     <Compile Include="Assets\Stage0\Resources\CloudResources.cs" />
+    <Compile Include="Assets\StageObject\BackGround\BackGround.cs" />
     <Compile Include="Assets\StageObject\Block\NewBehaviourScript.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\StageObject\Effect\World2CursorEffect.cs" />
     <Compile Include="Assets\StageObject\Effect\World2CursorParticle.cs" />
     <Compile Include="Assets\StageObject\Effect\World2EffectResources.cs" />
+=======
+    <Compile Include="Assets\StageObject\Effect\World1CursorEffect.cs" />
+    <Compile Include="Assets\StageObject\Effect\World1CursorParticle.cs" />
+    <Compile Include="Assets\StageObject\Effect\World1EffectResources.cs" />
+>>>>>>> 861a78119868172a1d2f82a9974c676a91adfa97
     <Compile Include="Assets\Title\Title.cs" />
     <Compile Include="Assets\UI\CursolPoint\CursorPoint.cs" />
     <Compile Include="Assets\UI\StageSelect\StageSelect_stage.cs" />
