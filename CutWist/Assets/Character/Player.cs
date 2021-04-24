@@ -45,6 +45,7 @@ public class Player : KinematicObject
 
     public int CursorMode;
 
+
     void Awake()
     {
       //  rb = GetComponent<Rigidbody2D>();
@@ -96,7 +97,12 @@ public class Player : KinematicObject
 
         if (Input.GetKeyDown(KeyCode.RightShift))
         {
+            //モード変更時
+          GameObject  manager= GameObject.Find("GameManager");
+            //true==EditCameraモード false==PlayCameraモード
+            manager.GetComponent<EditManager>().SetEditMode(CursorMode == -1 ? true : false);
             CursorMode = CursorMode == -1 ? 0 : -1;
+
         }
         if (Input.GetKeyDown(KeyCode.RightControl))
         {
