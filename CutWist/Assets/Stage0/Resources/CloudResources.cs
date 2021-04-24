@@ -18,9 +18,9 @@ public class CloudResources : MonoBehaviour
         //一番手前
         if (Random.value <= 0.0001f)
         {
-            // プレハブをGameObject型で取得
+            // CubeプレハブをGameObject型で取得
             GameObject obj = (GameObject)Resources.Load("cloud");
-            // プレハブを元に、インスタンスを生成、
+            // Cubeプレハブを元に、インスタンスを生成、
             Instantiate(obj, new Vector3(-30.0f, Random.value * 20.0f + -10.0f, 70.0f), Quaternion.identity);
             obj.GetComponent<Cloud>().SetCloud(0.03f, 1.0f, 1.5f);
 
