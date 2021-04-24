@@ -60,6 +60,7 @@ public class NumberResources : MonoBehaviour
         number.nowframe = 0;
         numberLists.Add(number);
     }
+
     void InstanceNumber(NumberList number)
     {
         GameObject obj = (GameObject)Resources.Load("Number_white");
