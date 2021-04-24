@@ -33,6 +33,9 @@ public class CursorController2 : MonoBehaviour
 
         if (Player.GetComponent<Player>().CursorMode == 1)
         {
+            //エフェクトの関数
+            GetComponent<World1CursorEffect>().SetType(false, false, 0);
+
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
                 Cursor.transform.position += new Vector3(0, 0.1f, 0);
@@ -41,8 +44,12 @@ public class CursorController2 : MonoBehaviour
                     Cursor.transform.position = new Vector3(
                         Cursor.transform.position.x, 11.9f, Cursor.transform.position.z);
                 }
+
+                //エフェクトの関数
+                GetComponent<World1CursorEffect>().SetType(true, false, 1);
+
             }
-            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+            else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
                 Cursor.transform.position += new Vector3(0, -0.1f, 0);
                 if (Cursor.transform.position.y <= -11.9f)
@@ -50,6 +57,10 @@ public class CursorController2 : MonoBehaviour
                     Cursor.transform.position = new Vector3(
                         Cursor.transform.position.x, -11.9f, Cursor.transform.position.z);
                 }
+
+                //エフェクトの関数
+                GetComponent<World1CursorEffect>().SetType(true, false, -1);
+
             }
             Cursor.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
         }
