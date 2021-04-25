@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 5498929878763347324}
   - component: {fileID: 712871818188188320}
   - component: {fileID: 6722398503110903253}
-  - component: {fileID: 7941744567923099121}
   m_Layer: 0
-  m_Name: 3DBlockNormal (12)
-  m_TagString: Object
+  m_Name: WallBlock
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,18 +107,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.031002827, y: 0.032126572}
   m_EdgeRadius: 0
---- !u!114 &7941744567923099121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5373101246812028395}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5dd76c76d9b25444a558865acbfe33e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blkDirection: 0
-  StartPosition: {x: 0, y: 0, z: 0}
-  EndPosition: {x: 0, y: 0, z: 0}

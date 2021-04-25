@@ -8,6 +8,9 @@ public class EditManager : MonoBehaviour
     public GameObject CameraManager;
     //背景の操作
     public GameObject BackGroundManager;
+    //ステージのUIの操作
+    public GameObject StageUIManager;
+
     void Start()
     {
         
@@ -27,6 +30,15 @@ public class EditManager : MonoBehaviour
         CameraManager.GetComponent<CameraContolloer>().SetCameraType(mode);
         //背景の操作
         BackGroundManager.GetComponent<BackGround>().SetBackGroundType(mode);
+
+        if (mode) {
+            StageUIManager.GetComponent<SpriteRenderer>().material.color = new Color(1.0f,1.0f,1.0f,0.0f);
+        }
+        else
+        {
+            StageUIManager.GetComponent<SpriteRenderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+
+        }
 
     }
 }

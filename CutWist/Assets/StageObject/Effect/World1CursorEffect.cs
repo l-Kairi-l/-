@@ -24,11 +24,8 @@ public class World1CursorEffect : MonoBehaviour
 
                 //SetTypeにの引数にカーソルの座標を入れて、持ってこれるようにして、乱数でその座標を元に生み出してみる
 
-
-
-
-                GetComponent<World1EffectResources>().SetParticle(1, new Vector3(1.0f, 1.0f, -5.0f), 1,
-                    new Vector3(1.0f , 1.0f * -vec, 0.0f), new Vector3(1.0f, 1.0f, 0.0f), new Color(0.0f, 0.0f, 0.0f, -0.01f));
+                //GetComponent<World1EffectResources>().SetParticle(1, new Vector3(1.0f, 1.0f, -5.0f), 1,
+                //    new Vector3(1.0f , 1.0f * -vec, 0.0f), new Vector3(1.0f, 1.0f, 0.0f), new Color(0.0f, 0.0f, 0.0f, -0.01f));
 
             }
         }
