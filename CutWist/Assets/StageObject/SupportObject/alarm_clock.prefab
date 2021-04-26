@@ -1119,7 +1119,7 @@ GameObject:
   - component: {fileID: 2636658900029036669}
   m_Layer: 0
   m_Name: alarm_clock
-  m_TagString: Untagged
+  m_TagString: Clock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

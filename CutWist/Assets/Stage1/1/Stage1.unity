@@ -523,6 +523,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1633978151}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &114035067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114035066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f66c09bb76c61c74db9f355fd6f68e28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &114035068
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -942,7 +954,7 @@ GameObject:
   - component: {fileID: 159672944}
   m_Layer: 0
   m_Name: PlayerIdle_0
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7441,6 +7453,12 @@ Transform:
   m_Father: {fileID: 855880628}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1685293616 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4868054240963082678, guid: 744004eb2d5c85c44b2bde64fcd156ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 5714967166306673896}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1708202804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9537,6 +9555,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4544348306893473850, guid: 744004eb2d5c85c44b2bde64fcd156ff,
+        type: 3}
+      propertyPath: sheep
+      value: 
+      objectReference: {fileID: 1685293616}
     - target: {fileID: 4868054240963082678, guid: 744004eb2d5c85c44b2bde64fcd156ff,
         type: 3}
       propertyPath: m_Name

@@ -93,6 +93,7 @@
     <Compile Include="Assets\StageObject\Effect\World1CursorEffect.cs" />
     <Compile Include="Assets\StageObject\Effect\World1CursorParticle.cs" />
     <Compile Include="Assets\StageObject\Effect\World1EffectResources.cs" />
+    <Compile Include="Assets\StageObject\Goal\Sheep.cs" />
     <Compile Include="Assets\StageObject\SupportObject\Alarm_Clock.cs" />
     <Compile Include="Assets\Title\Title.cs" />
     <Compile Include="Assets\UI\CursolPoint\CursorPoint.cs" />

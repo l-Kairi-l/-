@@ -33,9 +33,6 @@ public class CursorController2 : MonoBehaviour
 
         if (Player.GetComponent<Player>().CursorMode == 1)
         {
-            //エフェクトの関数
-            GetComponent<World1CursorEffect>().SetType(false, false, 0);
-
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
                 Cursor.transform.position += new Vector3(0, 0.1f, 0);
@@ -44,12 +41,8 @@ public class CursorController2 : MonoBehaviour
                     Cursor.transform.position = new Vector3(
                         Cursor.transform.position.x, 11.9f, Cursor.transform.position.z);
                 }
-
-                //エフェクトの関数
-                GetComponent<World1CursorEffect>().SetType(true, false, 1);
-
             }
-            else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
                 Cursor.transform.position += new Vector3(0, -0.1f, 0);
                 if (Cursor.transform.position.y <= -11.9f)
@@ -57,10 +50,6 @@ public class CursorController2 : MonoBehaviour
                     Cursor.transform.position = new Vector3(
                         Cursor.transform.position.x, -11.9f, Cursor.transform.position.z);
                 }
-
-                //エフェクトの関数
-                GetComponent<World1CursorEffect>().SetType(true, false, -1);
-
             }
             Cursor.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
         }
@@ -121,8 +110,9 @@ public class CursorController2 : MonoBehaviour
                         blk.EndPosition = new Vector3(objects[i].transform.position.x * -1.0f, objects[i].transform.position.y, objects[i].transform.position.z);
                         //blk.StartRotation = objects[i].transform.rotation;
                         //blk.EndRotation = new Quaternion(objects[i].transform.rotation.x, objects[i].transform.rotation.y - 180.0f , objects[i].transform.rotation.z, objects[i].transform.rotation.w);
-                       // blk.RotateSpeed = 2.0f * Mathf.Abs(objects[i].transform.position.x) / BlockDirection.RotateTime;
-                       // blk.MaxRotateScale = 2.0f * objects[i].transform.position.x / 28.0f * 2.0f;
+                        // blk.RotateSpeed = 2.0f * Mathf.Abs(objects[i].transform.position.x) / BlockDirection.RotateTime;
+                        // blk.MaxRotateScale = 2.0f * objects[i].transform.position.x / 28.0f * 2.0f;
+                        blk.RotateType = blk.StartPosition.x <= 0 ? BlockDirection.ROTATION_TYPE_NAME.Outside : BlockDirection.ROTATION_TYPE_NAME.Inside;
 
 
 
@@ -149,7 +139,7 @@ public class CursorController2 : MonoBehaviour
                     blk.EndPosition = startPos;
                     //Quaternion startRotate = blk.StartRotation;
                     //blk.StartRotation = blk.EndRotation;
-                   // blk.EndRotation = startRotate;
+                    // blk.EndRotation = startRotate;
                 }
 
             }

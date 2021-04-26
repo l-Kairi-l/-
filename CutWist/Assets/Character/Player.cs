@@ -45,6 +45,8 @@ public class Player : KinematicObject
 
     public int CursorMode;
 
+    //プレイヤーのフラグ
+    private bool clock;
 
     void Awake()
     {
@@ -53,6 +55,7 @@ public class Player : KinematicObject
         Camera = GameObject.Find("PlayCamera");//.GetComponent<CursorManeger>();
 
         CursorMode = -1;
+        clock = false;
     }
 
     // Update is called once per frame
@@ -215,6 +218,11 @@ public class Player : KinematicObject
         else if(other.gameObject.tag == "Goal")
         {
             Debug.Log("ゴール");
+        }
+        else if (other.gameObject.tag == "Clock")
+        {
+            clock = true;
+            Destroy(other.gameObject);
         }
     }
       //  SceneManager.LoadScene("Clear");
