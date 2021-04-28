@@ -46,7 +46,9 @@ public class Player : KinematicObject
     public int CursorMode;
 
     //プレイヤーのフラグ
-    private bool clock;
+    public bool clock;
+    public GameObject cleareffect;
+
 
     void Awake()
     {
@@ -215,18 +217,27 @@ public class Player : KinematicObject
             // 動かせなくなる
             controlEnabled = false;
         }
-        else if(other.gameObject.tag == "Goal")
-        {
-            Debug.Log("ゴール");
-        }
         else if (other.gameObject.tag == "Clock")
         {
             clock = true;
-            Destroy(other.gameObject);
+            other.GetComponent<Alarm_Clock>().Set(true);
+        }
+        else if(other.gameObject.tag == "Goal")
+        {
+            if (clock)
+            {
+
+                cleareffect.GetComponent<ClearEffect>().Set(other.transform.position);
+                 Destroy(other.gameObject);
+
+            }
         }
     }
-      //  SceneManager.LoadScene("Clear");
+    private void OnTriggerStay2D(Collider2D other)
+    {
 
-    
+    }
+
+
 
 }

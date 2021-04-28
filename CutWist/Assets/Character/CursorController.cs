@@ -40,6 +40,8 @@ public class CursorController : MonoBehaviour
 
         if (Player.GetComponent<Player>().CursorMode == 0)
         {
+            GetComponent<World1CursorEffect>().SetType(false, true, 0);
+
             if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
                 Cursor.transform.position += new Vector3(0.1f, 0, 0);
@@ -48,6 +50,7 @@ public class CursorController : MonoBehaviour
                     Cursor.transform.position = new Vector3(
                         19.5f, Cursor.transform.position.y, Cursor.transform.position.z);
                 }
+                GetComponent<World1CursorEffect>().SetType(true, true, 1);
 
             }
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
@@ -58,6 +61,8 @@ public class CursorController : MonoBehaviour
                     Cursor.transform.position = new Vector3(
                         -19.5f, Cursor.transform.position.y, Cursor.transform.position.z);
                 }
+                GetComponent<World1CursorEffect>().SetType(true, true, -1);
+
             }
 
             Cursor.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);

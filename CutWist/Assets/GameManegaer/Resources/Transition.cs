@@ -22,24 +22,24 @@ public class Transition : MonoBehaviour
         if (Type)
         {
             transform.localScale = new Vector3(Size, Size, 1.0f);
-            if (Size <= 1.0f)
+            if (Size <= 2.0f)
             {
                 SceneManager.LoadScene(NextStageName);
 
-               transform.localScale = new Vector3(1.0f,1.0f, 1.0f);
+               transform.localScale = new Vector3(2.0f, 2.0f, 1.0f);
 
 
             }
-            Size -= 1.0f;
+            Size -= 3.0f;
         }
         else
         {
             transform.localScale = new Vector3(Size, Size, 1.0f);
-            if (Size >= 120.0f)
+            if (Size >= 270.0f)
             {
                 Destroy(gameObject);
             }
-            Size += 1.0f;
+            Size += 3.0f;
 
         }
 
@@ -51,22 +51,23 @@ public class Transition : MonoBehaviour
     {
         NextStageName = next;
 
-        transform.localScale = new Vector3(120.0f, 120.0f, 1.0f);
+        Size = 270.0f;
+
+        transform.localScale = new Vector3(Size, Size, 1.0f);
 
         Type = true;
 
         Debug.Log(Type);
 
-        Size = 120.0f;
     }
     //新しいシーンに来た時のシーン
     public void SetinScene()
     {
-        transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        Size = 2.0f;
+
+        transform.localScale = new Vector3(Size, Size, 1.0f);
 
         Type = false;
-
-        Size = 1.0f;
 
     }
 

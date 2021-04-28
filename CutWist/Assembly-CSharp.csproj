@@ -90,9 +90,14 @@
     <Compile Include="Assets\Stage0\Resources\CloudResources.cs" />
     <Compile Include="Assets\StageObject\BackGround\BackGround.cs" />
     <Compile Include="Assets\StageObject\Block\NewBehaviourScript.cs" />
-    <Compile Include="Assets\StageObject\Effect\World1CursorEffect.cs" />
-    <Compile Include="Assets\StageObject\Effect\World1CursorParticle.cs" />
-    <Compile Include="Assets\StageObject\Effect\World1EffectResources.cs" />
+    <Compile Include="Assets\StageObject\Effect\ClearEffect\ClearEffect.cs" />
+    <Compile Include="Assets\StageObject\Effect\CursorEffect\World1\World1CursorEffect.cs" />
+    <Compile Include="Assets\StageObject\Effect\CursorEffect\World1\World1CursorParticle.cs" />
+    <Compile Include="Assets\StageObject\Effect\CursorEffect\World1\World1EffectResources.cs" />
+    <Compile Include="Assets\StageObject\Effect\CursorEffect\World2\World2CursorEffect.cs" />
+    <Compile Include="Assets\StageObject\Effect\CursorEffect\World2\World2CursorParticle.cs" />
+    <Compile Include="Assets\StageObject\Effect\CursorEffect\World2\World2EffectResources.cs" />
+    <Compile Include="Assets\StageObject\Effect\EffectClass\ParticleList.cs" />
     <Compile Include="Assets\StageObject\Goal\Sheep.cs" />
     <Compile Include="Assets\StageObject\SupportObject\Alarm_Clock.cs" />
     <Compile Include="Assets\Title\Title.cs" />
