@@ -69,7 +69,7 @@ public class World1EffectResources : MonoBehaviour
 
         //名前を検索してプレハブを参照する
 
-        GameObject obj = (GameObject)Resources.Load("World1Cursor1Particle2");
+        GameObject obj = (GameObject)Resources.Load("World1Cursor1Particle");
         
         //参照したプレハブを直接書き換える
         obj.GetComponent<World1CursorParticle>().SetType(particle.type, particle.addvector, particle.addsize, particle.addcolor);
