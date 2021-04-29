@@ -9,7 +9,7 @@ public class World2EffectResources : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetParticle(1, new Vector3(1.0f, 1.0f, -5.0f), 1, new Vector3(1.0f, 1.0f, 0.0f), new Vector3(1.0f, 1.0f, 0.0f), new Color(0.0f, 0.0f, 0.0f, -0.01f));
+
     }
 
     // Update is called once per frame

@@ -34,6 +34,7 @@ public class CursorController2 : MonoBehaviour
         if (Player.GetComponent<Player>().CursorMode == 1)
         {
             GetComponent<World1CursorEffect>().SetType(false, false, 0);
+            GetComponent<World2CursorEffect>().SetType(false, false, 0);
 
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
@@ -45,6 +46,7 @@ public class CursorController2 : MonoBehaviour
                 }
 
                 GetComponent<World1CursorEffect>().SetType(true,false,1);
+                GetComponent<World2CursorEffect>().SetType(true,false,1);
             }
             if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
@@ -55,6 +57,7 @@ public class CursorController2 : MonoBehaviour
                         Cursor.transform.position.x, -11.9f, Cursor.transform.position.z);
                 }
                 GetComponent<World1CursorEffect>().SetType(true, false, -1);
+                GetComponent<World2CursorEffect>().SetType(true, false, -1);
 
             }
             Cursor.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);

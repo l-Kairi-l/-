@@ -6,6 +6,7 @@ public class World2CursorEffect : MonoBehaviour
 {
     bool move;
     int vec;
+    bool type;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,25 +22,22 @@ public class World2CursorEffect : MonoBehaviour
             {
                 //SetTypeの引数にカーソルの座標を入れて、持ってこれるようにして、乱数でその座標をもとに生み出してみる
 
-                GetComponent<World2EffectResources>().SetParticle(1, new Vector3(1.0f, 1.0f, -5.0f), 1,
+                GetComponent<World2EffectResources>().SetParticle(Random.Range(1, 7), new Vector3(1.0f, 1.0f, -5.0f), 1,
                     new Vector3(1.0f, 1.0f*-vec, 0.0f), new Vector3(1.0f, 1.0f, 0.0f), new Color(0.0f, 0.0f, 0.0f, -0.01f));
 
             }
         }
-        
-
-        
     }
 
     //第一引数　動いてるがどうか
     //第二引数　trueが縦　falseが横
     //第三引数　どっちに動いてるか -1==右　1==左
-    public void SetType(bool Move,int CursorType,int Vector)
+    public void SetType(bool Move,bool CursorType,int Vector)
     {
         move = Move;
 
         vec = Vector;
 
-        //type = CursorType;
+        type = CursorType;
     }
 }
