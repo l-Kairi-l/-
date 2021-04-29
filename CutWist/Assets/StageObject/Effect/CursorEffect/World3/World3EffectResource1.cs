@@ -65,7 +65,7 @@ public class World3EffectResource1 : MonoBehaviour
 
     void InstanceParticle(ParticleList particle)
     {
-        GameObject obj = (GameObject)Resources.Load("World3_Cursor1Particle");
+        GameObject obj = (GameObject)Resources.Load("World3Cursor1Particle");
 
         obj.GetComponent<World3CursorParticle1>().SetType(particle.type, particle.addvector, particle.addsize, particle.addcolor);
 

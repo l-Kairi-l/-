@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,18 +19,18 @@ public class World3CursorEffect : MonoBehaviour
     {
         if(move)
         {
-            for(int i = 0;i < 50;i++){
-                if(Random.value <= 0.01f)
-                {
-                    if(cursorType == true){
-                        cursorPos.x = Random.Range(-18.0f,18.0f);
-                        GetComponent<World3EffectResource1>().SetParticle(Random.Range(1,3),cursorPos,30,new Vector3(1.0f,1.0f*-vec,0.0f),
-                        new Vector3(1.0f,1.0f,1.0f),new Color(0.0f,0.0f,0.0f,-0.005f));
-                    }
-                    else{
+            for(int i = 0;i < 10;i++){
+                if(Random.value > 0.1f) continue;
+
+                if(cursorType){
                         cursorPos.y = Random.Range(-11.0f,11.0f);
-                    }
-                   
+                }
+                else{
+                    cursorPos = GetComponent<CursorController2>().Cursor.transform.position;
+                    cursorPos.x = Random.Range(-18.0f,18.0f);
+                        
+                    GetComponent<World3EffectResource1>().SetParticle(Random.Range(1,3),cursorPos,30,new Vector3(Random.value,1.0f*-vec,0.0f),
+                    new Vector3(1.0f,1.0f,1.0f),new Color(0.0f,0.0f,0.0f,-0.005f));
                 }
             }
         }
@@ -39,11 +39,10 @@ public class World3CursorEffect : MonoBehaviour
         SetParticle()*/
     }
 
-    public void SetType(bool Move,bool CursorType,int Vector,Vector3 CursorPos)
+    public void SetType(bool Move,bool CursorType,int Vector)
     {
         move = Move;
         vec = Vector;
         cursorType = CursorType;
-        cursorPos = CursorPos;
     }
 }
