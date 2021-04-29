@@ -39,5 +39,7 @@ public class World2CursorEffect : MonoBehaviour
         move = Move;
 
         vec = Vector;
+
+        //type = CursorType;
     }
 }
