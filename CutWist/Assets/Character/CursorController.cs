@@ -8,6 +8,8 @@ public class CursorController : MonoBehaviour
 {
     public GameObject Cursor;
     public GameObject Player;
+    public GameObject Sheep;
+    public GameObject Clock;
     public int Count;
     //public GameObject Block;
     //public GameObject Goal_false;
@@ -72,6 +74,43 @@ public class CursorController : MonoBehaviour
             }
 
             Cursor.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+
+            if (BlockDirection.RotationState == BlockDirection.ROTATION_STATE_NAME.Rotated)
+            {
+                GameObject[] objects;
+
+                objects = GameObject.FindGameObjectsWithTag("Object");
+
+                Count = objects.Length;
+
+                bool TranLeft = Player.transform.position.x <= Cursor.transform.position.x ? false : true;
+
+                for (int i = 0; i < Count; i++)
+                {
+                    //if (objects[i].name == "GoalSheep" || objects[i].name == "alarm_clock") continue;
+
+                    //切り取り線を参照しプレイヤーと異なる側のブロックを反転
+                    if (objects[i].transform.position.x <= Cursor.transform.position.x && TranLeft || objects[i].transform.position.x > Cursor.transform.position.x && !TranLeft)
+                    {
+                        BlockSelectedEffect bse = objects[i].GetComponent<BlockSelectedEffect>();
+                        if(bse)
+                        {
+                            bse.EffectEnable = true;
+                        }
+                        
+                        
+                    }
+                    else
+                    {
+                        BlockSelectedEffect bse = objects[i].GetComponent<BlockSelectedEffect>();
+                        if (bse)
+                        {
+                            bse.ColorReset();
+                        }
+                       
+                    }
+                }
+            }
 
         }
         else
@@ -154,7 +193,23 @@ public class CursorController : MonoBehaviour
                         // blk.RotateSpeed = 2.0f * Mathf.Abs(objects[i].transform.position.y) / BlockDirection.RotateTime;
                         // blk.MaxRotateScale = 2.0f * objects[i].transform.position.y / 28.0f * 2.0f;
                         blk.RotateType = blk.StartPosition.y >= 0 ? BlockDirection.ROTATION_TYPE_NAME.Outside : BlockDirection.ROTATION_TYPE_NAME.Inside;
+                        //blk.StartRotation = objects[i].transform.rotation;
+                        if (objects[i].name == "GoalSheep")
+                        {
+                            objects[i].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+                            objects[i].GetComponent<BlockDirection>().enabled = true;
+                        }
+                        else if (objects[i].name == "alarm_clock")
+                        {
+                            objects[i].GetComponent<BlockDirection>().enabled = true;
+                            objects[i].GetComponent<Alarm_Clock>().enabled = false;
+                        }
 
+                        BlockSelectedEffect bse = objects[i].GetComponent<BlockSelectedEffect>();
+                        if (bse)
+                        {
+                            bse.ColorReset();
+                        }
                     }
 
                 }
@@ -188,6 +243,12 @@ public class CursorController : MonoBehaviour
             {
                 BlockDirection.PassedTime = 0.0f;
                 BlockDirection.RotationState = BlockDirection.ROTATION_STATE_NAME.Rotated;
+
+                Sheep.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                Sheep.GetComponent<BlockDirection>().enabled = false;
+
+                Clock.GetComponent<Alarm_Clock>().enabled = true;
+                Clock.GetComponent<BlockDirection>().enabled = false;
 
             }
 

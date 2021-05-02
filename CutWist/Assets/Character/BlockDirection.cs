@@ -11,6 +11,7 @@ public class BlockDirection : MonoBehaviour
 
     public Vector3 StartPosition;
     public Vector3 EndPosition;
+
     // public Quaternion StartRotation;
     // public Quaternion EndRotation;
     //public float MaxRotateScale;
@@ -18,7 +19,7 @@ public class BlockDirection : MonoBehaviour
     static public float PassedTime;
     //public float RotateSpeed;
     // private Vector3 BlockDefaultScale;
-    private Vector3 DefaultPosition;
+    public Vector3 DefaultPosition;
 
 
     public enum ROTATION_STATE_NAME
@@ -53,10 +54,19 @@ public class BlockDirection : MonoBehaviour
     void Update()
     {
         int sign = (RotateType == ROTATION_TYPE_NAME.Outside ? -1 : 1);
-        gameObject.GetComponent<Transform>().rotation = Quaternion.Euler(
-            sign * Mathf.Rad2Deg * Mathf.Acos(gameObject.GetComponent<Transform>().position.y / DefaultPosition.y),
-            sign * Mathf.Rad2Deg * Mathf.Acos(gameObject.GetComponent<Transform>().position.x / DefaultPosition.x),
-            0.0f);
+        if(gameObject.name != "GoalSheep" && gameObject.name != "alarm_clock")
+            //gameObject.GetComponent<Transform>().rotation = Quaternion.Euler(
+            //    sign * Mathf.Rad2Deg * (DefaultPosition.y > 0 ? Mathf.Acos(gameObject.GetComponent<Transform>().position.y / DefaultPosition.y) : -Mathf.Acos(gameObject.GetComponent<Transform>().position.y / DefaultPosition.y)),
+            //    sign * Mathf.Rad2Deg * (DefaultPosition.x > 0 ? -Mathf.Acos(gameObject.GetComponent<Transform>().position.x / DefaultPosition.x) : Mathf.Acos(gameObject.GetComponent<Transform>().position.x / DefaultPosition.x)),
+            //    0.0f);
+            //gameObject.GetComponent<Transform>().rotation = Quaternion.Euler(
+            //   -Mathf.Sign(DefaultPosition.y) * Mathf.Sign(StartPosition.y) * Mathf.Rad2Deg * Mathf.Acos(gameObject.GetComponent<Transform>().position.y / DefaultPosition.y),
+            //   -Mathf.Sign(DefaultPosition.x) * Mathf.Sign(StartPosition.x) * Mathf.Rad2Deg * Mathf.Acos(gameObject.GetComponent<Transform>().position.x / DefaultPosition.x),
+            //   0.0f);
+              gameObject.GetComponent<Transform>().rotation = Quaternion.Euler(
+                  -Mathf.Sign(DefaultPosition.y / StartPosition.y) * Mathf.Sign(DefaultPosition.x / StartPosition.x) * Mathf.Rad2Deg * Mathf.Acos(gameObject.GetComponent<Transform>().position.y / DefaultPosition.y),
+                  -Mathf.Sign(DefaultPosition.x / StartPosition.x) * Mathf.Sign(DefaultPosition.y / StartPosition.y) * Mathf.Rad2Deg * Mathf.Acos(gameObject.GetComponent<Transform>().position.x / DefaultPosition.x),
+                  0.0f);
         if (Mathf.Abs(EndPosition.y - gameObject.GetComponent<Transform>().position.y) > 0.001f)
         {
 

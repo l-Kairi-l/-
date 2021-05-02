@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3856169815439069639}
   - component: {fileID: 7002462942476189362}
   - component: {fileID: -3291636843386503530}
+  - component: {fileID: -2860007957430649623}
   m_Layer: 0
   m_Name: 3DBlockNormal
   m_TagString: Object
@@ -120,8 +121,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5dd76c76d9b25444a558865acbfe33e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blkDirection: 0
   StartPosition: {x: 0, y: 0, z: 0}
   EndPosition: {x: 0, y: 0, z: 0}
-  MaxRotateScale: 0
-  RotateSpeed: 0
+  DefaultPosition: {x: 0, y: 0, z: 0}
+  RotateType: 0
+--- !u!114 &-2860007957430649623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8572153555603572364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5b125be7b2775740aafec3a598adee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  green: 0
+  mrenderer: {fileID: 0}
+  EffectEnable: 0

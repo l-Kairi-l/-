@@ -9,7 +9,7 @@ public class CursorController2 : MonoBehaviour
     public GameObject Cursor;
     public GameObject Player;
     public int Count;
-
+ 
 
 
     //public GameObject Goal_false2;
@@ -64,6 +64,42 @@ public class CursorController2 : MonoBehaviour
 
             }
             Cursor.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+
+
+            if(BlockDirection.RotationState == BlockDirection.ROTATION_STATE_NAME.Rotated)
+            {
+                GameObject[] objects;
+
+                objects = GameObject.FindGameObjectsWithTag("Object");
+
+                Count = objects.Length;
+
+                bool TranLeft = Player.transform.position.y <= Cursor.transform.position.y ? false : true;
+
+                for (int i = 0; i < Count; i++)
+                {
+                    if (objects[i].transform.position.y <= Cursor.transform.position.y && TranLeft || objects[i].transform.position.y > Cursor.transform.position.y && !TranLeft)
+                    {
+                        BlockSelectedEffect bse = objects[i].GetComponent<BlockSelectedEffect>();
+                        if (bse)
+                        {
+                            bse.EffectEnable = true;
+                        }
+
+
+                    }
+                    else
+                    {
+                        BlockSelectedEffect bse = objects[i].GetComponent<BlockSelectedEffect>();
+                        if (bse)
+                        {
+                            bse.ColorReset();
+                        }
+
+                    }
+                }
+                
+            }
         }
         else
         {
@@ -72,26 +108,7 @@ public class CursorController2 : MonoBehaviour
 
         if (Player.GetComponent<Player>().CursorMode == 1 && Input.GetKeyDown(KeyCode.K))
         {
-            //Goal_false2.transform.position = new Vector3(
-            //   Goal_false2.transform.position.x * -1.0f, Goal_false2.transform.position.y, Goal_false2.transform.position.z);
-
-            //Goal_true2.transform.position = new Vector3(
-            //   Goal_true2.transform.position.x * -1.0f, Goal_true2.transform.position.y, Goal_true2.transform.position.z);
-
-            //Needle_0.transform.position = new Vector3(
-            //   Needle_0.transform.position.x * -1.0f, Needle_0.transform.position.y, Needle_0.transform.position.z);
-
-            //Needle_1.transform.position = new Vector3(
-            //   Needle_1.transform.position.x * -1.0f, Needle_1.transform.position.y, Needle_1.transform.position.z);
-
-            //Needle_2.transform.position = new Vector3(
-            //   Needle_2.transform.position.x * -1.0f, Needle_2.transform.position.y, Needle_2.transform.position.z);
-
-            //Needle_3.transform.position = new Vector3(
-            //   Needle_3.transform.position.x * -1.0f, Needle_3.transform.position.y, Needle_3.transform.position.z);
-
-            //Needle_4.transform.position = new Vector3(
-            //   Needle_4.transform.position.x * -1.0f, Needle_4.transform.position.y, Needle_4.transform.position.z);
+           
             GameObject[] objects;
 
             objects = GameObject.FindGameObjectsWithTag("Object");
@@ -125,13 +142,29 @@ public class CursorController2 : MonoBehaviour
                         // blk.RotateSpeed = 2.0f * Mathf.Abs(objects[i].transform.position.x) / BlockDirection.RotateTime;
                         // blk.MaxRotateScale = 2.0f * objects[i].transform.position.x / 28.0f * 2.0f;
                         blk.RotateType = blk.StartPosition.x <= 0 ? BlockDirection.ROTATION_TYPE_NAME.Outside : BlockDirection.ROTATION_TYPE_NAME.Inside;
+                        //blk.StartRotation = objects[i].transform.rotation;
+                        if (objects[i].name == "GoalSheep")
+                        {
+                            objects[i].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+                            
+                            objects[i].GetComponent<BlockDirection>().enabled = true;
+                        }
+                        else if(objects[i].name == "alarm_clock")
+                        {
+                            objects[i].GetComponent<BlockDirection>().enabled = true;
+                            objects[i].GetComponent<Alarm_Clock>().enabled = false;
+                        }
 
-
-
-
+                        BlockSelectedEffect bse = objects[i].GetComponent<BlockSelectedEffect>();
+                        if (bse)
+                        {
+                            bse.ColorReset();
+                        }
                     }
 
                 }
+
+               
 
                 if (CursorController.rotatecount != 0)
                 {

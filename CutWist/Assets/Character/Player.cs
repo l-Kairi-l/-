@@ -106,12 +106,39 @@ public class Player : KinematicObject
           GameObject  manager= GameObject.Find("GameManager");
             //true==EditCameraモード false==PlayCameraモード
             manager.GetComponent<EditManager>().SetEditMode(CursorMode == -1 ? true : false);
+
             CursorMode = CursorMode == -1 ? 0 : -1;
+
+            GameObject[] objects;
+
+            objects = GameObject.FindGameObjectsWithTag("Object");
+
+            foreach(GameObject obj in objects)
+            {
+                BlockSelectedEffect bse = obj.GetComponent<BlockSelectedEffect>();
+                if (bse)
+                {
+                    bse.ColorReset();
+                }
+            }
 
         }
         if (Input.GetKeyDown(KeyCode.RightControl))
         {
             CursorMode = CursorMode == -1 ? -1 : CursorMode == 0 ? 1 : 0;
+
+            GameObject[] objects;
+
+            objects = GameObject.FindGameObjectsWithTag("Object");
+
+            foreach (GameObject obj in objects)
+            {
+                BlockSelectedEffect bse = obj.GetComponent<BlockSelectedEffect>();
+                if (bse)
+                {
+                    bse.ColorReset();
+                }
+            }
         }
 
         UpdateJumpState();
@@ -217,12 +244,12 @@ public class Player : KinematicObject
             // 動かせなくなる
             controlEnabled = false;
         }
-        else if (other.gameObject.tag == "Clock")
+        else if (other.gameObject.name == "alarm_clock")
         {
             clock = true;
             other.GetComponent<Alarm_Clock>().Set(true);
         }
-        else if(other.gameObject.tag == "Goal")
+        else if(other.gameObject.name == "GoalSheep")
         {
             if (clock)
             {
