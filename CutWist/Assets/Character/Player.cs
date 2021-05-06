@@ -243,6 +243,19 @@ public class Player : KinematicObject
             destroy = true;
             // 動かせなくなる
             controlEnabled = false;
+
+
+            string s_name = "World";
+            string s_number = "" + 1;
+
+            // プレハブをGameObject型で取得
+            GameObject obj = (GameObject)Resources.Load("Transition_1");
+            obj.GetComponent<Transition>().SetNextScene(s_name + s_number);
+
+            // プレハブを元に、インスタンスを生成、
+            Instantiate(obj, new Vector3(0.0f, 0.0f, -90.0f), Quaternion.identity);
+
+
         }
         else if (other.gameObject.name == "alarm_clock")
         {

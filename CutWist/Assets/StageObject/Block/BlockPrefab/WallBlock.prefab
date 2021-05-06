@@ -122,4 +122,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartPosition: {x: 0, y: 0, z: 0}
   EndPosition: {x: 0, y: 0, z: 0}
+  DefaultPosition: {x: 0, y: 0, z: 0}
   RotateType: 0

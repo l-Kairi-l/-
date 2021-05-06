@@ -5817,6 +5817,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cursor: {fileID: 796298552}
   Player: {fileID: 159672936}
+  Sheep: {fileID: 0}
+  Clock: {fileID: 0}
   Count: 0
 --- !u!4 &1292373512
 Transform:
