@@ -34,7 +34,7 @@ public class BlockDirection : MonoBehaviour
         Inside,
     }
 
-    static public ROTATION_STATE_NAME RotationState;
+    static public ROTATION_STATE_NAME RotationState= ROTATION_STATE_NAME.Rotated;
     public ROTATION_TYPE_NAME RotateType;
     // Start is called before the first frame update
     void Start()
@@ -45,7 +45,6 @@ public class BlockDirection : MonoBehaviour
         //EndRotation = StartRotation;
         DefaultPosition = StartPosition;
         //BlockDefaultScale = gameObject.GetComponent<Transform>().localScale;
-        RotationState = ROTATION_STATE_NAME.Rotated;
         PassedTime = 0.0f;
         RotateType = ROTATION_TYPE_NAME.Outside;
     }
