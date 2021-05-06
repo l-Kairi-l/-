@@ -69,7 +69,7 @@ public class CursorController : MonoBehaviour
                 }
                 GetComponent<World1CursorEffect>().SetType(true, true, -1);
 
-                GetComponent<World3CursorEffect>().SetType(true, true, 1);
+                GetComponent<World3CursorEffect>().SetType(true, true, -1);
 
             }
 

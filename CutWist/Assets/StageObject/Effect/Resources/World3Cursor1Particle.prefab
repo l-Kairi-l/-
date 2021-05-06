@@ -77,7 +77,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.49, y: 1.2402018}
+  m_Size: {x: 0.97, y: 3.3705485}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -101,7 +101,13 @@ MonoBehaviour:
     type: 3}
   particleType3: {fileID: -6119686520764380964, guid: 4e5b7d20efad7b448b539815e73d1f24,
     type: 3}
+  particleType4: {fileID: 2572047943635781065, guid: bd19bf3bdbfe71149a5a8c2088a86997,
+    type: 3}
+  particleType5: {fileID: 7168456376351006759, guid: bd19bf3bdbfe71149a5a8c2088a86997,
+    type: 3}
+  particleType6: {fileID: -3867568198708672391, guid: bd19bf3bdbfe71149a5a8c2088a86997,
+    type: 3}
   particleColor: {r: 0, g: 0, b: 0, a: 0}
-  particleVector: {x: 0.14235844, y: 1, z: 0}
+  particleVector: {x: 0.26982835, y: -1, z: 0}
   particleScaling: {x: 1, y: 1, z: 1}
   particleAddColor: {r: 0, g: 0, b: 0, a: -0.005}

@@ -1,5 +1,5 @@
 sceneSetups:
-- path: "Assets/Debug_S/\u5B9F\u9A13S.unity"
+- path: Assets/Debug_S/World3_Stage01.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

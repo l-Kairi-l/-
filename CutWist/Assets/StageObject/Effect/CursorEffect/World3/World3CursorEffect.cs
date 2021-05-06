@@ -23,7 +23,11 @@ public class World3CursorEffect : MonoBehaviour
                 if(Random.value > 0.1f) continue;
 
                 if(cursorType){
-                        cursorPos.y = Random.Range(-11.0f,11.0f);
+                    cursorPos = GetComponent<CursorController>().Cursor.transform.position;
+                    cursorPos.y = Random.Range(-11.0f,11.0f);
+
+                    GetComponent<World3EffectResource1>().SetParticle(Random.Range(4,6),cursorPos,30,new Vector3(1.0f*-vec,Random.value,0.0f),
+                    new Vector3(1.0f,1.0f,1.0f),new Color(0.0f,0.0f,0.0f,-0.005f));
                 }
                 else{
                     cursorPos = GetComponent<CursorController2>().Cursor.transform.position;

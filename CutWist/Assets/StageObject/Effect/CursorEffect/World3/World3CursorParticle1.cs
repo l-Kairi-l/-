@@ -9,6 +9,9 @@ public class World3CursorParticle1 : MonoBehaviour
     public Sprite particleType1;
     public Sprite particleType2;
     public Sprite particleType3;
+    public Sprite particleType4;
+    public Sprite particleType5;
+    public Sprite particleType6;
 
     SpriteRenderer MySprite;
 
@@ -60,6 +63,15 @@ public class World3CursorParticle1 : MonoBehaviour
                 break;
             case 3:
                 MySprite.sprite = particleType3;
+                break;
+            case 4:
+                MySprite.sprite = particleType4;
+                break;
+            case 5:
+                MySprite.sprite = particleType5;
+                break;
+            case 6:
+                MySprite.sprite = particleType6;
                 break;
         }
 
