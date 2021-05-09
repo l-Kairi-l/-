@@ -4346,6 +4346,8 @@ MonoBehaviour:
   Cursor: {fileID: 621290303}
   Player: {fileID: 1835937231}
   Count: 0
+  RotateBoard: {fileID: 629870039046309201, guid: 22fe5c2506088f34e8eff9e14f1412a0,
+    type: 3}
 --- !u!114 &577185828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4363,6 +4365,8 @@ MonoBehaviour:
   Sheep: {fileID: 383935717}
   Clock: {fileID: 116543462}
   Count: 0
+  RotateBoard: {fileID: 2534190992282312191, guid: 725b5bbf0a5297c4d8ad14961e078fc1,
+    type: 3}
 --- !u!4 &577185829
 Transform:
   m_ObjectHideFlags: 0

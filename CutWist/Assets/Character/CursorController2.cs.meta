@@ -3,7 +3,11 @@ guid: 41c7f45ef28900f4784cdf612fac0181
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Cursor: {instanceID: 0}
+  - Player: {instanceID: 0}
+  - RotateBoard: {fileID: 629870039046309201, guid: 22fe5c2506088f34e8eff9e14f1412a0,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

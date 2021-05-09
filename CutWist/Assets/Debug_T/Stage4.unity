@@ -20996,6 +20996,7 @@ MonoBehaviour:
   move: 0
   cursorType: 0
   vec: 0
+  type: 0
   cursorPos: {x: 0, y: 0, z: 0}
 --- !u!114 &1944411182
 MonoBehaviour:
@@ -21087,6 +21088,8 @@ MonoBehaviour:
   Cursor: {fileID: 1794277966}
   Player: {fileID: 488926550}
   Count: 0
+  RotateBoard: {fileID: 629870039046309201, guid: 22fe5c2506088f34e8eff9e14f1412a0,
+    type: 3}
 --- !u!114 &1944411189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21104,6 +21107,8 @@ MonoBehaviour:
   Sheep: {fileID: 1219340522}
   Clock: {fileID: 685419822}
   Count: 0
+  RotateBoard: {fileID: 2534190992282312191, guid: 725b5bbf0a5297c4d8ad14961e078fc1,
+    type: 3}
 --- !u!4 &1944411190
 Transform:
   m_ObjectHideFlags: 0

@@ -10859,6 +10859,8 @@ MonoBehaviour:
   Cursor: {fileID: 628211615}
   Player: {fileID: 1061894203}
   Count: 0
+  RotateBoard: {fileID: 629870039046309201, guid: 22fe5c2506088f34e8eff9e14f1412a0,
+    type: 3}
 --- !u!114 &1979583310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10876,6 +10878,8 @@ MonoBehaviour:
   Sheep: {fileID: 1614962776}
   Clock: {fileID: 700833134}
   Count: 0
+  RotateBoard: {fileID: 2534190992282312191, guid: 725b5bbf0a5297c4d8ad14961e078fc1,
+    type: 3}
 --- !u!4 &1979583311
 Transform:
   m_ObjectHideFlags: 0
@@ -10884,7 +10888,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1979583300}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5328424, y: -0.73300815, z: -68.65039}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 416285370}

@@ -3,7 +3,13 @@ guid: cb76f084e21906449b9b096b8dd64c8d
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Cursor: {instanceID: 0}
+  - Player: {instanceID: 0}
+  - Sheep: {instanceID: 0}
+  - Clock: {instanceID: 0}
+  - RotateBoard: {fileID: 2534190992282312191, guid: 725b5bbf0a5297c4d8ad14961e078fc1,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

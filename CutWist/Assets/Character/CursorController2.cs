@@ -9,6 +9,7 @@ public class CursorController2 : MonoBehaviour
     public GameObject Cursor;
     public GameObject Player;
     public int Count;
+    public GameObject RotateBoard;
  
 
 
@@ -124,7 +125,11 @@ public class CursorController2 : MonoBehaviour
 
                 for (int i = 0; i < Count; i++)
                 {
-
+                    float scaley = TranLeft ? 25.0f + Cursor.transform.position.y : 14.0f - Cursor.transform.position.y;
+                    float posy = TranLeft ? Cursor.transform.position.y - 0.5f * (14.0f + Cursor.transform.position.y) : Cursor.transform.position.y + 0.5f * (14.0f - Cursor.transform.position.y);
+                    GameObject RBoard = Instantiate(RotateBoard, new Vector3(0, posy,  0), Quaternion.identity);
+                    RBoard.transform.localScale = new Vector3(1 , scaley , 1);
+                    RotateBoardBehavior2.IsInverse = false;
                     //切り取り線を参照しプレイヤーと異なる側のブロックを反転
                     if (objects[i].transform.position.y <= Cursor.transform.position.y && TranLeft || objects[i].transform.position.y > Cursor.transform.position.y && !TranLeft)
                     {
@@ -137,6 +142,7 @@ public class CursorController2 : MonoBehaviour
                         BlockDirection blk = objects[i].GetComponent<BlockDirection>();
                         blk.StartPosition = objects[i].transform.position;
                         blk.EndPosition = new Vector3(objects[i].transform.position.x * -1.0f, objects[i].transform.position.y, objects[i].transform.position.z);
+                        blk.StartRotation *= Quaternion.Euler(0,180f, 0);
                         //blk.StartRotation = objects[i].transform.rotation;
                         //blk.EndRotation = new Quaternion(objects[i].transform.rotation.x, objects[i].transform.rotation.y - 180.0f , objects[i].transform.rotation.z, objects[i].transform.rotation.w);
                         // blk.RotateSpeed = 2.0f * Mathf.Abs(objects[i].transform.position.x) / BlockDirection.RotateTime;
@@ -175,13 +181,17 @@ public class CursorController2 : MonoBehaviour
             else
             {
                 BlockDirection.PassedTime = BlockDirection.RotateTime - BlockDirection.PassedTime;
+                RotateBoardBehavior2.IsInverse = true;
                 for (int i = 0; i < Count; i++)
                 {
-
-                    BlockDirection blk = objects[i].GetComponent<BlockDirection>();
-                    Vector3 startPos = blk.StartPosition;
-                    blk.StartPosition = blk.EndPosition;
-                    blk.EndPosition = startPos;
+                    if (objects[i].transform.position.y <= Cursor.transform.position.y && TranLeft || objects[i].transform.position.y > Cursor.transform.position.y && !TranLeft)
+                    {
+                        BlockDirection blk = objects[i].GetComponent<BlockDirection>();
+                        Vector3 startPos = blk.StartPosition;
+                        blk.StartPosition = blk.EndPosition;
+                        blk.EndPosition = startPos;
+                        blk.StartRotation *= Quaternion.Euler(0, 180f, 0);
+                    }
                     //Quaternion startRotate = blk.StartRotation;
                     //blk.StartRotation = blk.EndRotation;
                     // blk.EndRotation = startRotate;

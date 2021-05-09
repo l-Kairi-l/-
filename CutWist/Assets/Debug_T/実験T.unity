@@ -7153,6 +7153,8 @@ MonoBehaviour:
   Cursor: {fileID: 677287790}
   Player: {fileID: 631569367}
   Count: 0
+  RotateBoard: {fileID: 629870039046309201, guid: 22fe5c2506088f34e8eff9e14f1412a0,
+    type: 3}
 --- !u!114 &1500597241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7167,7 +7169,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cursor: {fileID: 221685009}
   Player: {fileID: 631569367}
+  Sheep: {fileID: 0}
+  Clock: {fileID: 0}
   Count: 0
+  RotateBoard: {fileID: 2534190992282312191, guid: 725b5bbf0a5297c4d8ad14961e078fc1,
+    type: 3}
 --- !u!4 &1500597242
 Transform:
   m_ObjectHideFlags: 0
