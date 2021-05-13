@@ -122,14 +122,17 @@ public class CursorController : MonoBehaviour
 
         if ((Player.GetComponent<Player>().CursorMode == 0 || Player.GetComponent<Player>().CursorMode == 1) && Input.GetKeyDown(KeyCode.K))
         {
-            Sheep.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-            //Sheep.GetComponent<BlockDirection>().enabled = true;
-            //Clock.GetComponent<BlockDirection>().enabled = true;
-            Clock.GetComponent<Alarm_Clock>().enabled = false;
-            Sheep.GetComponent<BlockDirection>().StartPosition = Sheep.GetComponent<Transform>().GetComponent<Transform>().position;
-            Sheep.GetComponent<BlockDirection>().EndPosition = Sheep.GetComponent<BlockDirection>().StartPosition;
-            //Sheep.GetComponent<BlockDirection>().StartRotation = gameObject.GetComponent<Transform>().rotation;
-            Player.GetComponent<Player>().GravityZero();
+            if (BlockDirection.RotationState == BlockDirection.ROTATION_STATE_NAME.Rotated)
+            {
+                Sheep.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+                //Sheep.GetComponent<BlockDirection>().enabled = true;
+                //Clock.GetComponent<BlockDirection>().enabled = true;
+                Clock.GetComponent<Alarm_Clock>().enabled = false;
+                Sheep.GetComponent<BlockDirection>().StartPosition = Sheep.GetComponent<Transform>().GetComponent<Transform>().position;
+                Sheep.GetComponent<BlockDirection>().EndPosition = Sheep.GetComponent<BlockDirection>().StartPosition;
+                //Sheep.GetComponent<BlockDirection>().StartRotation = gameObject.GetComponent<Transform>().rotation;
+                Player.GetComponent<Player>().GravityZero();
+            }
 
         }
 
@@ -202,23 +205,23 @@ public class CursorController : MonoBehaviour
                     rotatecount = 0;
                 }
             }
-            else
-            {
-                BlockDirection.PassedTime = BlockDirection.RotateTime - BlockDirection.PassedTime;
-                RotateBoardBehavior1.IsInverse = !RotateBoardBehavior1.IsInverse;
-                for (int i = 0; i < Count; i++)
-                {
-                    if (objects[i].transform.position.x <= Cursor.transform.position.x && TranLeft || objects[i].transform.position.x > Cursor.transform.position.x && !TranLeft)
-                    {
-                        BlockDirection blk = objects[i].GetComponent<BlockDirection>();
-                        Vector3 startPos = blk.StartPosition;
-                        blk.StartPosition = blk.EndPosition;
-                        blk.EndPosition = startPos;
-                        blk.StartRotation *= Quaternion.Euler(180f, 0, 0);
-                    }
+            //else
+            //{
+            //    BlockDirection.PassedTime = BlockDirection.RotateTime - BlockDirection.PassedTime;
+            //    RotateBoardBehavior1.IsInverse = !RotateBoardBehavior1.IsInverse;
+            //    for (int i = 0; i < Count; i++)
+            //    {
+            //        if (objects[i].transform.position.x <= Cursor.transform.position.x && TranLeft || objects[i].transform.position.x > Cursor.transform.position.x && !TranLeft)
+            //        {
+            //            BlockDirection blk = objects[i].GetComponent<BlockDirection>();
+            //            Vector3 startPos = blk.StartPosition;
+            //            blk.StartPosition = blk.EndPosition;
+            //            blk.EndPosition = startPos;
+            //            blk.StartRotation *= Quaternion.Euler(180f, 0, 0);
+            //        }
 
-                }
-            }
+            //    }
+            //}
         }
 
         if (BlockDirection.RotationState == BlockDirection.ROTATION_STATE_NAME.Rotating)

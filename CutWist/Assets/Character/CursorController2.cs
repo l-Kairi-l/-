@@ -180,26 +180,26 @@ public class CursorController2 : MonoBehaviour
                     CursorController.rotatecount = 0;
                 }
             }
-            else
-            {
-                BlockDirection.PassedTime = BlockDirection.RotateTime - BlockDirection.PassedTime;
-                RotateBoardBehavior2.IsInverse = !RotateBoardBehavior2.IsInverse;
-                for (int i = 0; i < Count; i++)
-                {
-                    if (objects[i].transform.position.y <= Cursor.transform.position.y && TranLeft || objects[i].transform.position.y > Cursor.transform.position.y && !TranLeft)
-                    {
-                        BlockDirection blk = objects[i].GetComponent<BlockDirection>();
-                        Vector3 startPos = blk.StartPosition;
-                        blk.StartPosition = blk.EndPosition;
-                        blk.EndPosition = startPos;
-                        blk.StartRotation *= Quaternion.Euler(0, 180f, 0);
-                    }
-                    //Quaternion startRotate = blk.StartRotation;
-                    //blk.StartRotation = blk.EndRotation;
-                    // blk.EndRotation = startRotate;
-                }
+            //else
+            //{
+            //    BlockDirection.PassedTime = BlockDirection.RotateTime - BlockDirection.PassedTime;
+            //    RotateBoardBehavior2.IsInverse = !RotateBoardBehavior2.IsInverse;
+            //    for (int i = 0; i < Count; i++)
+            //    {
+            //        if (objects[i].transform.position.y <= Cursor.transform.position.y && TranLeft || objects[i].transform.position.y > Cursor.transform.position.y && !TranLeft)
+            //        {
+            //            BlockDirection blk = objects[i].GetComponent<BlockDirection>();
+            //            Vector3 startPos = blk.StartPosition;
+            //            blk.StartPosition = blk.EndPosition;
+            //            blk.EndPosition = startPos;
+            //            blk.StartRotation *= Quaternion.Euler(0, 180f, 0);
+            //        }
+            //        //Quaternion startRotate = blk.StartRotation;
+            //        //blk.StartRotation = blk.EndRotation;
+            //        // blk.EndRotation = startRotate;
+            //    }
 
-            }
+            //}
         }
 
         //DebugImage2.color = color;
