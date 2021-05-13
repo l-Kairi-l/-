@@ -43,8 +43,8 @@ namespace Platformer.Mechanics
         //カーソルに入ってるかどうか
         public int CursorTrigger;
         //リスト
-      //  private int CursorListPos;
-      //  private int Cursor2ListPos;
+        //  private int CursorListPos;
+        //  private int Cursor2ListPos;
 
         /// <summary>
         /// Bounce the object's vertical velocity.
@@ -93,9 +93,18 @@ namespace Platformer.Mechanics
             contactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
             contactFilter.useLayerMask = true;
 
-           Physics2D.gravity = new Vector2(0, -90f);
+            Physics2D.gravity = new Vector2(0, -90f);
 
             CursorTrigger = -1;
+        }
+        public virtual void GravityZero()
+        {
+            Physics2D.gravity = new Vector2(0, 0);
+        }
+
+        public virtual void GravityReset()
+        {
+            Physics2D.gravity = new Vector2(0, -90f);
         }
 
         protected virtual void Update()
@@ -114,7 +123,7 @@ namespace Platformer.Mechanics
 
         protected virtual void FixedUpdate()
         {
-            
+
             //if already falling, fall faster than the jump speed, otherwise use normal gravity.
             if (velocity.y < 0)
                 velocity += gravityModifier * Physics2D.gravity * Time.deltaTime;

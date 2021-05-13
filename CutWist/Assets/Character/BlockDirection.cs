@@ -108,8 +108,8 @@ public class BlockDirection : MonoBehaviour
                 gameObject.GetComponent<Transform>().position = EndPosition;
 
                 StartPosition = EndPosition;
-
-                gameObject.GetComponent<Transform>().rotation = StartRotation;
+                if (gameObject.name != "GoalSheep" && gameObject.name != "alarm_clock")
+                    gameObject.GetComponent<Transform>().rotation = StartRotation;
 
                 //gameObject.GetComponent<Transform>().Rotate
             }
