@@ -272,9 +272,11 @@ public class Player : KinematicObject
 
             }
         }
+
     }
     private void OnTriggerStay2D(Collider2D other)
     {
+
 
     }
 

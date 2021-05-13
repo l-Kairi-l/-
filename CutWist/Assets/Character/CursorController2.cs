@@ -122,20 +122,32 @@ public class CursorController2 : MonoBehaviour
             // TranLeft = Player.GetComponent<SpriteRenderer>().flipX;
             if (BlockDirection.RotationState == BlockDirection.ROTATION_STATE_NAME.Rotated)
             {
+                float scaley = TranLeft ? 25.0f + Cursor.transform.position.y : 14.0f - Cursor.transform.position.y;
+                float posy = TranLeft ? Cursor.transform.position.y - 0.5f * (14.0f + Cursor.transform.position.y) : Cursor.transform.position.y + 0.5f * (14.0f - Cursor.transform.position.y);
+                GameObject RBoard = Instantiate(RotateBoard, new Vector3(0, posy, 0), Quaternion.identity);
+                RBoard.transform.localScale = new Vector3(1, scaley, 1);
+                RotateBoardBehavior2.IsInverse = false;
 
                 for (int i = 0; i < Count; i++)
                 {
-                    float scaley = TranLeft ? 25.0f + Cursor.transform.position.y : 14.0f - Cursor.transform.position.y;
-                    float posy = TranLeft ? Cursor.transform.position.y - 0.5f * (14.0f + Cursor.transform.position.y) : Cursor.transform.position.y + 0.5f * (14.0f - Cursor.transform.position.y);
-                    GameObject RBoard = Instantiate(RotateBoard, new Vector3(0, posy,  0), Quaternion.identity);
-                    RBoard.transform.localScale = new Vector3(1 , scaley , 1);
-                    RotateBoardBehavior2.IsInverse = false;
                     //切り取り線を参照しプレイヤーと異なる側のブロックを反転
                     if (objects[i].transform.position.y <= Cursor.transform.position.y && TranLeft || objects[i].transform.position.y > Cursor.transform.position.y && !TranLeft)
                     {
                         // objects[i].transform.position = new Vector3(objects[i].transform.position.x * -1.0f, objects[i].transform.position.y , objects[i].transform.position.z * -1.0f);
                         //左右反転だから左か右に向いてるブロックの向きだけを反転するようにする
                         //  objects[i].GetComponent<BlockDirection>().blkDirection = (objects[i].GetComponent<BlockDirection>().blkDirection % 2) == 1 ? (objects[i].GetComponent<BlockDirection>().blkDirection + 2) % 4 : objects[i].GetComponent<BlockDirection>().blkDirection;
+
+                        if (objects[i].name == "GoalSheep")
+                        {
+                            objects[i].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+                            
+                            objects[i].GetComponent<BlockDirection>().enabled = true;
+                        }
+                        else if(objects[i].name == "alarm_clock")
+                        {
+                            objects[i].GetComponent<BlockDirection>().enabled = true;
+                            objects[i].GetComponent<Alarm_Clock>().enabled = false;
+                        }
 
                         CursorController.rotatecount++;
 
@@ -149,17 +161,7 @@ public class CursorController2 : MonoBehaviour
                         // blk.MaxRotateScale = 2.0f * objects[i].transform.position.x / 28.0f * 2.0f;
                         blk.RotateType = blk.StartPosition.x <= 0 ? BlockDirection.ROTATION_TYPE_NAME.Outside : BlockDirection.ROTATION_TYPE_NAME.Inside;
                         //blk.StartRotation = objects[i].transform.rotation;
-                        if (objects[i].name == "GoalSheep")
-                        {
-                            objects[i].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-                            
-                            objects[i].GetComponent<BlockDirection>().enabled = true;
-                        }
-                        else if(objects[i].name == "alarm_clock")
-                        {
-                            objects[i].GetComponent<BlockDirection>().enabled = true;
-                            objects[i].GetComponent<Alarm_Clock>().enabled = false;
-                        }
+
 
                         BlockSelectedEffect bse = objects[i].GetComponent<BlockSelectedEffect>();
                         if (bse)
@@ -181,7 +183,7 @@ public class CursorController2 : MonoBehaviour
             else
             {
                 BlockDirection.PassedTime = BlockDirection.RotateTime - BlockDirection.PassedTime;
-                RotateBoardBehavior2.IsInverse = true;
+                RotateBoardBehavior2.IsInverse = !RotateBoardBehavior2.IsInverse;
                 for (int i = 0; i < Count; i++)
                 {
                     if (objects[i].transform.position.y <= Cursor.transform.position.y && TranLeft || objects[i].transform.position.y > Cursor.transform.position.y && !TranLeft)

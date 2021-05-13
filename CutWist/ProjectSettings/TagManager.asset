@@ -9,6 +9,7 @@ TagManager:
   - Goal
   - CoursolPoint
   - Clock
+  - Skeleton
   layers:
   - Default
   - TransparentFX
