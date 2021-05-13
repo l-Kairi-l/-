@@ -137,6 +137,18 @@ public class CursorController2 : MonoBehaviour
                         //左右反転だから左か右に向いてるブロックの向きだけを反転するようにする
                         //  objects[i].GetComponent<BlockDirection>().blkDirection = (objects[i].GetComponent<BlockDirection>().blkDirection % 2) == 1 ? (objects[i].GetComponent<BlockDirection>().blkDirection + 2) % 4 : objects[i].GetComponent<BlockDirection>().blkDirection;
 
+                        if (objects[i].name == "GoalSheep")
+                        {
+                            objects[i].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+                            
+                            objects[i].GetComponent<BlockDirection>().enabled = true;
+                        }
+                        else if(objects[i].name == "alarm_clock")
+                        {
+                            objects[i].GetComponent<BlockDirection>().enabled = true;
+                            objects[i].GetComponent<Alarm_Clock>().enabled = false;
+                        }
+
                         CursorController.rotatecount++;
 
                         BlockDirection blk = objects[i].GetComponent<BlockDirection>();
@@ -149,17 +161,7 @@ public class CursorController2 : MonoBehaviour
                         // blk.MaxRotateScale = 2.0f * objects[i].transform.position.x / 28.0f * 2.0f;
                         blk.RotateType = blk.StartPosition.x <= 0 ? BlockDirection.ROTATION_TYPE_NAME.Outside : BlockDirection.ROTATION_TYPE_NAME.Inside;
                         //blk.StartRotation = objects[i].transform.rotation;
-                        if (objects[i].name == "GoalSheep")
-                        {
-                            objects[i].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-                            
-                            objects[i].GetComponent<BlockDirection>().enabled = true;
-                        }
-                        else if(objects[i].name == "alarm_clock")
-                        {
-                            objects[i].GetComponent<BlockDirection>().enabled = true;
-                            objects[i].GetComponent<Alarm_Clock>().enabled = false;
-                        }
+
 
                         BlockSelectedEffect bse = objects[i].GetComponent<BlockSelectedEffect>();
                         if (bse)

@@ -1045,7 +1045,7 @@ PrefabInstance:
     - target: {fileID: 5834869723434915903, guid: 312fda208557ed4438d9a51a1e7425d2,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6301422515651670413, guid: 312fda208557ed4438d9a51a1e7425d2,
         type: 3}
@@ -4934,7 +4934,7 @@ PrefabInstance:
     - target: {fileID: -6313088403250185593, guid: 744004eb2d5c85c44b2bde64fcd156ff,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2636658900029036669, guid: 744004eb2d5c85c44b2bde64fcd156ff,
         type: 3}
@@ -9913,6 +9913,8 @@ MonoBehaviour:
   Cursor: {fileID: 2076691102}
   Player: {fileID: 709067989}
   Count: 0
+  RotateBoard: {fileID: 629870039046309201, guid: 22fe5c2506088f34e8eff9e14f1412a0,
+    type: 3}
 --- !u!114 &1140538698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9930,6 +9932,8 @@ MonoBehaviour:
   Sheep: {fileID: 102177458}
   Clock: {fileID: 564596873}
   Count: 0
+  RotateBoard: {fileID: 2534190992282312191, guid: 725b5bbf0a5297c4d8ad14961e078fc1,
+    type: 3}
 --- !u!4 &1140538699
 Transform:
   m_ObjectHideFlags: 0
