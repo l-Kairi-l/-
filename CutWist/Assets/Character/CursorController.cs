@@ -194,7 +194,7 @@ public class CursorController : MonoBehaviour
             else
             {
                 BlockDirection.PassedTime = BlockDirection.RotateTime - BlockDirection.PassedTime;
-                RotateBoardBehavior1.IsInverse = true;
+                RotateBoardBehavior1.IsInverse = !RotateBoardBehavior1.IsInverse;
                 for (int i = 0; i < Count; i++)
                 {
                     if (objects[i].transform.position.x <= Cursor.transform.position.x && TranLeft || objects[i].transform.position.x > Cursor.transform.position.x && !TranLeft)
