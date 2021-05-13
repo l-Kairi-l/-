@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Debug_T/Stage4.unity
+- path: Assets/Debug_S/Templete.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

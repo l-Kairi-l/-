@@ -122,7 +122,7 @@ public class CursorController2 : MonoBehaviour
             // TranLeft = Player.GetComponent<SpriteRenderer>().flipX;
             if (BlockDirection.RotationState == BlockDirection.ROTATION_STATE_NAME.Rotated)
             {
-                float scaley = TranLeft ? 25.0f + Cursor.transform.position.y : 14.0f - Cursor.transform.position.y;
+                float scaley = TranLeft ? 14.0f + Cursor.transform.position.y : 14.0f - Cursor.transform.position.y;
                 float posy = TranLeft ? Cursor.transform.position.y - 0.5f * (14.0f + Cursor.transform.position.y) : Cursor.transform.position.y + 0.5f * (14.0f - Cursor.transform.position.y);
                 GameObject RBoard = Instantiate(RotateBoard, new Vector3(0, posy, 0), Quaternion.identity);
                 RBoard.transform.localScale = new Vector3(1, scaley, 1);
