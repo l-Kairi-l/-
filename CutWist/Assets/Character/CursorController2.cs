@@ -10,7 +10,7 @@ public class CursorController2 : MonoBehaviour
     public GameObject Player;
     public int Count;
     public GameObject RotateBoard;
-
+ 
 
 
     //public GameObject Goal_false2;
@@ -47,9 +47,9 @@ public class CursorController2 : MonoBehaviour
                         Cursor.transform.position.x, 11.9f, Cursor.transform.position.z);
                 }
 
-                GetComponent<World1CursorEffect>().SetType(true, false, 1);
-                GetComponent<World2CursorEffect>().SetType(true, false, 1);
-                GetComponent<World3CursorEffect>().SetType(true, false, 1);
+                GetComponent<World1CursorEffect>().SetType(true,false,1);
+                GetComponent<World2CursorEffect>().SetType(true,false,1);
+                GetComponent<World3CursorEffect>().SetType(true,false,1);
             }
             if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
@@ -67,7 +67,7 @@ public class CursorController2 : MonoBehaviour
             Cursor.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
 
-            if (BlockDirection.RotationState == BlockDirection.ROTATION_STATE_NAME.Rotated)
+            if(BlockDirection.RotationState == BlockDirection.ROTATION_STATE_NAME.Rotated)
             {
                 GameObject[] objects;
 
@@ -99,7 +99,7 @@ public class CursorController2 : MonoBehaviour
 
                     }
                 }
-
+                
             }
         }
         else
@@ -109,7 +109,7 @@ public class CursorController2 : MonoBehaviour
 
         if (Player.GetComponent<Player>().CursorMode == 1 && Input.GetKeyDown(KeyCode.K))
         {
-
+           
             GameObject[] objects;
 
             objects = GameObject.FindGameObjectsWithTag("Object");
@@ -122,14 +122,14 @@ public class CursorController2 : MonoBehaviour
             // TranLeft = Player.GetComponent<SpriteRenderer>().flipX;
             if (BlockDirection.RotationState == BlockDirection.ROTATION_STATE_NAME.Rotated)
             {
-                float scaley = TranLeft ? 14.0f + Cursor.transform.position.y : 14.0f - Cursor.transform.position.y;
+                float scaley = TranLeft ? 25.0f + Cursor.transform.position.y : 14.0f - Cursor.transform.position.y;
                 float posy = TranLeft ? Cursor.transform.position.y - 0.5f * (14.0f + Cursor.transform.position.y) : Cursor.transform.position.y + 0.5f * (14.0f - Cursor.transform.position.y);
                 GameObject RBoard = Instantiate(RotateBoard, new Vector3(0, posy, 0), Quaternion.identity);
                 RBoard.transform.localScale = new Vector3(1, scaley, 1);
                 RotateBoardBehavior2.IsInverse = false;
                 for (int i = 0; i < Count; i++)
                 {
-
+                    
                     //切り取り線を参照しプレイヤーと異なる側のブロックを反転
                     if (objects[i].transform.position.y <= Cursor.transform.position.y && TranLeft || objects[i].transform.position.y > Cursor.transform.position.y && !TranLeft)
                     {
@@ -140,7 +140,7 @@ public class CursorController2 : MonoBehaviour
                         //if (objects[i].name == "GoalSheep")
                         //{
                         //    objects[i].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-
+                            
                         //    objects[i].GetComponent<BlockDirection>().enabled = true;
                         //}
                         //else if(objects[i].name == "alarm_clock")
@@ -154,7 +154,10 @@ public class CursorController2 : MonoBehaviour
                         BlockDirection blk = objects[i].GetComponent<BlockDirection>();
                         blk.StartPosition = objects[i].transform.position;
                         blk.EndPosition = new Vector3(objects[i].transform.position.x * -1.0f, objects[i].transform.position.y, objects[i].transform.position.z);
-                        blk.StartRotation *= Quaternion.Euler(0, 180f, 0);
+                        objects[i].GetComponent<Transform>().Rotate(new Vector3(0, 180, 0),Space.World);
+                        blk.StartRotation = objects[i].GetComponent<Transform>().rotation;
+                        objects[i].GetComponent<Transform>().Rotate(new Vector3(0, -180, 0), Space.World);
+                        //blk.StartRotation *= Quaternion.Euler(0,180f, 0);
                         //blk.StartRotation = objects[i].transform.rotation;
                         //blk.EndRotation = new Quaternion(objects[i].transform.rotation.x, objects[i].transform.rotation.y - 180.0f , objects[i].transform.rotation.z, objects[i].transform.rotation.w);
                         // blk.RotateSpeed = 2.0f * Mathf.Abs(objects[i].transform.position.x) / BlockDirection.RotateTime;
@@ -172,7 +175,7 @@ public class CursorController2 : MonoBehaviour
 
                 }
 
-
+               
 
                 if (CursorController.rotatecount != 0)
                 {

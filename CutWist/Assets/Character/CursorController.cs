@@ -19,13 +19,13 @@ public class CursorController : MonoBehaviour
     //public GameObject Diamond;
     //public GameObject Frame;
     static public int rotatecount = 0;
-
+    
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -44,7 +44,7 @@ public class CursorController : MonoBehaviour
         if (Player.GetComponent<Player>().CursorMode == 0)
         {
             GetComponent<World1CursorEffect>().SetType(false, true, 0);
-
+            
             GetComponent<World3CursorEffect>().SetType(false, true, 0);
 
             if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
@@ -56,7 +56,7 @@ public class CursorController : MonoBehaviour
                         19.5f, Cursor.transform.position.y, Cursor.transform.position.z);
                 }
                 GetComponent<World1CursorEffect>().SetType(true, true, 1);
-
+                
                 GetComponent<World3CursorEffect>().SetType(true, true, 1);
 
             }
@@ -94,12 +94,12 @@ public class CursorController : MonoBehaviour
                     if (objects[i].transform.position.x <= Cursor.transform.position.x && TranLeft || objects[i].transform.position.x > Cursor.transform.position.x && !TranLeft)
                     {
                         BlockSelectedEffect bse = objects[i].GetComponent<BlockSelectedEffect>();
-                        if (bse)
+                        if(bse)
                         {
                             bse.EffectEnable = true;
                         }
-
-
+                        
+                        
                     }
                     else
                     {
@@ -108,7 +108,7 @@ public class CursorController : MonoBehaviour
                         {
                             bse.ColorReset();
                         }
-
+                       
                     }
                 }
             }
@@ -138,7 +138,7 @@ public class CursorController : MonoBehaviour
 
         if (Player.GetComponent<Player>().CursorMode == 0 && Input.GetKeyDown(KeyCode.K))
         {
-
+ 
 
             GameObject[] objects = GameObject.FindGameObjectsWithTag("Object");
 
@@ -181,7 +181,10 @@ public class CursorController : MonoBehaviour
                         BlockDirection blk = objects[i].GetComponent<BlockDirection>();
                         blk.StartPosition = objects[i].transform.position;
                         blk.EndPosition = new Vector3(objects[i].transform.position.x, objects[i].transform.position.y * -1.0f, objects[i].transform.position.z);
-                        blk.StartRotation *= Quaternion.Euler(180f, 0, 0);
+                        objects[i].GetComponent<Transform>().Rotate(new Vector3(180, 0, 0), Space.World);
+                        blk.StartRotation = objects[i].GetComponent<Transform>().rotation;
+                        objects[i].GetComponent<Transform>().Rotate(new Vector3(-180, 0, 0), Space.World);
+                        //blk.StartRotation *= Quaternion.Euler(180f, 0, 0);
 
                         blk.RotateType = blk.StartPosition.y >= 0 ? BlockDirection.ROTATION_TYPE_NAME.Outside : BlockDirection.ROTATION_TYPE_NAME.Inside;
                         //blk.StartRotation = objects[i].transform.rotation;
@@ -219,7 +222,7 @@ public class CursorController : MonoBehaviour
             //            blk.EndPosition = startPos;
             //            blk.StartRotation *= Quaternion.Euler(180f, 0, 0);
             //        }
-
+                    
             //    }
             //}
         }
@@ -234,11 +237,11 @@ public class CursorController : MonoBehaviour
                 BlockDirection.PassedTime = 0.0f;
                 BlockDirection.RotationState = BlockDirection.ROTATION_STATE_NAME.Rotated;
 
-
+                
                 Sheep.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                 Sheep.GetComponent<Transform>().rotation = Sheep.GetComponent<BlockDirection>().StartRotation;
                 //Sheep.GetComponent<BlockDirection>().enabled = false;
-
+               
                 Clock.GetComponent<Alarm_Clock>().enabled = true;
                 Clock.GetComponent<Transform>().rotation = Clock.GetComponent<BlockDirection>().StartRotation;
                 //Clock.GetComponent<BlockDirection>().enabled = false;
