@@ -21,9 +21,6 @@ public class BlockSelectedEffect : MonoBehaviour
             _materialAndInitialColors.Add(material, material.color);
            
         }
-
-        
-
     }
     // Update is called once per frame
     void Update()
@@ -36,8 +33,6 @@ public class BlockSelectedEffect : MonoBehaviour
             mat.color = new Color(0.5f + change, 0.5f + change, 0.5f + change);
         }
     }
-
-
     public void ColorReset()
     {
         foreach (Material material in mrenderer.materials)//マテリアルすべてを調査

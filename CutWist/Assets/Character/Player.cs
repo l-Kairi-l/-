@@ -84,24 +84,52 @@ public class Player : KinematicObject
                 {
                     move.x *= 1.5f;
                     //  SceneManager.LoadScene("Scene2");
-
                 }
-
-
             }
             else
             {
-                if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)|| Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+                if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
                 {
-                    CursorMode = 1;
+                      CursorMode = 1;
+                    //CursorMode = CursorMode == -1 ? -1 : CursorMode == 0 ? 1 : 0;
+                    BlockDirection.RotateMode = CursorMode == -1 ? BlockDirection.RotateMode : CursorMode == 0 ? 0 : 1;
+
+                    GameObject[] objects;
+
+                    objects = GameObject.FindGameObjectsWithTag("Object");
+
+                    foreach (GameObject obj in objects)
+                    {
+                        BlockSelectedEffect bse = obj.GetComponent<BlockSelectedEffect>();
+                        if (bse)
+                        {
+                            bse.ColorReset();
+                        }
+                    }
+
                 }
-                else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)|| Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+                else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
                 {
                     CursorMode = 0;
-                }
-                    move.x = 0;
-            }
+                    //CursorMode = CursorMode == -1 ? -1 : CursorMode == 0 ? 1 : 0;
+                    BlockDirection.RotateMode = CursorMode == -1 ? BlockDirection.RotateMode : CursorMode == 0 ? 0 : 1;
 
+                    GameObject[] objects;
+
+                    objects = GameObject.FindGameObjectsWithTag("Object");
+
+                    foreach (GameObject obj in objects)
+                    {
+                        BlockSelectedEffect bse = obj.GetComponent<BlockSelectedEffect>();
+                        if (bse)
+                        {
+                            bse.ColorReset();
+                        }
+                    }
+
+                }
+                move.x = 0;
+            }
         }
         else
         {
@@ -130,24 +158,6 @@ public class Player : KinematicObject
             }
 
         }
-        if (Input.GetKeyDown(KeyCode.RightControl))
-        {
-            CursorMode = CursorMode == -1 ? -1 : CursorMode == 0 ? 1 : 0;
-            BlockDirection.RotateMode = CursorMode == -1 ? BlockDirection.RotateMode : CursorMode == 0 ? 0 : 1;
-
-            GameObject[] objects;
-
-            objects = GameObject.FindGameObjectsWithTag("Object");
-
-            foreach (GameObject obj in objects)
-            {
-                BlockSelectedEffect bse = obj.GetComponent<BlockSelectedEffect>();
-                if (bse)
-                {
-                    bse.ColorReset();
-                }
-            }
-        }
 
         UpdateJumpState();
         base.Update();
@@ -162,7 +172,6 @@ public class Player : KinematicObject
         // Camera.GetComponent<PlayCamera>().SetPosition(new Vector3(GetPos().x, GetPos().y+2.0f, -150.0f));
 
     }
-
 
     //ジャンプ判定
     void UpdateJumpState()
