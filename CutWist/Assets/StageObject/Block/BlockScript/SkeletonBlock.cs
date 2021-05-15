@@ -24,12 +24,22 @@ public class SkeletonBlock : MonoBehaviour
         {
             Block.GetComponent<BoxCollider2D>().enabled = false;
         }
+        if (other.gameObject.name == "GoalSheep")
+        {
+            Block.GetComponent<BoxCollider2D>().enabled = false;
+        }
+
+        
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
 
         if (other.gameObject.tag == "Player")
+        {
+            Block.GetComponent<BoxCollider2D>().enabled = true;
+        }
+        if (other.gameObject.name == "GoalSheep")
         {
             Block.GetComponent<BoxCollider2D>().enabled = true;
         }

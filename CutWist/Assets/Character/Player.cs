@@ -25,9 +25,9 @@ public class Player : KinematicObject
     // 消滅判定
     public bool destroy = false;
 
-   // private bool stopJump;
+    // private bool stopJump;
     //座標変換
-   // Rigidbody2D rb;
+    // Rigidbody2D rb;
 
     //スプライトの向き
     SpriteRenderer spriteRenderer;
@@ -52,7 +52,7 @@ public class Player : KinematicObject
 
     void Awake()
     {
-      //  rb = GetComponent<Rigidbody2D>();
+        //  rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         Camera = GameObject.Find("PlayCamera");//.GetComponent<CursorManeger>();
 
@@ -66,54 +66,61 @@ public class Player : KinematicObject
     protected override void Update()
     {
 
-       
-            if (controlEnabled)
-            {
-                if (CursorMode == -1)
-                {
-                    move.x = Input.GetAxis("Horizontal");
-                    if (jumpState == JumpState.Grounded && Input.GetButtonDown("Jump"))
-                        jumpState = JumpState.PrepareToJump;
-                    else if (Input.GetButtonUp("Jump"))
-                    {
-                      stopJump = true;
-                        Schedule<PlayerStopJump>().player = this;
-                        
-                    }
-                    if (Input.GetKey(KeyCode.LeftShift))
-                    {
-                        move.x *= 1.5f;
-                        //  SceneManager.LoadScene("Scene2");
-    
-                    }
 
+        if (controlEnabled)
+        {
+            if (CursorMode == -1)
+            {
+                move.x = Input.GetAxis("Horizontal");
+                if (jumpState == JumpState.Grounded && Input.GetButtonDown("Jump"))
+                    jumpState = JumpState.PrepareToJump;
+                else if (Input.GetButtonUp("Jump"))
+                {
+                    stopJump = true;
+                    Schedule<PlayerStopJump>().player = this;
 
                 }
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    move.x *= 1.5f;
+                    //  SceneManager.LoadScene("Scene2");
+
+                }
+
+
+            }
             else
             {
-                move.x = 0;
+                if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)|| Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+                {
+                    CursorMode = 1;
+                }
+                else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)|| Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+                {
+                    CursorMode = 0;
+                }
+                    move.x = 0;
             }
 
         }
         else
-            {
-                move.x = 0;
-            }
+        {
+            move.x = 0;
+        }
 
-        if (Input.GetKeyDown(KeyCode.RightShift))
+        if (Input.GetKeyDown(KeyCode.RightShift)|| Input.GetKeyDown(KeyCode.LeftShift))
         {
             //モード変更時
-          GameObject  manager= GameObject.Find("GameManager");
-            //true==EditCameraモード false==PlayCameraモード
-            manager.GetComponent<EditManager>().SetEditMode(CursorMode == -1 ? true : false);
 
             CursorMode = CursorMode == -1 ? 0 : -1;
+
+            BlockDirection.RotateMode = CursorMode == -1 ? BlockDirection.RotateMode : 0;
 
             GameObject[] objects;
 
             objects = GameObject.FindGameObjectsWithTag("Object");
 
-            foreach(GameObject obj in objects)
+            foreach (GameObject obj in objects)
             {
                 BlockSelectedEffect bse = obj.GetComponent<BlockSelectedEffect>();
                 if (bse)
@@ -126,6 +133,7 @@ public class Player : KinematicObject
         if (Input.GetKeyDown(KeyCode.RightControl))
         {
             CursorMode = CursorMode == -1 ? -1 : CursorMode == 0 ? 1 : 0;
+            BlockDirection.RotateMode = CursorMode == -1 ? BlockDirection.RotateMode : CursorMode == 0 ? 0 : 1;
 
             GameObject[] objects;
 
@@ -151,7 +159,7 @@ public class Player : KinematicObject
         }
 
         //  Camera.GetComponent<PlayCamera>().AddPosition(new Vector3(targetVelocity.x, targetVelocity.y, 0.0f));
-       // Camera.GetComponent<PlayCamera>().SetPosition(new Vector3(GetPos().x, GetPos().y+2.0f, -150.0f));
+        // Camera.GetComponent<PlayCamera>().SetPosition(new Vector3(GetPos().x, GetPos().y+2.0f, -150.0f));
 
     }
 
@@ -211,13 +219,13 @@ public class Player : KinematicObject
         {
             spriteRenderer.flipX = false;
 
-       //     rb.AddForce(transform.right * (move.x * 5));
+            //     rb.AddForce(transform.right * (move.x * 5));
         }
         else if (move.x < -0.01f)
         {
             spriteRenderer.flipX = true;
 
-        //    rb.AddForce(transform.right * (move.x * 5));
+            //    rb.AddForce(transform.right * (move.x * 5));
         }
 
         targetVelocity = move * maxSpeed;
@@ -262,21 +270,19 @@ public class Player : KinematicObject
             clock = true;
             other.GetComponent<Alarm_Clock>().Set(true);
         }
-        else if(other.gameObject.name == "GoalSheep")
+        else if (other.gameObject.name == "GoalSheep")
         {
             if (clock)
             {
 
                 cleareffect.GetComponent<ClearEffect>().Set(other.transform.position);
-                 Destroy(other.gameObject);
+                Destroy(other.gameObject);
 
             }
         }
-
     }
     private void OnTriggerStay2D(Collider2D other)
     {
-
 
     }
 

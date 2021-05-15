@@ -12,11 +12,11 @@ public class CameraContolloer : MonoBehaviour
 
     void Start()
     {
-        //プレイカメラとエディットカメラをそれぞれ取得
-        PlayCamera = GameObject.Find("PlayCamera");
-        EditCamera = GameObject.Find("EditCamera");
-        //エディットカメラを非アクティブにする
-        EditCamera.SetActive(false);
+        ////プレイカメラとエディットカメラをそれぞれ取得
+        //PlayCamera = GameObject.Find("PlayCamera");
+        //EditCamera = GameObject.Find("EditCamera");
+        ////エディットカメラを非アクティブにする
+        //EditCamera.SetActive(false);
 
       //  NowCamera = true;
     }

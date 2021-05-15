@@ -31,14 +31,14 @@ public class EditManager : MonoBehaviour
         //背景の操作
         BackGroundManager.GetComponent<BackGround>().SetBackGroundType(mode);
 
-        if (mode) {
-            StageUIManager.GetComponent<SpriteRenderer>().material.color = new Color(1.0f,1.0f,1.0f,0.0f);
-        }
-        else
-        {
-            StageUIManager.GetComponent<SpriteRenderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+        //if (mode) {
+        //    StageUIManager.GetComponent<SpriteRenderer>().material.color = new Color(1.0f,1.0f,1.0f,0.0f);
+        //}
+        //else
+        //{
+        //    StageUIManager.GetComponent<SpriteRenderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
-        }
+        //}
 
     }
 }

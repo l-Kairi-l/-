@@ -32,6 +32,7 @@ public class BlockDirection : MonoBehaviour
 
     static public ROTATION_STATE_NAME RotationState = ROTATION_STATE_NAME.Rotated;
     public ROTATION_TYPE_NAME RotateType;
+    static public int RotateMode = -1;
     // Start is called before the first frame update
     void Start()
     {
@@ -72,7 +73,7 @@ public class BlockDirection : MonoBehaviour
         if (Mathf.Abs(EndPosition.y - gameObject.GetComponent<Transform>().position.y) > Mathf.Abs(gameObject.GetComponent<Transform>().position.y) * Time.deltaTime)
         {
 
-            if (RotationState == ROTATION_STATE_NAME.Rotating)
+            if (RotationState == ROTATION_STATE_NAME.Rotating && RotateMode == 0)
             {
                 gameObject.GetComponent<Transform>().position = new Vector3(
                gameObject.GetComponent<Transform>().position.x,
@@ -89,7 +90,7 @@ public class BlockDirection : MonoBehaviour
         }
         else if (Mathf.Abs(EndPosition.x - gameObject.GetComponent<Transform>().position.x) > Mathf.Abs(gameObject.GetComponent<Transform>().position.x) * Time.deltaTime)
         {
-            if (RotationState == ROTATION_STATE_NAME.Rotating)
+            if (RotationState == ROTATION_STATE_NAME.Rotating && RotateMode == 1)
             {
                 gameObject.GetComponent<Transform>().position = new Vector3(
                 StartPosition.x * Mathf.Cos(Mathf.PI * PassedTime / RotateTime),
@@ -119,7 +120,15 @@ public class BlockDirection : MonoBehaviour
 
         }
 
+        if (RotationState == ROTATION_STATE_NAME.Rotated && gameObject.name == "GoalSheep")
 
+
+        {
+            gameObject.GetComponent<Transform>().position = new Vector3(gameObject.GetComponent<Transform>().position.x, gameObject.GetComponent<Transform>().position.y, 0.0f);
+            StartPosition = gameObject.GetComponent<Transform>().position;
+            EndPosition = StartPosition;
+
+        }
 
     }
 }

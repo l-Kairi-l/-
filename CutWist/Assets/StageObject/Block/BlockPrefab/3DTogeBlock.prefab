@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 7050914727739448768}
   m_Layer: 0
   m_Name: 3DTogeBlock
-  m_TagString: Needle
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -230,6 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartPosition: {x: 0, y: 0, z: 0}
   EndPosition: {x: 0, y: 0, z: 0}
+  StartRotation: {x: 0, y: 0, z: 0, w: 0}
   DefaultPosition: {x: 0, y: 0, z: 0}
   RotateType: 0
 --- !u!114 &7050914727739448768

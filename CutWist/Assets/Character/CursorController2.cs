@@ -10,22 +10,14 @@ public class CursorController2 : MonoBehaviour
     public GameObject Player;
     public int Count;
     public GameObject RotateBoard;
- 
 
-
-    //public GameObject Goal_false2;
-    //public GameObject Goal_true2;
-    //public GameObject Needle_0;
-    //public GameObject Needle_1;
-    //public GameObject Needle_2;
-    //public GameObject Needle_3;
-    //public GameObject Needle_4;
+    private uint Frame;
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        Frame = 0;
     }
 
     // Update is called once per frame
@@ -34,40 +26,67 @@ public class CursorController2 : MonoBehaviour
 
         if (Player.GetComponent<Player>().CursorMode == 1)
         {
+            //α値が0==前フレームがプレイモードまたは他のキリトリ線の場合、プレイヤーの位置に行く
+            if (Cursor.GetComponent<Renderer>().material.color.a < 1.0f)
+            {
+                Cursor.transform.position= new Vector3(0, Mathf.Floor(Player.transform.position.y), 0);
+            }
+
+
             GetComponent<World1CursorEffect>().SetType(false, false, 0);
             GetComponent<World2CursorEffect>().SetType(false, false, 0);
             GetComponent<World3CursorEffect>().SetType(false, false, 0);
-
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
-                Cursor.transform.position += new Vector3(0, 0.1f, 0);
-                if (Cursor.transform.position.y >= 11.9f)
+                if (Frame % 8 == 0)
                 {
-                    Cursor.transform.position = new Vector3(
-                        Cursor.transform.position.x, 11.9f, Cursor.transform.position.z);
-                }
 
-                GetComponent<World1CursorEffect>().SetType(true,false,1);
-                GetComponent<World2CursorEffect>().SetType(true,false,1);
-                GetComponent<World3CursorEffect>().SetType(true,false,1);
+                    Cursor.transform.position += new Vector3(0, 2.0f, 0);
+
+                    GetComponent<World1CursorEffect>().SetType(true, false, 1);
+                    GetComponent<World2CursorEffect>().SetType(true, false, 1);
+                    GetComponent<World3CursorEffect>().SetType(true, false, 1);
+                }
+                Frame++;
+
             }
-            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+            else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
-                Cursor.transform.position += new Vector3(0, -0.1f, 0);
-                if (Cursor.transform.position.y <= -11.9f)
+                if (Frame % 8 == 0)
                 {
-                    Cursor.transform.position = new Vector3(
-                        Cursor.transform.position.x, -11.9f, Cursor.transform.position.z);
+
+                    Cursor.transform.position += new Vector3(0, -2.0f, 0);
+                    GetComponent<World1CursorEffect>().SetType(true, false, -1);
+                    GetComponent<World2CursorEffect>().SetType(true, false, -1);
+                    GetComponent<World3CursorEffect>().SetType(true, false, -1);
                 }
-                GetComponent<World1CursorEffect>().SetType(true, false, -1);
-                GetComponent<World2CursorEffect>().SetType(true, false, -1);
-                GetComponent<World3CursorEffect>().SetType(true, false, -1);
+                Frame++;
 
             }
+            else
+            {
+                Frame = 0;
+            }
+
+
+            //--------可動域-------//
+
+            if (Cursor.transform.position.y >= 10.0f)
+            {
+                Cursor.transform.position = new Vector3(
+                    Cursor.transform.position.x, 10.0f, Cursor.transform.position.z);
+            }
+
+            if (Cursor.transform.position.y <= -10.0f)
+            {
+                Cursor.transform.position = new Vector3(
+                    Cursor.transform.position.x, -10.0f, Cursor.transform.position.z);
+            }
+
             Cursor.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
 
-            if(BlockDirection.RotationState == BlockDirection.ROTATION_STATE_NAME.Rotated)
+            if (BlockDirection.RotationState == BlockDirection.ROTATION_STATE_NAME.Rotated)
             {
                 GameObject[] objects;
 
@@ -99,7 +118,7 @@ public class CursorController2 : MonoBehaviour
 
                     }
                 }
-                
+
             }
         }
         else
@@ -107,9 +126,9 @@ public class CursorController2 : MonoBehaviour
             Cursor.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
         }
 
-        if (Player.GetComponent<Player>().CursorMode == 1 && Input.GetKeyDown(KeyCode.K))
+        if (Player.GetComponent<Player>().CursorMode == 1 && (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl)))
         {
-           
+            Player.GetComponent<Player>().GravityZero();
             GameObject[] objects;
 
             objects = GameObject.FindGameObjectsWithTag("Object");
@@ -122,14 +141,24 @@ public class CursorController2 : MonoBehaviour
             // TranLeft = Player.GetComponent<SpriteRenderer>().flipX;
             if (BlockDirection.RotationState == BlockDirection.ROTATION_STATE_NAME.Rotated)
             {
-                float scaley = TranLeft ? 25.0f + Cursor.transform.position.y : 14.0f - Cursor.transform.position.y;
+                float scaley = TranLeft ? 14.0f + Cursor.transform.position.y : 14.0f - Cursor.transform.position.y;
                 float posy = TranLeft ? Cursor.transform.position.y - 0.5f * (14.0f + Cursor.transform.position.y) : Cursor.transform.position.y + 0.5f * (14.0f - Cursor.transform.position.y);
                 GameObject RBoard = Instantiate(RotateBoard, new Vector3(0, posy, 0), Quaternion.identity);
                 RBoard.transform.localScale = new Vector3(1, scaley, 1);
                 RotateBoardBehavior2.IsInverse = false;
                 for (int i = 0; i < Count; i++)
                 {
-                    
+                    if (objects[i].name == "GoalSheep")
+                    {
+                        objects[i].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+
+
+                    }
+                    else if (objects[i].name == "alarm_clock")
+                    {
+
+                        objects[i].GetComponent<Alarm_Clock>().enabled = false;
+                    }
                     //切り取り線を参照しプレイヤーと異なる側のブロックを反転
                     if (objects[i].transform.position.y <= Cursor.transform.position.y && TranLeft || objects[i].transform.position.y > Cursor.transform.position.y && !TranLeft)
                     {
@@ -137,24 +166,14 @@ public class CursorController2 : MonoBehaviour
                         //左右反転だから左か右に向いてるブロックの向きだけを反転するようにする
                         //  objects[i].GetComponent<BlockDirection>().blkDirection = (objects[i].GetComponent<BlockDirection>().blkDirection % 2) == 1 ? (objects[i].GetComponent<BlockDirection>().blkDirection + 2) % 4 : objects[i].GetComponent<BlockDirection>().blkDirection;
 
-                        //if (objects[i].name == "GoalSheep")
-                        //{
-                        //    objects[i].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-                            
-                        //    objects[i].GetComponent<BlockDirection>().enabled = true;
-                        //}
-                        //else if(objects[i].name == "alarm_clock")
-                        //{
-                        //    objects[i].GetComponent<BlockDirection>().enabled = true;
-                        //    objects[i].GetComponent<Alarm_Clock>().enabled = false;
-                        //}
+
 
                         CursorController.rotatecount++;
 
                         BlockDirection blk = objects[i].GetComponent<BlockDirection>();
                         blk.StartPosition = objects[i].transform.position;
                         blk.EndPosition = new Vector3(objects[i].transform.position.x * -1.0f, objects[i].transform.position.y, objects[i].transform.position.z);
-                        objects[i].GetComponent<Transform>().Rotate(new Vector3(0, 180, 0),Space.World);
+                        objects[i].GetComponent<Transform>().Rotate(new Vector3(0, 180, 0), Space.World);
                         blk.StartRotation = objects[i].GetComponent<Transform>().rotation;
                         objects[i].GetComponent<Transform>().Rotate(new Vector3(0, -180, 0), Space.World);
                         //blk.StartRotation *= Quaternion.Euler(0,180f, 0);
@@ -175,7 +194,7 @@ public class CursorController2 : MonoBehaviour
 
                 }
 
-               
+
 
                 if (CursorController.rotatecount != 0)
                 {
