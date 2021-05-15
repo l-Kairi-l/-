@@ -17,7 +17,7 @@ public class Player : KinematicObject
     //ジャンプの状態
     public JumpState jumpState = JumpState.Grounded;
     //移動スピード
-    public const float maxSpeed = 30;
+    public const float maxSpeed = 10;
     //移動の加算スピード
     Vector2 move;
     //操作できるかの有無
@@ -38,7 +38,7 @@ public class Player : KinematicObject
 
     //ジャンプ関係
     bool jump;
-    public const float jumpTakeOffSpeed = 5;
+    public const float jumpTakeOffSpeed = 4.4f;
 
     //カーソル
     GameObject Camera;

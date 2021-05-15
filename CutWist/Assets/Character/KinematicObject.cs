@@ -93,7 +93,7 @@ namespace Platformer.Mechanics
             contactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
             contactFilter.useLayerMask = true;
 
-            Physics2D.gravity = new Vector2(0, -90f);
+            Physics2D.gravity = new Vector2(0, -70f);
 
             CursorTrigger = -1;
         }
