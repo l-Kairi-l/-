@@ -109,7 +109,12 @@
     <Compile Include="Assets\StageObject\Goal\Sheep.cs" />
     <Compile Include="Assets\StageObject\SupportObject\Alarm_Clock.cs" />
     <Compile Include="Assets\Title\Title.cs" />
+    <Compile Include="Assets\UI\CursolPoint\CursolPoint3D.cs" />
     <Compile Include="Assets\UI\CursolPoint\CursorPoint.cs" />
+    <Compile Include="Assets\UI\MainGame\Option\Home.cs" />
+    <Compile Include="Assets\UI\MainGame\Option\Option.cs" />
+    <Compile Include="Assets\UI\MainGame\Option\Replay.cs" />
+    <Compile Include="Assets\UI\MainGame\Option\Return.cs" />
     <Compile Include="Assets\UI\StageSelect\StageSelect_stage.cs" />
     <Compile Include="Assets\UI\数字\Number.cs" />
     <Compile Include="Assets\UI\数字\NumberResources.cs" />

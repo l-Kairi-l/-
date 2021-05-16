@@ -26,6 +26,7 @@ public class CursorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Player.GetComponent<Player>().CursorMode == -2) return;
 
 
         //color.a = (DebugImage.GetComponent<CursorController>().== 1) ? 1.0f : 0.0f;

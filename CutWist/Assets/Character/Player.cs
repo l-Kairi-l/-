@@ -69,9 +69,9 @@ public class Player : KinematicObject
     //キー入力など、オブジェクトのメンバ関数
     protected override void Update()
     {
+        if (CursorMode == -2) return;
 
-
-        if (controlEnabled)
+            if (controlEnabled)
         {
             animator.SetBool("Move", false);
 
@@ -111,7 +111,7 @@ public class Player : KinematicObject
 
                 }
             }
-            else
+            else 
             {
                 if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
                 {

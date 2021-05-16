@@ -23,8 +23,9 @@ public class CursorController2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Player.GetComponent<Player>().CursorMode == -2) return;
 
-        if (Player.GetComponent<Player>().CursorMode == 1)
+            if (Player.GetComponent<Player>().CursorMode == 1)
         {
             //α値が0==前フレームがプレイモードまたは他のキリトリ線の場合、プレイヤーの位置に行く
             if (Cursor.GetComponent<Renderer>().material.color.a < 1.0f)
