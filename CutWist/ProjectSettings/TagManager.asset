@@ -10,6 +10,7 @@ TagManager:
   - CoursolPoint
   - Clock
   - Skeleton
+  - Manager
   layers:
   - Default
   - TransparentFX

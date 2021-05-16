@@ -35,6 +35,11 @@ public class SceneManeger : MonoBehaviour
         {
             SceneManager.LoadScene("Stage1");
         }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name); // 現在シーンのリロード
+        }
+
     }
 
 

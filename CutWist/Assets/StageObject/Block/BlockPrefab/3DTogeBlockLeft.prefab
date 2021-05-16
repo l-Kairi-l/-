@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 2955280774068229137}
   - component: {fileID: 5981557990237300800}
   m_Layer: 0
-  m_Name: 3DTogeBlock (2)
+  m_Name: 3DTogeBlockLeft
   m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -203,7 +203,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.000034594443, y: 0.0006156396}
+  m_Offset: {x: 0.000034594443, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -214,7 +214,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.031002827, y: 0.032126572}
+  m_Size: {x: 0.03, y: 0.03}
   m_EdgeRadius: 0
 --- !u!114 &2955280774068229137
 MonoBehaviour:
@@ -230,6 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartPosition: {x: 0, y: 0, z: 0}
   EndPosition: {x: 0, y: 0, z: 0}
+  StartRotation: {x: 0, y: 0, z: 0, w: 0}
   DefaultPosition: {x: 0, y: 0, z: 0}
   RotateType: 0
 --- !u!114 &5981557990237300800

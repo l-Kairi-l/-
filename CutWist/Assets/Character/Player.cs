@@ -30,7 +30,7 @@ public class Player : KinematicObject
     // Rigidbody2D rb;
 
     //スプライトの向き
-    SpriteRenderer spriteRenderer;
+  //  SpriteRenderer spriteRenderer;
 
     private bool stopJump;
 
@@ -49,15 +49,19 @@ public class Player : KinematicObject
     public bool clock;
     public GameObject cleareffect;
 
+    //アニメーション
+    private Animator animator;
 
     void Awake()
     {
         //  rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+      //  spriteRenderer = GetComponent<SpriteRenderer>();
         Camera = GameObject.Find("PlayCamera");//.GetComponent<CursorManeger>();
 
         CursorMode = -1;
         clock = false;
+
+        animator= GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -69,21 +73,42 @@ public class Player : KinematicObject
 
         if (controlEnabled)
         {
+            animator.SetBool("Move", false);
+
             if (CursorMode == -1)
             {
+
                 move.x = Input.GetAxis("Horizontal");
+
+                //アニメーション
+
+                if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+                {
+
+                    if (move.x > 0.01f)
+                    {
+                        animator.SetBool("Move", true);
+
+                        animator.SetBool("Vector", true);
+
+                    }
+                    if (move.x < -0.01f)
+                    {
+                        animator.SetBool("Move", true);
+
+                        animator.SetBool("Vector", false);
+                    }
+                }
+
                 if (jumpState == JumpState.Grounded && Input.GetButtonDown("Jump"))
+                {
                     jumpState = JumpState.PrepareToJump;
+                }
                 else if (Input.GetButtonUp("Jump"))
                 {
                     stopJump = true;
                     Schedule<PlayerStopJump>().player = this;
 
-                }
-                if (Input.GetKey(KeyCode.LeftShift))
-                {
-                    move.x *= 1.5f;
-                    //  SceneManager.LoadScene("Scene2");
                 }
             }
             else
@@ -224,18 +249,7 @@ public class Player : KinematicObject
             }
         }
 
-        if (move.x > 0.01f)
-        {
-            spriteRenderer.flipX = false;
 
-            //     rb.AddForce(transform.right * (move.x * 5));
-        }
-        else if (move.x < -0.01f)
-        {
-            spriteRenderer.flipX = true;
-
-            //    rb.AddForce(transform.right * (move.x * 5));
-        }
 
         targetVelocity = move * maxSpeed;
     }

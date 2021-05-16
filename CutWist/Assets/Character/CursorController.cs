@@ -265,7 +265,12 @@ public class CursorController : MonoBehaviour
 
 
 
-                Sheep.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                //Sheep.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+
+
+
+
+
 
                 Sheep.GetComponent<Transform>().rotation = Sheep.GetComponent<BlockDirection>().StartRotation;
                 //Sheep.GetComponent<BlockDirection>().enabled = false;

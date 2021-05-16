@@ -8,7 +8,7 @@ public class ClearEffect : MonoBehaviour
     //clearの絵
     public GameObject ClearTexture;
     //横になっている牛のオブジェクト
-    public GameObject sheep;
+  //  public GameObject sheep;
     bool flag;
     // Start is called before the first frame update
     void Start()
@@ -25,7 +25,7 @@ public class ClearEffect : MonoBehaviour
     {
         if (flag)
         {
-            sheep.transform.Rotate(new Vector3(0.0f, 2.0f, 0.0f));
+        //    sheep.transform.Rotate(new Vector3(0.0f, 2.0f, 0.0f));
 
 
             ClearTexture.transform.localScale += new Vector3(0.01f,0.01f,0.0f);
@@ -57,7 +57,7 @@ public class ClearEffect : MonoBehaviour
             pos.y, pos.z), Quaternion.identity);
 
 
-        sheep = GameObject.Find("GoalSheep2(Clone)");
+      //  sheep = GameObject.Find("GoalSheep2(Clone)");
 
         ClearTexture.transform.localScale = new Vector3(0.001f, 0.001f, 0.0f);
         ClearTexture.transform.position = new Vector3(0.0f, 0.1f, -2.0f);

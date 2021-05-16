@@ -38,7 +38,10 @@ public class BreakBlock : MonoBehaviour
 
         if (other.gameObject.tag == "Player")
         {
-            Frame = 0;
+            if (other.gameObject.transform.position.y > gameObject.transform.position.y)
+            {
+                Frame = 0;
+            }
         }
         if (other.gameObject.name == "GoalSheep")
         {
