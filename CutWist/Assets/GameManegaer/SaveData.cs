@@ -1,18 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using System.IO;
 
-public class SaveData : MonoBehaviour
+namespace PlayData
 {
-    // Start is called before the first frame update
-    void Start()
+    [System.Serializable]
+    public class SaveData
     {
-        
-    }
+        public int WorldNumber;
+        public int[] ClearStar = new int[9];
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void Init(int world)
+        {
+           // ClearStar = new int[9];
+            //ステージのクリアデータの初期化
+            for (int i = 0; i < 9; i++)
+            {
+                ClearStar[i]=i;
+            }
+            //ワールド番号の設定
+            WorldNumber = world;
+        }
+
     }
 }
+
+
+

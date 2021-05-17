@@ -84,6 +84,7 @@
     <Compile Include="Assets\GameManegaer\Resources\Transition.cs" />
     <Compile Include="Assets\GameManegaer\Resources\TransitionResources.cs" />
     <Compile Include="Assets\GameManegaer\SaveData.cs" />
+    <Compile Include="Assets\GameManegaer\SaveDataManager.cs" />
     <Compile Include="Assets\GameManegaer\SceneMagegerPrt.cs" />
     <Compile Include="Assets\GameManegaer\SceneManeger.cs" />
     <Compile Include="Assets\Logo\Logo.cs" />
@@ -116,6 +117,7 @@
     <Compile Include="Assets\UI\MainGame\Option\Replay.cs" />
     <Compile Include="Assets\UI\MainGame\Option\Return.cs" />
     <Compile Include="Assets\UI\StageSelect\StageSelect_stage.cs" />
+    <Compile Include="Assets\UI\StageSelect\Star.cs" />
     <Compile Include="Assets\UI\数字\Number.cs" />
     <Compile Include="Assets\UI\数字\NumberResources.cs" />
     <Compile Include="Assets\WorldSelect\WorldSelectPrt.cs" />
