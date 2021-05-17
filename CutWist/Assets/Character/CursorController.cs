@@ -10,6 +10,7 @@ public class CursorController : MonoBehaviour
     public GameObject Player;
     public GameObject Sheep;
     public GameObject Clock;
+    
     public int Count;
     public GameObject RotateBoard;
 
@@ -153,7 +154,7 @@ public class CursorController : MonoBehaviour
 
         if (Player.GetComponent<Player>().CursorMode == 0 && (Input.GetKeyDown(KeyCode.LeftControl)|| Input.GetKeyDown(KeyCode.RightControl)))
         {
-
+            Player.GetComponent<Player>().CursorMode = -3;
             Player.GetComponent<Player>().GravityZero();
             GameObject[] objects = GameObject.FindGameObjectsWithTag("Object");
 
@@ -227,11 +228,14 @@ public class CursorController : MonoBehaviour
                 if (rotatecount == 0)
                 {
                     BlockDirection.RotationState = BlockDirection.ROTATION_STATE_NAME.Rotated;
+                    Player.GetComponent<Player>().CursorMode = 0;
 
                 }
                 else
                 {
                     rotatecount = 0;
+                    GameObject cleargauge = GameObject.Find("clear_gauge");
+                    cleargauge.GetComponent<ClearGauge>().BlockRotate();
                 }
             }
             //else
@@ -280,6 +284,7 @@ public class CursorController : MonoBehaviour
                 Clock.GetComponent<Transform>().rotation = Clock.GetComponent<BlockDirection>().StartRotation;
                 //Clock.GetComponent<BlockDirection>().enabled = false;
                 Player.GetComponent<Player>().GravityReset();
+                Player.GetComponent<Player>().CursorMode = 0;
 
             }
 

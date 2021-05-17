@@ -25,12 +25,12 @@ public class CursorController2 : MonoBehaviour
     {
         if (Player.GetComponent<Player>().CursorMode == -2) return;
 
-            if (Player.GetComponent<Player>().CursorMode == 1)
+        if (Player.GetComponent<Player>().CursorMode == 1)
         {
             //α値が0==前フレームがプレイモードまたは他のキリトリ線の場合、プレイヤーの位置に行く
             if (Cursor.GetComponent<Renderer>().material.color.a < 1.0f)
             {
-                Cursor.transform.position= new Vector3(0, Mathf.Floor(Player.transform.position.y), 0);
+                Cursor.transform.position = new Vector3(0, Mathf.Floor(Player.transform.position.y), 0);
             }
 
 
@@ -129,6 +129,7 @@ public class CursorController2 : MonoBehaviour
 
         if (Player.GetComponent<Player>().CursorMode == 1 && (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl)))
         {
+            Player.GetComponent<Player>().CursorMode = -3;
             Player.GetComponent<Player>().GravityZero();
             GameObject[] objects;
 
@@ -201,6 +202,13 @@ public class CursorController2 : MonoBehaviour
                 {
                     BlockDirection.RotationState = BlockDirection.ROTATION_STATE_NAME.Rotating;
                     CursorController.rotatecount = 0;
+                    GameObject cleargauge = GameObject.Find("clear_gauge");
+                    cleargauge.GetComponent<ClearGauge>().BlockRotate();
+
+                }
+                else
+                {
+                    Player.GetComponent<Player>().CursorMode = 1;
                 }
             }
             //else
