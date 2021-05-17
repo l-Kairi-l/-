@@ -14202,8 +14202,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97123347e6890304794d8592ad790188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraManager: {fileID: 417429547}
-  BackGroundManager: {fileID: 1585736878}
   StageUIManager: {fileID: 638975375}
 --- !u!114 &1979583308
 MonoBehaviour:
@@ -15132,6 +15130,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6439679908962969841, guid: 52c6e42606156cb499c8f836605890bc,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 6439679908962969847, guid: 52c6e42606156cb499c8f836605890bc,
         type: 3}
       propertyPath: m_Size.x
@@ -15140,6 +15143,11 @@ PrefabInstance:
     - target: {fileID: 6439679908962969847, guid: 52c6e42606156cb499c8f836605890bc,
         type: 3}
       propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439679908962969847, guid: 52c6e42606156cb499c8f836605890bc,
+        type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6439679909790450909, guid: 52c6e42606156cb499c8f836605890bc,
