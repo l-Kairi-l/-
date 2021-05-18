@@ -103,6 +103,8 @@ public class Player : KinematicObject
                 if (jumpState == JumpState.Grounded && Input.GetButtonDown("Jump"))
                 {
                     jumpState = JumpState.PrepareToJump;
+                    animator.SetBool("Jump", true);
+
                 }
                 else if (Input.GetButtonUp("Jump"))
                 {
@@ -225,6 +227,8 @@ public class Player : KinematicObject
                 break;
             case JumpState.Landed:
                 jumpState = JumpState.Grounded;
+                animator.SetBool("Jump", false);
+
                 break;
         }
 
