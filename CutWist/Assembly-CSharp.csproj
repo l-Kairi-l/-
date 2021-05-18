@@ -115,6 +115,7 @@
     <Compile Include="Assets\UI\MainGame\ClearGauge.cs" />
     <Compile Include="Assets\UI\MainGame\GameOver\GameOver.cs" />
     <Compile Include="Assets\UI\MainGame\GameOver\fullgauge.cs" />
+    <Compile Include="Assets\UI\MainGame\GameUI.cs" />
     <Compile Include="Assets\UI\MainGame\Option\Home.cs" />
     <Compile Include="Assets\UI\MainGame\Option\Option.cs" />
     <Compile Include="Assets\UI\MainGame\Option\Replay.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="Assets\UI\StageSelect\Star.cs" />
     <Compile Include="Assets\UI\数字\Number.cs" />
     <Compile Include="Assets\UI\数字\NumberResources.cs" />
+    <Compile Include="Assets\UI\数字\NumberUI.cs" />
     <Compile Include="Assets\WorldSelect\WorldSelectPrt.cs" />
     <Compile Include="Assets\WorldSelect\WorldUI\World.cs" />
     <Compile Include="Assets\WorldSelect\WorldUI\WorldFrame.cs" />

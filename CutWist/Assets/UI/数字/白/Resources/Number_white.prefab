@@ -104,3 +104,4 @@ MonoBehaviour:
   Number7: {fileID: 21300000, guid: 35347fb99ecedfc46839c16b4dfe59f6, type: 3}
   Number8: {fileID: 21300000, guid: 59fc4876f99a6d94a940cb58e5feb933, type: 3}
   Number9: {fileID: 21300000, guid: 744af9e4e9f67fe4f93b6ebe81414222, type: 3}
+  Mynumber: 0

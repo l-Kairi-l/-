@@ -17,16 +17,26 @@ public class StageSelect_stage : MonoBehaviour
 
     public Sprite ClearNot;
 
+    public GameObject Select;
 
+    public float add_a;
+    public bool trigger;
 
     // Start is called before the first frame update
     void Start()
     {
+        add_a = 0.003f;
+        trigger = false;
+
+        Select.GetComponent<SpriteRenderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+        Select.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+
         Star1.GetComponent<Star>().SetTexture(false);
         Star2.GetComponent<Star>().SetTexture(false);
         Star3.GetComponent<Star>().SetTexture(false);
 
         SaveData data =manager.GetComponent<SaveDataManager>().GetData(worldnumber-1);
+
 
         if (data.ClearStar[stagenumber-1]==3)
         {
@@ -56,29 +66,59 @@ public class StageSelect_stage : MonoBehaviour
     void Update()
     {
         //SceneManager.LoadScene("World1");
-
-    }
-
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        // トゲにあたった場合
-        if (other.gameObject.tag == "CoursolPoint" && Input.GetMouseButtonDown(0))
+        if (trigger)
         {
 
+            Select.GetComponent<SpriteRenderer>().material.color += new Color(0.0f, 0.0f, 0.0f, add_a);
 
-            string s_name = "Stage";
-            string s_number="" + stagenumber;
+            if (Select.GetComponent<SpriteRenderer>().material.color.a >= 0.5f)
+            {
+                add_a = -0.003f;
+            }
+            if (Select.GetComponent<SpriteRenderer>().material.color.a <= 0.1f)
+            {
+                add_a = 0.003f;
+            }
+            if (Input.GetMouseButtonDown(0))
+            {
+                string s_worldname = "W"+ worldnumber;
+                string s_stagename = "_Stage" + stagenumber;
 
-            SceneManager.LoadScene(s_name + s_number);
+                SceneManager.LoadScene(s_worldname + s_stagename);
 
-            //            // プレハブをGameObject型で取得
-            //GameObject obj = (GameObject)Resources.Load("Transition_1");
-            //obj.GetComponent<Transition>().SetNextScene(s_name + s_number);
+                //            // プレハブをGameObject型で取得
+                //GameObject obj = (GameObject)Resources.Load("Transition_1");
+                //obj.GetComponent<Transition>().SetNextScene(s_name + s_number);
 
-            //// プレハブを元に、インスタンスを生成、
-            //Instantiate(obj, new Vector3(0.0f, 0.0f, -90.0f), Quaternion.identity);
+                //// プレハブを元に、インスタンスを生成、
+                //Instantiate(obj, new Vector3(0.0f, 0.0f, -90.0f), Quaternion.identity);
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "CoursolPoint")
+        {
+            trigger = true;
 
         }
     }
 
-}
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "CoursolPoint")
+        {
+           // trigger = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "CoursolPoint")
+        {
+            Select.GetComponent<SpriteRenderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+            trigger = false;
+        }
+
+    }
+    }

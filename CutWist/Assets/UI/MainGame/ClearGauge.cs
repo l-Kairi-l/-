@@ -25,6 +25,8 @@ public class ClearGauge : MonoBehaviour
     private int GaugeLife;
     private float StarDiffuseAlpha = 1.0f;
     private float TargetAmount;
+
+     GameObject Manager;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,11 @@ public class ClearGauge : MonoBehaviour
         StarDiffuseAlpha = 1.0f;
         TargetAmount = 1.0f;
         player = GameObject.Find("Player");
+
+        Manager = GameObject.Find("GameManager");
+
+        GameObject number = GameObject.Find("Number_whiteUI");
+        number.GetComponent<NumberUI>().SetType(Manager.GetComponent<EditManager>().StageNumber);
     }
 
     // Update is called once per frame

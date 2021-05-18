@@ -18,10 +18,13 @@ public class Number : MonoBehaviour
     public Sprite Number8;
     public Sprite Number9;
 
+    public int Mynumber;
 
     void Start()
     {
         MainSprite = GetComponent<SpriteRenderer>();
+
+        SetType(Mynumber);
     }
 
     // Update is called once per frame

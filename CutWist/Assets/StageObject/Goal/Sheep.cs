@@ -26,6 +26,8 @@ public class Sheep : KinematicObject
             {
                 Debug.Log("ゴール");
 
+
+
             }
         }
     }

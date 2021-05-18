@@ -54,6 +54,7 @@ public class BlockDirection : MonoBehaviour
     void Update()
     {
 
+
         int sign = (RotateType == ROTATION_TYPE_NAME.Outside ? -1 : 1);
         //if (gameObject.name != "GoalSheep" && gameObject.name != "alarm_clock")
         //gameObject.GetComponent<Transform>().rotation = Quaternion.Euler(
@@ -84,9 +85,6 @@ public class BlockDirection : MonoBehaviour
                 gameObject.GetComponent<Transform>().Rotate(new Vector3(sign * Mathf.Sign(StartPosition.y) * 180.0f / RotateTime * Time.deltaTime, 0.0f, 0.0f), Space.World);
 
             }
-
-
-
         }
         else if (Mathf.Abs(EndPosition.x - gameObject.GetComponent<Transform>().position.x) > Mathf.Abs(gameObject.GetComponent<Transform>().position.x) * Time.deltaTime)
         {

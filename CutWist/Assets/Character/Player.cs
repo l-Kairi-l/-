@@ -71,7 +71,7 @@ public class Player : KinematicObject
     {
         if (CursorMode == -2) return;
 
-            if (controlEnabled)
+        if (controlEnabled)
         {
             animator.SetBool("Move", false);
 

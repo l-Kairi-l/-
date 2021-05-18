@@ -27,10 +27,10 @@ EditorBuildSettings:
     path: Assets/Stage0/0.unity
     guid: deb8a3608ed21ac45a0e3a6edea3d1a0
   - enabled: 1
-    path: Assets/World_1/3/Stage3.unity
+    path: Assets/World_1/W1_Stage3.unity
     guid: f0c66bc94703ea443975a72126449937
   - enabled: 1
-    path: Assets/World_1/2/Stage2.unity
+    path: Assets/World_1/W1_Stage2.unity
     guid: c9b9a8bb887bac74eb2cc67f9bfc0ef7
   - enabled: 1
     path: Assets/StageSelect/1/World1.unity
@@ -42,6 +42,78 @@ EditorBuildSettings:
     path: Assets/StageSelect/3/World3.unity
     guid: 2a161bddce2110245ba20652b0cb65e1
   - enabled: 1
-    path: Assets/World_1/1/Stage1.unity
+    path: Assets/World_1/W1_Stage1.unity
     guid: b28078921e103a64a9a00bdaf83a8a8e
+  - enabled: 1
+    path: Assets/World_1/W1_Stage4.unity
+    guid: 8598aa19af339394c92f381a595818d8
+  - enabled: 1
+    path: Assets/World_1/W1_Stage5.unity
+    guid: 986babf7914ba9642803614271436db8
+  - enabled: 1
+    path: Assets/World_1/W1_Stage6.unity
+    guid: 509021505a7b1bc48949485056b805f2
+  - enabled: 1
+    path: Assets/World_1/W1_Stage7.unity
+    guid: 29057c776175bdf418941c7646cdb8d0
+  - enabled: 1
+    path: Assets/World_1/W1_Stage8.unity
+    guid: e9b95b7dfcf037f46a7dd9aecc210be8
+  - enabled: 1
+    path: Assets/World_1/W1_Stage9.unity
+    guid: 57055a7ad3727b94d96a9f3b3173047b
+  - enabled: 1
+    path: Assets/World_2/W2_Stage1.unity
+    guid: 7b818bd237c1042448f58fb8d593f31c
+  - enabled: 1
+    path: Assets/World_2/W2_Stage2.unity
+    guid: b63897fc4d45a27489654a2ccbd471b4
+  - enabled: 1
+    path: Assets/World_2/W2_Stage3.unity
+    guid: e8403c671ab99f543a96d6c9025acdc2
+  - enabled: 1
+    path: Assets/World_2/W2_Stage4.unity
+    guid: 12b614466fd2e9647b537f3c5f37bd50
+  - enabled: 1
+    path: Assets/World_2/W2_Stage5.unity
+    guid: b606b2742be6a604893d30bae72bd6ca
+  - enabled: 1
+    path: Assets/World_2/W2_Stage6.unity
+    guid: e2e59b7c559ca8f4fb71522450f8d01b
+  - enabled: 1
+    path: Assets/World_2/W2_Stage7.unity
+    guid: 414383a9584421c419239e09b3808b54
+  - enabled: 1
+    path: Assets/World_2/W2_Stage8.unity
+    guid: 8a786fe7aaf90994c8e4e77bf48f2b0d
+  - enabled: 1
+    path: Assets/World_2/W2_Stage9.unity
+    guid: 232200d88d5b0ee409186791f6914575
+  - enabled: 1
+    path: Assets/World_3/W3_Stage1.unity
+    guid: 1bac9bc9ce1406e47a6344e7126fe054
+  - enabled: 1
+    path: Assets/World_3/W3_Stage2.unity
+    guid: 6bdb6b0f9d8057d40bb836e73d1c308f
+  - enabled: 1
+    path: Assets/World_3/W3_Stage3.unity
+    guid: c29a7a9c9f413f440ad1247a35c7d00c
+  - enabled: 1
+    path: Assets/World_3/W3_Stage4.unity
+    guid: b47dad40f6ade72468793b2856b09fa5
+  - enabled: 1
+    path: Assets/World_3/W3_Stage5.unity
+    guid: 84e2cc5abbbe6b944b8a205a8d58ba0f
+  - enabled: 1
+    path: Assets/World_3/W3_Stage6.unity
+    guid: 75f62dfd227aae74a9af4999447315bc
+  - enabled: 1
+    path: Assets/World_3/W3_Stage7.unity
+    guid: a12bc9c8791af0343aaa068a099146f7
+  - enabled: 1
+    path: Assets/World_3/W3_Stage8.unity
+    guid: 25015f718a931c44aa25c071191483df
+  - enabled: 1
+    path: Assets/World_3/W3_Stage9.unity
+    guid: b5ea1411c2439f648aeecedbb59ad23d
   m_configObjects: {}

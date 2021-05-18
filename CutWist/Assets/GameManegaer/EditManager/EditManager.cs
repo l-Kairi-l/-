@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using PlayData;
 
 public class EditManager : MonoBehaviour
 {
@@ -10,15 +11,21 @@ public class EditManager : MonoBehaviour
     //背景の操作
    // public GameObject BackGroundManager;
     //ステージのUIの操作
-    public GameObject StageUIManager;
+  //  public GameObject StageUIManager;
     private GameObject player;
 
+    public int WorldNumber;
+    public int StageNumber;
+
+    SaveData data;
 
     void Start()
     {
 
         //カーソルモードを変更する
         player = GameObject.Find("Player");
+
+        data = GetComponent<SaveDataManager>().GetData(WorldNumber - 1);
 
     }
 
@@ -40,26 +47,22 @@ public class EditManager : MonoBehaviour
 
             }
         }
-
+    }
+    //星の格納
+    public void SetClearNumber(int number)
+    {
+        data.ClearStar[StageNumber-1] = number;
+    }
+    //前回の星の取得
+    public int GetClearNumber()
+    {
+        return data.ClearStar[StageNumber-1];
     }
 
-    //public void SetEditMode(bool mode)
-    //{
-    //    //true==EditCameraモード false==PlayCameraモード
+    //save
+    public void SetData()
+    {
+        GetComponent<SaveDataManager>().SetData(StageNumber-1,data);
+    }
 
-    //    //カメラモードの変更
-    //    CameraManager.GetComponent<CameraContolloer>().SetCameraType(mode);
-    //    //背景の操作
-    //    BackGroundManager.GetComponent<BackGround>().SetBackGroundType(mode);
-
-    //    //if (mode) {
-    //    //    StageUIManager.GetComponent<SpriteRenderer>().material.color = new Color(1.0f,1.0f,1.0f,0.0f);
-    //    //}
-    //    //else
-    //    //{
-    //    //    StageUIManager.GetComponent<SpriteRenderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-
-    //    //}
-
-    //}
 }
