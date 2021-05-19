@@ -18,6 +18,8 @@ public class CursorController : MonoBehaviour
 
     private uint Frame;
 
+    public GameObject Cursor2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,10 +43,10 @@ public class CursorController : MonoBehaviour
         {
 
             //α値が0==前フレームがプレイモードまたは他のキリトリ線の場合、プレイヤーの位置に行く
-            if (Cursor.GetComponent<Renderer>().material.color.a < 1.0f)
-            {
-                Cursor.transform.position = new Vector3(Mathf.Floor(Player.transform.position.x),0, 0);
-            }
+            //if (Cursor.GetComponent<Renderer>().material.color.a < 1.0f)
+            //{
+            //    Cursor.transform.position = new Vector3(Mathf.Floor(Player.transform.position.x),0, 0);
+            //}
 
             GetComponent<World1CursorEffect>().SetType(false, true, 0);
 
@@ -89,7 +91,7 @@ public class CursorController : MonoBehaviour
                 Cursor.transform.position = new Vector3(
                     22.0f, Cursor.transform.position.y, Cursor.transform.position.z);
             }
-            Cursor.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            //Cursor.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
             if (BlockDirection.RotationState == BlockDirection.ROTATION_STATE_NAME.Rotated)
             {
@@ -131,7 +133,7 @@ public class CursorController : MonoBehaviour
         }
         else
         {
-            Cursor.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+            //Cursor.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
 
         }
 
@@ -284,7 +286,15 @@ public class CursorController : MonoBehaviour
                 Clock.GetComponent<Transform>().rotation = Clock.GetComponent<BlockDirection>().StartRotation;
                 //Clock.GetComponent<BlockDirection>().enabled = false;
                 Player.GetComponent<Player>().GravityReset();
-                Player.GetComponent<Player>().CursorMode = 0;
+                Player.GetComponent<Player>().CursorMode = -1;
+                Cursor.GetComponent<Transform>().position = new Vector3(-30.0f, Cursor.GetComponent<Transform>().position.y, Cursor.GetComponent<Transform>().position.z);
+                Cursor2.GetComponent<Transform>().position = new Vector3(Cursor2.GetComponent<Transform>().position.x, -20.0f, Cursor2.GetComponent<Transform>().position.z);
+                //GameObject cleargauge = GameObject.Find("GameUI");
+
+                //if (cleargauge.GetComponent<ClearGauge>().GetGaugeLife() <= 0)
+                //{
+                //    Player.GetComponent<Player>().CursorMode = -1;
+                //}
 
             }
 

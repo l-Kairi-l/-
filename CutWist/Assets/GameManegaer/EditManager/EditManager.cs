@@ -32,7 +32,7 @@ public class EditManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.GetComponent<Player>().CursorMode != -2)
+        if (player.GetComponent<Player>().CursorMode != -2 && player.GetComponent<Player>().CursorMode != -3)
         {
             if (Input.GetKeyDown(KeyCode.R))
             {

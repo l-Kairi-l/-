@@ -28,10 +28,10 @@ public class CursorController2 : MonoBehaviour
         if (Player.GetComponent<Player>().CursorMode == 1)
         {
             //α値が0==前フレームがプレイモードまたは他のキリトリ線の場合、プレイヤーの位置に行く
-            if (Cursor.GetComponent<Renderer>().material.color.a < 1.0f)
-            {
-                Cursor.transform.position = new Vector3(0, Mathf.Floor(Player.transform.position.y), 0);
-            }
+            //if (Cursor.GetComponent<Renderer>().material.color.a < 1.0f)
+            //{
+            //    Cursor.transform.position = new Vector3(0, Mathf.Floor(Player.transform.position.y), 0);
+            //}
 
 
             GetComponent<World1CursorEffect>().SetType(false, false, 0);
@@ -84,7 +84,7 @@ public class CursorController2 : MonoBehaviour
                     Cursor.transform.position.x, -10.0f, Cursor.transform.position.z);
             }
 
-            Cursor.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+           // Cursor.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
 
             if (BlockDirection.RotationState == BlockDirection.ROTATION_STATE_NAME.Rotated)
@@ -124,7 +124,7 @@ public class CursorController2 : MonoBehaviour
         }
         else
         {
-            Cursor.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+            //Cursor.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
         }
 
         if (Player.GetComponent<Player>().CursorMode == 1 && (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl)))
@@ -202,7 +202,7 @@ public class CursorController2 : MonoBehaviour
                 {
                     BlockDirection.RotationState = BlockDirection.ROTATION_STATE_NAME.Rotating;
                     CursorController.rotatecount = 0;
-                    GameObject cleargauge = GameObject.Find("clear_gauge");
+                    GameObject cleargauge = GameObject.Find("GameUI");
                     cleargauge.GetComponent<ClearGauge>().BlockRotate();
 
                 }
@@ -235,4 +235,5 @@ public class CursorController2 : MonoBehaviour
 
         //DebugImage2.color = color;
     }
+
 }

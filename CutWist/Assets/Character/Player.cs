@@ -52,6 +52,10 @@ public class Player : KinematicObject
     //アニメーション
     private Animator animator;
 
+    private GameObject cleargauge;
+    private GameObject Cursor1;
+    private GameObject Cursor2;
+
     void Awake()
     {
         //  rb = GetComponent<Rigidbody2D>();
@@ -60,8 +64,10 @@ public class Player : KinematicObject
 
         CursorMode = -1;
         clock = false;
-
-        animator= GetComponent<Animator>();
+        cleargauge = GameObject.Find("GameUI");
+        Cursor1 = GameObject.Find("cursor1_star");
+        Cursor2 = GameObject.Find("cursor2_star");
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -115,46 +121,51 @@ public class Player : KinematicObject
             }
             else 
             {
-                if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+                if(CursorMode != -3)
                 {
-                      CursorMode = 1;
-                    //CursorMode = CursorMode == -1 ? -1 : CursorMode == 0 ? 1 : 0;
-                    BlockDirection.RotateMode = CursorMode == -1 ? BlockDirection.RotateMode : CursorMode == 0 ? 0 : 1;
-
-                    GameObject[] objects;
-
-                    objects = GameObject.FindGameObjectsWithTag("Object");
-
-                    foreach (GameObject obj in objects)
+                    if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
                     {
-                        BlockSelectedEffect bse = obj.GetComponent<BlockSelectedEffect>();
-                        if (bse)
+                        CursorMode = 1;
+                        //CursorMode = CursorMode == -1 ? -1 : CursorMode == 0 ? 1 : 0;
+                        BlockDirection.RotateMode = CursorMode == -1 ? BlockDirection.RotateMode : CursorMode == 0 ? 0 : 1;
+                        Cursor1.GetComponent<Transform>().position = new Vector3(-30.0f, Cursor1.GetComponent<Transform>().position.y, Cursor1.GetComponent<Transform>().position.z);
+
+                        GameObject[] objects;
+
+                        objects = GameObject.FindGameObjectsWithTag("Object");
+
+                        foreach (GameObject obj in objects)
                         {
-                            bse.ColorReset();
+                            BlockSelectedEffect bse = obj.GetComponent<BlockSelectedEffect>();
+                            if (bse)
+                            {
+                                bse.ColorReset();
+                            }
                         }
+
                     }
-
-                }
-                else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-                {
-                    CursorMode = 0;
-                    //CursorMode = CursorMode == -1 ? -1 : CursorMode == 0 ? 1 : 0;
-                    BlockDirection.RotateMode = CursorMode == -1 ? BlockDirection.RotateMode : CursorMode == 0 ? 0 : 1;
-
-                    GameObject[] objects;
-
-                    objects = GameObject.FindGameObjectsWithTag("Object");
-
-                    foreach (GameObject obj in objects)
+                    else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
                     {
-                        BlockSelectedEffect bse = obj.GetComponent<BlockSelectedEffect>();
-                        if (bse)
-                        {
-                            bse.ColorReset();
-                        }
-                    }
+                        CursorMode = 0;
+                        //CursorMode = CursorMode == -1 ? -1 : CursorMode == 0 ? 1 : 0;
+                        BlockDirection.RotateMode = CursorMode == -1 ? BlockDirection.RotateMode : CursorMode == 0 ? 0 : 1;
+                        Cursor2.GetComponent<Transform>().position = new Vector3(Cursor2.GetComponent<Transform>().position.x, -20.0f, Cursor2.GetComponent<Transform>().position.z);
+                        GameObject[] objects;
 
+                        objects = GameObject.FindGameObjectsWithTag("Object");
+
+                        foreach (GameObject obj in objects)
+                        {
+                            BlockSelectedEffect bse = obj.GetComponent<BlockSelectedEffect>();
+                            if (bse)
+                            {
+                                bse.ColorReset();
+                            }
+                        }
+
+                    }
                 }
+               
                 move.x = 0;
             }
         }
@@ -163,12 +174,14 @@ public class Player : KinematicObject
             move.x = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.RightShift)|| Input.GetKeyDown(KeyCode.LeftShift))
+        if ((Input.GetKeyDown(KeyCode.RightShift)|| Input.GetKeyDown(KeyCode.LeftShift) )&& cleargauge.GetComponent<ClearGauge>().GetGaugeLife() > 0 && CursorMode != -3)
         {
             //モード変更時
 
             CursorMode = CursorMode == -1 ? 0 : -1;
-
+            Cursor1.GetComponent<Transform>().position = CursorMode == -1 ? new Vector3(-30.0f, Cursor1.GetComponent<Transform>().position.y, Cursor1.GetComponent<Transform>().position.z) :
+                new Vector3(gameObject.transform.position.x, Cursor1.GetComponent<Transform>().position.y, Cursor1.GetComponent<Transform>().position.z);
+            Cursor2.GetComponent<Transform>().position = new Vector3(Cursor2.GetComponent<Transform>().position.x, -20.0f, Cursor2.GetComponent<Transform>().position.z);
             BlockDirection.RotateMode = CursorMode == -1 ? BlockDirection.RotateMode : 0;
 
             GameObject[] objects;

@@ -12,8 +12,8 @@ public class ClearGauge : MonoBehaviour
     private Image ShiningStar1;
     [SerializeField]
     private Image ShiningStar2;
-    [SerializeField]
-    private GameObject gameover;
+    //[SerializeField]
+    //private GameObject gameover;
 
     private GameObject player;
 
@@ -75,11 +75,11 @@ public class ClearGauge : MonoBehaviour
             FullGauge.color = new Color(1.0f, 1.0f, 1.0f, StarDiffuseAlpha);
         }
 
-        if(FullGauge.fillAmount <= 0.0f)
-        {
+        //if(FullGauge.fillAmount <= 0.0f)
+        //{
            
-            GameObject gov = Instantiate(gameover, new Vector3(0, 0, 0), Quaternion.identity);
-        }
+        //    GameObject gov = Instantiate(gameover, new Vector3(0, 0, 0), Quaternion.identity);
+        //}
 
     }
 
@@ -114,5 +114,27 @@ public class ClearGauge : MonoBehaviour
 
         }
         
+    }
+
+    public int GetStarCount()
+    {
+        if (GaugeLife >= StarOneCount + StarTwoCount)
+        {
+            return 3;
+        }
+        else if (GaugeLife >= StarOneCount)
+        {
+            return 2;
+        }
+
+        return 1;
+
+    }
+
+   
+
+    public int GetGaugeLife()
+    {
+        return GaugeLife;
     }
 }
