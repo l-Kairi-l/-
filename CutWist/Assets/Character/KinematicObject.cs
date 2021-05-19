@@ -104,7 +104,7 @@ namespace Platformer.Mechanics
 
         public virtual void GravityReset()
         {
-            Physics2D.gravity = new Vector2(0, -90f);
+            Physics2D.gravity = new Vector2(0, -70f);
         }
 
         protected virtual void Update()

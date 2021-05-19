@@ -202,7 +202,7 @@ public class CursorController2 : MonoBehaviour
                 {
                     BlockDirection.RotationState = BlockDirection.ROTATION_STATE_NAME.Rotating;
                     CursorController.rotatecount = 0;
-                    GameObject cleargauge = GameObject.Find("GameUI");
+                    GameObject cleargauge = GameObject.Find("GameUI_" + GameObject.Find("GameManager").GetComponent<EditManager>().WorldNumber);
                     cleargauge.GetComponent<ClearGauge>().BlockRotate();
 
                 }

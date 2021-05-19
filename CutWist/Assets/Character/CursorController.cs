@@ -236,7 +236,7 @@ public class CursorController : MonoBehaviour
                 else
                 {
                     rotatecount = 0;
-                    GameObject cleargauge = GameObject.Find("GameUI");
+                    GameObject cleargauge = GameObject.Find("GameUI_" + GameObject.Find("GameManager").GetComponent<EditManager>().WorldNumber);
                     cleargauge.GetComponent<ClearGauge>().BlockRotate();
                 }
             }

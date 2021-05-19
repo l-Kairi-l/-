@@ -64,7 +64,7 @@ public class Player : KinematicObject
 
         CursorMode = -1;
         clock = false;
-        cleargauge = GameObject.Find("GameUI");
+        cleargauge = GameObject.Find("GameUI_" + GameObject.Find("GameManager").GetComponent<EditManager>().WorldNumber);
         Cursor1 = GameObject.Find("cursor1_star");
         Cursor2 = GameObject.Find("cursor2_star");
         animator = GetComponent<Animator>();
