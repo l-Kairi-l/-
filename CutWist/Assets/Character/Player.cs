@@ -38,7 +38,7 @@ public class Player : KinematicObject
 
     //ジャンプ関係
     bool jump;
-    public const float jumpTakeOffSpeed = 4.4f;
+    public const float jumpTakeOffSpeed = 4.0f;
 
     //カーソル
     GameObject Camera;
@@ -97,12 +97,17 @@ public class Player : KinematicObject
 
                         animator.SetBool("Vector", true);
 
+                        transform.localRotation = Quaternion.Euler(0.0f, 90.0f, 0.0f);
+
                     }
                     if (move.x < -0.01f)
                     {
                         animator.SetBool("Move", true);
 
                         animator.SetBool("Vector", false);
+
+                        transform.localRotation = Quaternion.Euler(0.0f, -90.0f, 0.0f);
+
                     }
                 }
 

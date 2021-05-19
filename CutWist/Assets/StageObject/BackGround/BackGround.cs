@@ -7,7 +7,7 @@ public class BackGround : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.localScale = new Vector3(2.7f, 2.7f, 1.0f);
+      //  transform.localScale = new Vector3(2.7f, 2.7f, 1.0f);
 
     }
 
@@ -23,12 +23,12 @@ public class BackGround : MonoBehaviour
     {
         if(type)
         {
-            transform.localScale = new Vector3(5.4f,5.4f,1.0f);
+           // transform.localScale = new Vector3(5.4f,5.4f,1.0f);
 
         }
         else
         {
-            transform.localScale = new Vector3(2.7f,2.7f,1.0f);
+         //   transform.localScale = new Vector3(2.7f,2.7f,1.0f);
 
         }
     }
