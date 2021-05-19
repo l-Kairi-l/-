@@ -3326,6 +3326,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ClearTexture: {fileID: 511239650}
+  gameclear: {fileID: 6981009547977108650, guid: 9c07cfc646be1614d9425226d1e6a88b,
+    type: 3}
 --- !u!1 &417429547
 GameObject:
   m_ObjectHideFlags: 0
@@ -15464,6 +15466,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5793918459970807625, guid: 819bd33f5bb7ca44297bb81986db8198,
+        type: 3}
+      propertyPath: gameover
+      value: 
+      objectReference: {fileID: 4008924052340484580, guid: effd425dda8cb2848b2673205777aa56,
+        type: 3}
     - target: {fileID: 5793918459970807625, guid: 819bd33f5bb7ca44297bb81986db8198,
         type: 3}
       propertyPath: cleareffect

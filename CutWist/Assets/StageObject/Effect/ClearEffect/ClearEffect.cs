@@ -8,7 +8,9 @@ public class ClearEffect : MonoBehaviour
     //clearの絵
     public GameObject ClearTexture;
     //横になっている牛のオブジェクト
-  //  public GameObject sheep;
+    //  public GameObject sheep;
+    [SerializeField]
+    private GameObject gameclear;
     bool flag;
     // Start is called before the first frame update
     void Start()
@@ -28,17 +30,22 @@ public class ClearEffect : MonoBehaviour
         //    sheep.transform.Rotate(new Vector3(0.0f, 2.0f, 0.0f));
 
 
-            ClearTexture.transform.localScale += new Vector3(0.01f,0.01f,0.0f);
+            ClearTexture.transform.localScale += new Vector3(1.0f * Time.deltaTime, 1.0f * Time.deltaTime, 0.0f);
             ClearTexture.GetComponent<SpriteRenderer>().material.color = new Color(1.0f,1.0f,1.0f,1.0f);
 
-            if (ClearTexture.transform.localScale.x >= 0.7f|| ClearTexture.transform.localScale.y >= 0.7f)
+            if (ClearTexture.transform.localScale.x >= 1.0f || ClearTexture.transform.localScale.y >= 1.0f)
             {
-                // プレハブをGameObject型で取得
-                GameObject obj = (GameObject)Resources.Load("Transition_1");
-                obj.GetComponent<Transition>().SetNextScene("World1");
 
-                // プレハブを元に、インスタンスを生成、
-                Instantiate(obj, new Vector3(0.0f, 0.0f, -90.0f), Quaternion.identity);
+                GameObject gov = Instantiate(gameclear, new Vector3(0, 0, 0), Quaternion.identity);
+
+                ClearTexture.GetComponent<SpriteRenderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+                flag = false;
+                //// プレハブをGameObject型で取得
+                //GameObject obj = (GameObject)Resources.Load("Transition_1");
+                //obj.GetComponent<Transition>().SetNextScene("World1");
+
+                //// プレハブを元に、インスタンスを生成、
+                //Instantiate(obj, new Vector3(0.0f, 0.0f, -90.0f), Quaternion.identity);
 
             }
         }

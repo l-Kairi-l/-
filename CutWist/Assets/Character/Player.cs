@@ -10,7 +10,8 @@ using UnityEngine.SceneManagement;
 
 public class Player : KinematicObject
 {
-
+    [SerializeField]
+    private GameObject gameover;
 
     // Start is called before the first frame update
 
@@ -298,15 +299,18 @@ public class Player : KinematicObject
             controlEnabled = false;
 
 
-            string s_name = "World";
-            string s_number = "" + 1;
+            GameObject gov = Instantiate(gameover, new Vector3(0, 0, 0), Quaternion.identity);
 
-            // プレハブをGameObject型で取得
-            GameObject obj = (GameObject)Resources.Load("Transition_1");
-            obj.GetComponent<Transition>().SetNextScene(s_name + s_number);
+            CursorMode = -2;
+            //string s_name = "World";
+            //string s_number = "" + 1;
 
-            // プレハブを元に、インスタンスを生成、
-            Instantiate(obj, new Vector3(0.0f, 0.0f, -90.0f), Quaternion.identity);
+            //// プレハブをGameObject型で取得
+            //GameObject obj = (GameObject)Resources.Load("Transition_1");
+            //obj.GetComponent<Transition>().SetNextScene(s_name + s_number);
+
+            //// プレハブを元に、インスタンスを生成、
+            //Instantiate(obj, new Vector3(0.0f, 0.0f, -90.0f), Quaternion.identity);
 
 
         }
@@ -319,7 +323,7 @@ public class Player : KinematicObject
         {
             if (clock)
             {
-
+                CursorMode = -2;
                 cleareffect.GetComponent<ClearEffect>().Set(other.transform.position);
                 Destroy(other.gameObject);
 

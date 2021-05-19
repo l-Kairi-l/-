@@ -137,4 +137,9 @@ public class ClearGauge : MonoBehaviour
     {
         return GaugeLife;
     }
+
+    public float GetTargetAmount()
+    {
+        return TargetAmount;
+    }
 }

@@ -10,7 +10,7 @@ public class Replay : MonoBehaviour
 
     public Sprite tex_replay;
     public Sprite tex_replay2;
-
+    public bool isClear = false;
     void Start()
     {
         
@@ -36,6 +36,15 @@ public class Replay : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                if (isClear)
+                {
+                    GameObject manager = GameObject.Find("GameManager");
+                    // GameObject cleargauge = GameObject.Find("GameUI");
+                    // if(cleargauge.GetComponent<ClearGauge>().GetStarCount() > manager.GetComponent<EditManager>().GetClearNumber())
+                    //{
+                    manager.GetComponent<EditManager>().SetData();
+                    //}
+                }
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name); // 現在シーンのリロード
             }
         }

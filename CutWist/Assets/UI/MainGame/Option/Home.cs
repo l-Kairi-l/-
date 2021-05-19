@@ -9,7 +9,7 @@ public class Home : MonoBehaviour
 
     public Sprite tex_home;
     public Sprite tex_home2;
-
+    public bool isClear = false;
     void Start()
     {
         
@@ -38,6 +38,15 @@ public class Home : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                if (isClear)
+                {
+                    GameObject manager = GameObject.Find("GameManager");
+                    // GameObject cleargauge = GameObject.Find("GameUI");
+                    // if(cleargauge.GetComponent<ClearGauge>().GetStarCount() > manager.GetComponent<EditManager>().GetClearNumber())
+                    //{
+                    manager.GetComponent<EditManager>().SetData();
+                    //}
+                }
                 // プレハブをGameObject型で取得
                 GameObject obj = (GameObject)Resources.Load("Transition_1");
                 obj.GetComponent<Transition>().SetNextScene("WorldSelect");
