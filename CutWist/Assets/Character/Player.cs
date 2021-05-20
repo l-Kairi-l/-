@@ -334,8 +334,12 @@ public class Player : KinematicObject
         }
         else if (other.gameObject.name == "Bound")
         {
-            velocity.y = jumpTakeOffSpeed * model.jumpModifier;
-            animator.SetBool("Jump", true);
+            if (other.gameObject.transform.position.y < transform.position.y)
+            {
+
+                velocity.y = jumpTakeOffSpeed * model.jumpModifier;
+                animator.SetBool("Jump", true);
+            }
 
         }
 
