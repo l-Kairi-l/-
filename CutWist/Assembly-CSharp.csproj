@@ -116,6 +116,8 @@
     <Compile Include="Assets\StageObject\Effect\EffectClass\ParticleList.cs" />
     <Compile Include="Assets\StageObject\Goal\Sheep.cs" />
     <Compile Include="Assets\StageObject\SupportObject\Alarm_Clock.cs" />
+    <Compile Include="Assets\Title\LoadStart.cs" />
+    <Compile Include="Assets\Title\NewStart.cs" />
     <Compile Include="Assets\Title\Title.cs" />
     <Compile Include="Assets\UI\CursolPoint\CursolPoint3D.cs" />
     <Compile Include="Assets\UI\CursolPoint\CursorPoint.cs" />
