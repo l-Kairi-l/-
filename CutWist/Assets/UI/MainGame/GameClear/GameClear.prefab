@@ -579,6 +579,7 @@ GameObject:
   - component: {fileID: 6981009546901935370}
   - component: {fileID: 6981009546901935364}
   - component: {fileID: 6981009546901935365}
+  - component: {fileID: 8047532480843886712}
   m_Layer: 5
   m_Name: StageName
   m_TagString: Untagged
@@ -643,6 +644,24 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8047532480843886712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6981009546901935371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0a1b46d1ec92d94397b2d398047a313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tex_star: {fileID: -7268790293516806850, guid: 017f2a36a7f1eef4e9b7bb8f0de96442,
+    type: 3}
+  tex_sweet: {fileID: 2012897441400736111, guid: 017f2a36a7f1eef4e9b7bb8f0de96442,
+    type: 3}
+  tex_forest: {fileID: -8622833036292155217, guid: 017f2a36a7f1eef4e9b7bb8f0de96442,
+    type: 3}
 --- !u!1 &6981009547401754901
 GameObject:
   m_ObjectHideFlags: 0
