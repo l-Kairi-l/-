@@ -26,7 +26,7 @@ public class ClearGauge : MonoBehaviour
     private float StarDiffuseAlpha = 1.0f;
     private float TargetAmount;
 
-     GameObject Manager;
+    GameObject Manager;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +48,7 @@ public class ClearGauge : MonoBehaviour
 
         StarDiffuseAlpha = Mathf.Sin(Time.time * 2.0f) / 2 + 0.5f;
 
-        if(FullGauge.fillAmount > TargetAmount)
+        if (FullGauge.fillAmount > TargetAmount)
         {
             FullGauge.fillAmount -= 0.1f * Time.deltaTime;
 
@@ -60,24 +60,24 @@ public class ClearGauge : MonoBehaviour
 
         int mode = player.GetComponent<Player>().CursorMode;
         if (mode != 0 && mode != 1) return;
-        if (GaugeLife == StarOneCount + StarTwoCount + 1)
+        if (GaugeLife == StarOneCount + StarTwoCount)
         {
             ShiningStar1.color = new Color(1.0f, 1.0f, 1.0f, StarDiffuseAlpha);
 
         }
-        else if (GaugeLife == StarOneCount + 1)
+        else if (GaugeLife == StarOneCount)
         {
             ShiningStar2.color = new Color(1.0f, 1.0f, 1.0f, StarDiffuseAlpha);
 
         }
-        else if (GaugeLife == 1&& FullGauge.fillAmount == TargetAmount)
+        else if (GaugeLife == 1 && FullGauge.fillAmount == TargetAmount)
         {
             FullGauge.color = new Color(1.0f, 1.0f, 1.0f, StarDiffuseAlpha);
         }
 
         //if(FullGauge.fillAmount <= 0.0f)
         //{
-           
+
         //    GameObject gov = Instantiate(gameover, new Vector3(0, 0, 0), Quaternion.identity);
         //}
 
@@ -86,34 +86,36 @@ public class ClearGauge : MonoBehaviour
     public void BlockRotate()
     {
         GaugeLife--;
-        
+
         if (GaugeLife >= StarOneCount + StarTwoCount)
         {
             TargetAmount = 2.0f / 3.0f + 1.0f / 3.0f * (float)(GaugeLife - StarOneCount - StarTwoCount) / StarThreeCount;
-                     
-            if(GaugeLife == StarOneCount + StarTwoCount)
-                ShiningStar1.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+
+            //if(GaugeLife == StarOneCount + StarTwoCount)
+            //    ShiningStar1.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
 
         }
         else if (GaugeLife >= StarOneCount)
         {
             TargetAmount = 1.0f / 3.0f + 1.0f / 3.0f * (float)(GaugeLife - StarOneCount) / StarTwoCount;
-            if(GaugeLife == StarOneCount)
-            {
-                ShiningStar2.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
-            }
+            ShiningStar1.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+            //if (GaugeLife == StarOneCount)
+            //{
+            //    ShiningStar2.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+            //}
 
         }
         else if (GaugeLife >= 0)
         {
             TargetAmount = 1.0f / 3.0f * (float)GaugeLife / StarOneCount;
-            if(GaugeLife == 0)
+            ShiningStar2.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+            if (GaugeLife == 0)
             {
 
             }
 
         }
-        
+
     }
 
     public int GetStarCount()
@@ -131,7 +133,7 @@ public class ClearGauge : MonoBehaviour
 
     }
 
-   
+
 
     public int GetGaugeLife()
     {
