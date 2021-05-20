@@ -332,6 +332,13 @@ public class Player : KinematicObject
 
             }
         }
+        else if (other.gameObject.name == "Bound")
+        {
+            velocity.y = jumpTakeOffSpeed * model.jumpModifier;
+            animator.SetBool("Jump", true);
+
+        }
+
     }
     private void OnTriggerStay2D(Collider2D other)
     {

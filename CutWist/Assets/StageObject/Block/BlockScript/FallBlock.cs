@@ -6,14 +6,14 @@ using Platformer.Mechanics;
 public class FallBlock : KinematicObject
 {
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
-        
+
     }
 }
