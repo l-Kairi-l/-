@@ -12,6 +12,12 @@ public class ClearGauge : MonoBehaviour
     private Image ShiningStar1;
     [SerializeField]
     private Image ShiningStar2;
+    [SerializeField]
+    private Image Number1;
+    [SerializeField]
+    private Image Number2;
+    [SerializeField]
+    private Image Number3;
     //[SerializeField]
     //private GameObject gameover;
 
@@ -31,6 +37,9 @@ public class ClearGauge : MonoBehaviour
     void Start()
     {
         StarTotalCount = StarThreeCount + StarTwoCount + StarOneCount;
+        Number1.GetComponent<NumberUI>().SetType(StarThreeCount);
+        Number2.GetComponent<NumberUI>().SetType(StarTwoCount);
+        Number3.GetComponent<NumberUI>().SetType(StarOneCount);
         GaugeLife = StarTotalCount;
         StarDiffuseAlpha = 1.0f;
         TargetAmount = 1.0f;
@@ -93,12 +102,14 @@ public class ClearGauge : MonoBehaviour
 
             //if(GaugeLife == StarOneCount + StarTwoCount)
             //    ShiningStar1.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+            Number1.GetComponent<NumberUI>().SetType(GaugeLife - StarOneCount - StarTwoCount);
 
         }
         else if (GaugeLife >= StarOneCount)
         {
             TargetAmount = 1.0f / 3.0f + 1.0f / 3.0f * (float)(GaugeLife - StarOneCount) / StarTwoCount;
             ShiningStar1.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+            Number2.GetComponent<NumberUI>().SetType(GaugeLife - StarOneCount);
             //if (GaugeLife == StarOneCount)
             //{
             //    ShiningStar2.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
@@ -109,6 +120,7 @@ public class ClearGauge : MonoBehaviour
         {
             TargetAmount = 1.0f / 3.0f * (float)GaugeLife / StarOneCount;
             ShiningStar2.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+            Number3.GetComponent<NumberUI>().SetType(GaugeLife);
             if (GaugeLife == 0)
             {
 
