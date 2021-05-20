@@ -290,6 +290,8 @@ public class Player : KinematicObject
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (CursorMode == -2) return;
+
         // トゲにあたった場合
         if (other.gameObject.tag == "Needle")
         {
