@@ -10,7 +10,7 @@ public class CursorController : MonoBehaviour
     public GameObject Player;
     public GameObject Sheep;
     public GameObject Clock;
-    
+
     public int Count;
     public GameObject RotateBoard;
 
@@ -154,7 +154,7 @@ public class CursorController : MonoBehaviour
 
         //}
 
-        if (Player.GetComponent<Player>().CursorMode == 0 && (Input.GetKeyDown(KeyCode.LeftControl)|| Input.GetKeyDown(KeyCode.RightControl)))
+        if (Player.GetComponent<Player>().CursorMode == 0 && (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl)))
         {
             Player.GetComponent<Player>().CursorMode = -3;
             Player.GetComponent<Player>().GravityZero();
@@ -187,6 +187,12 @@ public class CursorController : MonoBehaviour
                     {
 
                         objects[i].GetComponent<Alarm_Clock>().enabled = false;
+                    }
+
+                    Component rigi = objects[i].GetComponent<Rigidbody2D>();
+                    if (rigi != null)
+                    {
+                        objects[i].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
                     }
                     //切り取り線を参照しプレイヤーと異なる側のブロックを反転
                     if (objects[i].transform.position.x <= Cursor.transform.position.x && TranLeft || objects[i].transform.position.x > Cursor.transform.position.x && !TranLeft)
@@ -268,9 +274,16 @@ public class CursorController : MonoBehaviour
             {
                 BlockDirection.PassedTime = 0.0f;
                 BlockDirection.RotationState = BlockDirection.ROTATION_STATE_NAME.Rotated;
+                GameObject[] objects = GameObject.FindGameObjectsWithTag("Object");
 
-
-
+                foreach (GameObject obj in objects)
+                {
+                    Component rigi = obj.GetComponent<Rigidbody2D>();
+                    if (rigi != null)
+                    {
+                        obj.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                    }
+                }
 
                 //Sheep.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
 

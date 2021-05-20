@@ -84,7 +84,7 @@ public class CursorController2 : MonoBehaviour
                     Cursor.transform.position.x, -10.0f, Cursor.transform.position.z);
             }
 
-           // Cursor.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            // Cursor.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
 
             if (BlockDirection.RotationState == BlockDirection.ROTATION_STATE_NAME.Rotated)
@@ -160,6 +160,12 @@ public class CursorController2 : MonoBehaviour
                     {
 
                         objects[i].GetComponent<Alarm_Clock>().enabled = false;
+                    }
+
+                    Component rigi = objects[i].GetComponent<Rigidbody2D>();
+                    if (rigi != null)
+                    {
+                        objects[i].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
                     }
                     //切り取り線を参照しプレイヤーと異なる側のブロックを反転
                     if (objects[i].transform.position.y <= Cursor.transform.position.y && TranLeft || objects[i].transform.position.y > Cursor.transform.position.y && !TranLeft)

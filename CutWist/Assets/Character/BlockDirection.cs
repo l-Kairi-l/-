@@ -118,7 +118,7 @@ public class BlockDirection : MonoBehaviour
 
         }
 
-        if (RotationState == ROTATION_STATE_NAME.Rotated)// && gameObject.name == "GoalSheep"
+        if (RotationState == ROTATION_STATE_NAME.Rotated && gameObject.GetComponent<Rigidbody2D>() != null)// && gameObject.name == "GoalSheep"
 
 
         {
