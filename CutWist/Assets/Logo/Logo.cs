@@ -19,6 +19,8 @@ public class Logo : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)|| GetComponent<SpriteRenderer>().color.a<0.0f)
         {
+            GameObject sd = (GameObject)Resources.Load("SoundTitle");
+            Instantiate(sd, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
             SceneManager.LoadScene("Title");
         }
         if (flag)

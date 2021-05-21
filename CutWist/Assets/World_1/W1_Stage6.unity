@@ -9128,6 +9128,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1418557902}
+    - target: {fileID: 1869630902972923597, guid: f2d474a46f839e943a13a349d4364879,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
     - target: {fileID: 1869630903485092973, guid: f2d474a46f839e943a13a349d4364879,
         type: 3}
       propertyPath: m_Pivot.x
@@ -9655,6 +9660,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee799fb1368747b489a6fde75a1711cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  refCamera: {fileID: 1418557902}
+  width: 1920
+  height: 1080
+  pixelPerUnit: 100
 --- !u!81 &1418557901
 AudioListener:
   m_ObjectHideFlags: 0
@@ -9690,7 +9699,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 0
-  orthographic size: 15
+  orthographic size: 5.4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -10200,6 +10209,7 @@ MonoBehaviour:
   Count: 0
   RotateBoard: {fileID: 2534190992282312191, guid: 725b5bbf0a5297c4d8ad14961e078fc1,
     type: 3}
+  Cursor2: {fileID: 0}
 --- !u!4 &1447533869
 Transform:
   m_ObjectHideFlags: 0
@@ -13418,7 +13428,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bbf0778f23582b468f365d95ab04736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClearTexture: {fileID: 1419702643}
+  Camera: {fileID: 0}
+  gameclear: {fileID: 0}
 --- !u!1 &1858397973
 GameObject:
   m_ObjectHideFlags: 0

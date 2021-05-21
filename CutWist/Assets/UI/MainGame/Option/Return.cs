@@ -31,6 +31,14 @@ public class Return : MonoBehaviour
             }
 
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.RightAlt) || Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameObject root = transform.root.gameObject;
+            //transform.parent.gameObject 一個上
+            root.GetComponent<Option>().UnInit();
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)

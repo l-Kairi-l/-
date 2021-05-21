@@ -38,7 +38,7 @@ public class EditManager : MonoBehaviour
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name); // 現在シーンのリロード
             }
-            if (Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.RightAlt))
+            if (Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.RightAlt)||Input.GetKeyDown(KeyCode.Escape))
             {
                 //名前を検索してプレハブを参照する
                 GameObject obj = (GameObject)Resources.Load("Option");

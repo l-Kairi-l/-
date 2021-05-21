@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class ReturnButton : MonoBehaviour
 {
-
+    AudioSource audioSource;
     bool select;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -18,7 +18,7 @@ public class ReturnButton : MonoBehaviour
     {
         if (select && Input.GetMouseButtonDown(0))
         {
-
+            audioSource.Play();
             if (SceneManager.GetActiveScene().name == "WorldSelect")
             {
                 SceneManager.LoadScene("Title");
