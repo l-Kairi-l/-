@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class Home : MonoBehaviour
 {
     // Start is called before the first frame update
-
+    AudioSource audioSource;
     public Sprite tex_home;
     public Sprite tex_home2;
     public bool isClear = false;
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -47,6 +47,15 @@ public class Home : MonoBehaviour
                     manager.GetComponent<EditManager>().SetData();
                     //}
                 }
+                audioSource.Play();
+                GameObject sound = GameObject.FindGameObjectWithTag("Sound");
+                if (sound != null)
+                {
+                    Destroy(sound);
+                }
+                GameObject sd = (GameObject)Resources.Load("SoundTitle");
+                Instantiate(sd, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
+
                 // プレハブをGameObject型で取得
                 GameObject obj = (GameObject)Resources.Load("Transition_1");
                 obj.GetComponent<Transition>().SetNextScene("WorldSelect");

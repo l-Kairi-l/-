@@ -9,10 +9,10 @@ public class LoadStart : MonoBehaviour
 
     public Sprite off;
     public Sprite on;
-
+    AudioSource audioSource;
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -22,8 +22,9 @@ public class LoadStart : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                    // プレハブをGameObject型で取得
-                    GameObject obj = (GameObject)Resources.Load("Transition_1");
+                audioSource.Play();
+                // プレハブをGameObject型で取得
+                GameObject obj = (GameObject)Resources.Load("Transition_1");
                     obj.GetComponent<Transition>().SetNextScene("WorldSelect");
 
                     // プレハブを元に、インスタンスを生成、

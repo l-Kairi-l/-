@@ -11,6 +11,8 @@ TagManager:
   - Clock
   - Skeleton
   - Manager
+  - Bound
+  - Sound
   layers:
   - Default
   - TransparentFX

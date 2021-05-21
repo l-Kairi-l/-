@@ -10,12 +10,13 @@ public class NewStart : MonoBehaviour
     public Sprite on;
 
     public GameObject UI;
-
+    AudioSource audioSource;
     private SaveData[] data = new SaveData[3];
     // Start is called before the first frame update
     void Start()
     {
-       // data 
+        // data 
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -32,6 +33,7 @@ public class NewStart : MonoBehaviour
 
                     UI.GetComponent<SaveDataManager>().Save(i);
                 }
+                audioSource.Play();
                 // プレハブをGameObject型で取得
                 GameObject obj = (GameObject)Resources.Load("Transition_1");
                 obj.GetComponent<Transition>().SetNextScene("WorldSelect");

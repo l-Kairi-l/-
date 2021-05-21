@@ -12,6 +12,10 @@ public class StageSelect_stage : MonoBehaviour
     public GameObject Star2;
     public GameObject Star3;
 
+    //public GameObject Sound1;
+    //public GameObject Sound2;
+    //public GameObject Sound3;
+
     public int stagenumber;
     public int worldnumber;
 
@@ -83,7 +87,14 @@ public class StageSelect_stage : MonoBehaviour
             {
                 string s_worldname = "W"+ worldnumber;
                 string s_stagename = "_Stage" + stagenumber;
-
+                string s_soundname = "Sound_World" + worldnumber;
+                GameObject titlesound = GameObject.FindGameObjectWithTag("Sound");
+                if (titlesound != null)
+                {
+                    Destroy(titlesound);
+                }
+                GameObject obj = (GameObject)Resources.Load(s_soundname);
+                Instantiate(obj, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
                 SceneManager.LoadScene(s_worldname + s_stagename);
 
                 //            // プレハブをGameObject型で取得
@@ -101,7 +112,7 @@ public class StageSelect_stage : MonoBehaviour
         if (other.gameObject.tag == "CoursolPoint")
         {
             trigger = true;
-
+            
         }
     }
 

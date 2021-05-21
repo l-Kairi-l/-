@@ -7,13 +7,13 @@ using UnityEngine.SceneManagement;
 public class Replay : MonoBehaviour
 {
     // Start is called before the first frame update
-
+    AudioSource audioSource;
     public Sprite tex_replay;
     public Sprite tex_replay2;
     public bool isClear = false;
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -36,6 +36,7 @@ public class Replay : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                audioSource.Play();
                 if (isClear)
                 {
                     GameObject manager = GameObject.Find("GameManager");

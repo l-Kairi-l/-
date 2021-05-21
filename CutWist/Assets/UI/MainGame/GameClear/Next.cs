@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class Next : MonoBehaviour
 {
-
+    AudioSource audioSource;
     public Sprite tex_next;
     public Sprite tex_next2;
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -36,7 +36,7 @@ public class Next : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-
+                audioSource.Play();
 
                 GameObject manager = GameObject.Find("GameManager");
                 //GameObject cleargauge = GameObject.Find("GameUI_" + GameObject.Find("GameManager").GetComponent<EditManager>().WorldNumber);

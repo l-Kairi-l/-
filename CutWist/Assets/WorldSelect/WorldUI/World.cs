@@ -8,7 +8,7 @@ public class World : MonoBehaviour
     // Start is called before the first frame update
 
     public int number;
-
+    AudioSource audioSource;
     bool select;
     void Start()
     {
@@ -17,7 +17,7 @@ public class World : MonoBehaviour
 
         renderer = GetComponent<Renderer>();
         renderer.material.color = new Color(0.5f, 0.5f, 0.5f, 1.0f);
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -27,7 +27,7 @@ public class World : MonoBehaviour
         {
             string s_name = "World";
             string s_number = "" + number;
-
+            audioSource.Play();
             // プレハブをGameObject型で取得
             GameObject obj = (GameObject)Resources.Load("Transition_1");
             obj.GetComponent<Transition>().SetNextScene(s_name + s_number);

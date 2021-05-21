@@ -26,12 +26,17 @@ public class Player : KinematicObject
     // 消滅判定
     public bool destroy = false;
 
+    public AudioClip sound_needle;
+    public AudioClip sound_clock;
+    public AudioClip sound_sheep;
+    public AudioClip sound_jump;
+    AudioSource audioSource;
     // private bool stopJump;
     //座標変換
     // Rigidbody2D rb;
 
     //スプライトの向き
-  //  SpriteRenderer spriteRenderer;
+    //  SpriteRenderer spriteRenderer;
 
     private bool stopJump;
 
@@ -69,6 +74,7 @@ public class Player : KinematicObject
         Cursor1 = GameObject.Find("cursor1_star");
         Cursor2 = GameObject.Find("cursor2_star");
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -301,6 +307,7 @@ public class Player : KinematicObject
             // 動かせなくなる
             controlEnabled = false;
 
+            audioSource.PlayOneShot(sound_needle);
 
             GameObject gov = Instantiate(gameover, new Vector3(0, 0, 0), Quaternion.identity);
 
@@ -321,11 +328,13 @@ public class Player : KinematicObject
         {
             clock = true;
             other.GetComponent<Alarm_Clock>().Set(true);
+            audioSource.PlayOneShot(sound_clock);
         }
         else if (other.gameObject.name == "GoalSheep")
         {
             if (clock)
             {
+                audioSource.PlayOneShot(sound_sheep);
                 CursorMode = -2;
                 cleareffect.GetComponent<ClearEffect>().Set(other.transform.position);
                 Destroy(other.gameObject);
@@ -336,7 +345,7 @@ public class Player : KinematicObject
         {
             if (other.gameObject.transform.position.y < transform.position.y)
             {
-
+                audioSource.PlayOneShot(sound_jump);
                 velocity.y = jumpTakeOffSpeed * model.jumpModifier;
                 animator.SetBool("Jump", true);
             }
