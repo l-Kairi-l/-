@@ -62,8 +62,8 @@ public class EditManager : MonoBehaviour
     //save
     public void SetData()
     {
-        GetComponent<SaveDataManager>().SetData(StageNumber-1,data);
-        GetComponent<SaveDataManager>().Save(StageNumber - 1);
+        GetComponent<SaveDataManager>().SetData(WorldNumber-1,data);
+        GetComponent<SaveDataManager>().Save(WorldNumber - 1);
 
         
     }
