@@ -342,6 +342,18 @@ public class Player : KinematicObject
                 transform.localRotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
                 other.gameObject.transform.localRotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
             }
+            else
+            {
+                // プレハブをGameObject型で取得
+                GameObject obj = (GameObject)Resources.Load("GoalUI");
+
+                // プレハブを元に、インスタンスを生成、
+                Instantiate(obj, new Vector3(other.gameObject.transform.position.x + 2.0f,
+                    other.gameObject.transform.position.y + 3.0f,
+                    other.gameObject.transform.position.z - 2.0f), Quaternion.identity);
+
+            }
+
         }
         else if (other.gameObject.name == "Bound")
         {
@@ -361,6 +373,20 @@ public class Player : KinematicObject
 
     }
 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.name == "GoalSheep")
+        {
+            if (!clock)
+            {
+
+                Destroy(GameObject.Find("GoalUI(Clone)"));
+            }
+
+        }
+
+
+    }
 
 
 }
