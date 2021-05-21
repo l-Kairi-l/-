@@ -334,10 +334,11 @@ public class Player : KinematicObject
         {
             if (clock)
             {
-                audioSource.PlayOneShot(sound_sheep);
                 CursorMode = -2;
-                cleareffect.GetComponent<ClearEffect>().Set(other.transform.position);
-                Destroy(other.gameObject);
+                cleareffect.GetComponent<ClearEffect>().Set(other.gameObject);
+                other.gameObject.GetComponent<Animator>().SetBool("Clear", true);
+                GetComponent<Animator>().SetBool("Goal", true);
+                transform.localRotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
 
             }
         }

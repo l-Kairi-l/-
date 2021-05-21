@@ -16,11 +16,12 @@ public class Alarm_Clock : MonoBehaviour
     {
         if (Flag)
         {
-            transform.position=new Vector3(-6.5f, 13.3f, -4.0f);
+            transform.position=new Vector3(-0.3f, 0.51f, -28.04f);
 
 
             transform.rotation= new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
 
+            transform.localScale = new Vector3(0.0299019f, 0.0299019f, 0.0299019f);
         }
         else
         {

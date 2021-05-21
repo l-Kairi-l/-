@@ -6,20 +6,24 @@ using UnityEngine.SceneManagement;
 public class ClearEffect : MonoBehaviour
 {
     //clearの絵
-    public GameObject ClearTexture;
+    //  public GameObject ClearTexture;
     //横になっている牛のオブジェクト
     //  public GameObject sheep;
+
+    public GameObject Camera;
+
     [SerializeField]
     private GameObject gameclear;
     bool flag;
     // Start is called before the first frame update
+
+    Vector3 AddPosition;
+    private float frame;
+
     void Start()
     {
         flag = false;
-
-        ClearTexture.transform.position = new Vector3(0.0f, 0.1f, -2.0f);
-        ClearTexture.GetComponent<SpriteRenderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
-
+        frame = 0.0f;
     }
 
     // Update is called once per frame
@@ -27,47 +31,26 @@ public class ClearEffect : MonoBehaviour
     {
         if (flag)
         {
-        //    sheep.transform.Rotate(new Vector3(0.0f, 2.0f, 0.0f));
+            Camera.transform.position += AddPosition;
 
+            frame += 0.01f;
 
-            ClearTexture.transform.localScale += new Vector3(1.0f * Time.deltaTime, 1.0f * Time.deltaTime, 0.0f);
-            ClearTexture.GetComponent<SpriteRenderer>().material.color = new Color(1.0f,1.0f,1.0f,1.0f);
-
-            if (ClearTexture.transform.localScale.x >= 1.0f || ClearTexture.transform.localScale.y >= 1.0f)
+            if (frame >= 1.0f)
             {
-
                 GameObject gov = Instantiate(gameclear, new Vector3(0, 0, 0), Quaternion.identity);
-
-                ClearTexture.GetComponent<SpriteRenderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
                 flag = false;
-                //// プレハブをGameObject型で取得
-                //GameObject obj = (GameObject)Resources.Load("Transition_1");
-                //obj.GetComponent<Transition>().SetNextScene("World1");
-
-                //// プレハブを元に、インスタンスを生成、
-                //Instantiate(obj, new Vector3(0.0f, 0.0f, -90.0f), Quaternion.identity);
-
             }
         }
     }
 
-    public void Set(Vector3 pos)
+    public void Set(GameObject goal)
     {
         flag = true;
 
-        //名前を検索してプレハブを参照する
-        GameObject obj = (GameObject)Resources.Load("GoalSheep2");
 
 
-        //書き換え終わったプレハブのクローンをインスタンス化する
-        Instantiate(obj, new Vector3(pos.x,
-            pos.y, pos.z), Quaternion.identity);
-
-
-      //  sheep = GameObject.Find("GoalSheep2(Clone)");
-
-        ClearTexture.transform.localScale = new Vector3(0.001f, 0.001f, 0.0f);
-        ClearTexture.transform.position = new Vector3(0.0f, 0.1f, -2.0f);
-
+        AddPosition.x = (goal.transform.position.x - Camera.transform.position.x) * 0.01f;
+        AddPosition.y = (goal.transform.position.y - Camera.transform.position.y) * 0.01f;
+        AddPosition.z = 20 * 0.01f;
     }
 }
