@@ -11,6 +11,9 @@ public class Replay : MonoBehaviour
     public Sprite tex_replay;
     public Sprite tex_replay2;
     public bool isClear = false;
+
+    private bool select;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -19,20 +22,7 @@ public class Replay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "CoursolPoint")
-        {
-            Image MainSprite = GetComponent<Image>();
-            MainSprite.sprite = tex_replay2;
-        }
-
-    }
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "CoursolPoint")
+        if (select)
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -48,6 +38,24 @@ public class Replay : MonoBehaviour
                 }
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name); // 現在シーンのリロード
             }
+
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "CoursolPoint")
+        {
+            Image MainSprite = GetComponent<Image>();
+            MainSprite.sprite = tex_replay2;
+            select = true;
+
+        }
+
+    }
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "CoursolPoint")
+        {
         }
     }
 
@@ -58,6 +66,7 @@ public class Replay : MonoBehaviour
 
             Image MainSprite = GetComponent<Image>();
             MainSprite.sprite = tex_replay;
+            select = false;
 
         }
     }

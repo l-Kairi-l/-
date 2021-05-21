@@ -10,6 +10,9 @@ public class Home : MonoBehaviour
     public Sprite tex_home;
     public Sprite tex_home2;
     public bool isClear = false;
+
+    private bool select;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -18,23 +21,7 @@ public class Home : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "CoursolPoint")
-        {
-            Image MainSprite = GetComponent<Image>();
-            MainSprite.sprite = tex_home2;
-        }
-
-    }
-
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "CoursolPoint")
+        if (select)
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -64,6 +51,27 @@ public class Home : MonoBehaviour
                 Instantiate(obj, new Vector3(0.0f, 0.0f, -90.0f), Quaternion.identity);
             }
         }
+
+    }
+
+
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "CoursolPoint")
+        {
+            Image MainSprite = GetComponent<Image>();
+            MainSprite.sprite = tex_home2;
+            select = true;
+        }
+
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "CoursolPoint")
+        {
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -73,6 +81,7 @@ public class Home : MonoBehaviour
 
             Image MainSprite = GetComponent<Image>();
             MainSprite.sprite = tex_home;
+            select = false;
         }
     }
 

@@ -9,6 +9,8 @@ public class Next : MonoBehaviour
     public Sprite tex_next;
     public Sprite tex_next2;
     // Start is called before the first frame update
+
+    private bool select;
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -17,22 +19,7 @@ public class Next : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "CoursolPoint")
-        {
-            Image MainSprite = GetComponent<Image>();
-            MainSprite.sprite = tex_next2;
-        }
-
-    }
-
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "CoursolPoint")
+        if (select)
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -45,6 +32,7 @@ public class Next : MonoBehaviour
                 //    manager.GetComponent<EditManager>().SetClearNumber(cleargauge.GetComponent<ClearGauge>().GetStarCount());
                 //}
                 manager.GetComponent<EditManager>().SetData();
+
                 // プレハブをGameObject型で取得
                 GameObject obj = (GameObject)Resources.Load("Transition_1");
                 string s_worldname = "W" + manager.GetComponent<EditManager>().WorldNumber;
@@ -54,6 +42,25 @@ public class Next : MonoBehaviour
                 // プレハブを元に、インスタンスを生成、
                 Instantiate(obj, new Vector3(0.0f, 0.0f, -90.0f), Quaternion.identity);
             }
+
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "CoursolPoint")
+        {
+            Image MainSprite = GetComponent<Image>();
+            MainSprite.sprite = tex_next2;
+            select = true;
+        }
+
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "CoursolPoint")
+        {
         }
     }
 
@@ -64,6 +71,7 @@ public class Next : MonoBehaviour
 
             Image MainSprite = GetComponent<Image>();
             MainSprite.sprite = tex_next;
+            select = false;
         }
     }
 }

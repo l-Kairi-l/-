@@ -21,7 +21,7 @@ public class NumberUI : MonoBehaviour
 
     public int Mynumber;
 
-    void Start()
+    void Awake()
     {
         MainSprite = GetComponent<Image>();
 

@@ -9,6 +9,9 @@ public class Return : MonoBehaviour
     public Sprite tex_return;
     public Sprite tex_return2;
     AudioSource audioSource;
+
+    private bool select;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -17,7 +20,17 @@ public class Return : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (select)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                audioSource.Play();
+                GameObject root = transform.root.gameObject;
+                //transform.parent.gameObject 一個上
+                root.GetComponent<Option>().UnInit();
+            }
 
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -27,6 +40,7 @@ public class Return : MonoBehaviour
 
             Image MainSprite = GetComponent<Image>();
             MainSprite.sprite = tex_return2;
+            select = true;
         }
 
     }
@@ -35,13 +49,6 @@ public class Return : MonoBehaviour
     {
         if (other.gameObject.tag == "CoursolPoint")
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                audioSource.Play();
-                GameObject root = transform.root.gameObject;
-                //transform.parent.gameObject 一個上
-                root.GetComponent<Option>().UnInit();
-            }
         }
     }
 
@@ -52,6 +59,7 @@ public class Return : MonoBehaviour
 
             Image MainSprite = GetComponent<Image>();
             MainSprite.sprite = tex_return;
+            select = false;
         }
     }
 

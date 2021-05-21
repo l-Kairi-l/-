@@ -8,10 +8,10 @@ public class CameraContolloer : MonoBehaviour
     private GameObject PlayCamera;      //メインカメラ格納用
     private GameObject EditCamera;       //サブカメラ格納用 
 
-  //  bool NowCamera;
-
     void Start()
     {
+
+
         ////プレイカメラとエディットカメラをそれぞれ取得
         //PlayCamera = GameObject.Find("PlayCamera");
         //EditCamera = GameObject.Find("EditCamera");
@@ -20,25 +20,8 @@ public class CameraContolloer : MonoBehaviour
 
       //  NowCamera = true;
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        //スペースキーが押されている間、エディットカメラをアクティブにする
-        //if (Input.GetKeyDown(KeyCode.F1))
-        //{
-        //    NowCamera = !NowCamera;
-        //    //サブカメラをアクティブに設定
-        //    PlayCamera.SetActive(!NowCamera);
-        //    EditCamera.SetActive(NowCamera);
-        //}
     }
 
-    public void SetCameraType(bool type)
-    {
-        //true==EditCameraモード false==PlayCameraモード
-        PlayCamera.SetActive(!type);
-        EditCamera.SetActive(type);
-
-    }
 }

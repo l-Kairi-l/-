@@ -134,8 +134,10 @@
     <Compile Include="Assets\UI\MainGame\Option\Replay.cs" />
     <Compile Include="Assets\UI\MainGame\Option\Return.cs" />
     <Compile Include="Assets\UI\MainGame\StageName.cs" />
+    <Compile Include="Assets\UI\ReturnButton.cs" />
     <Compile Include="Assets\UI\StageSelect\StageSelect_stage.cs" />
     <Compile Include="Assets\UI\StageSelect\Star.cs" />
+    <Compile Include="Assets\UI\UI_ReSize.cs" />
     <Compile Include="Assets\UI\数字\Number.cs" />
     <Compile Include="Assets\UI\数字\NumberResources.cs" />
     <Compile Include="Assets\UI\数字\NumberUI.cs" />

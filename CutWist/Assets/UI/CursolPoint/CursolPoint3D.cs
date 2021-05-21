@@ -16,8 +16,8 @@ public class CursolPoint3D : MonoBehaviour
 
         Vector3 pos = Input.mousePosition;
         //座標を真ん中に持ってくる
-        pos.x -= (1920.0f * 0.5f);
-        pos.y -= (1080.0f * 0.5f);
+        pos.x -= (Screen.width * 0.5f);
+        pos.y -= (Screen.height * 0.5f);
 
         RectTransform RtPos = GetComponent<RectTransform>();
 
