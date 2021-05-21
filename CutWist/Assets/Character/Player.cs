@@ -335,17 +335,19 @@ public class Player : KinematicObject
             if (clock)
             {
                 CursorMode = -2;
+                audioSource.PlayOneShot(sound_sheep);
                 cleareffect.GetComponent<ClearEffect>().Set(other.gameObject);
                 other.gameObject.GetComponent<Animator>().SetBool("Clear", true);
                 GetComponent<Animator>().SetBool("Goal", true);
                 transform.localRotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
-
+                other.gameObject.transform.localRotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
             }
         }
         else if (other.gameObject.name == "Bound")
         {
             if (other.gameObject.transform.position.y < transform.position.y)
             {
+
                 audioSource.PlayOneShot(sound_jump);
                 velocity.y = jumpTakeOffSpeed * model.jumpModifier;
                 animator.SetBool("Jump", true);

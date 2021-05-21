@@ -293,10 +293,14 @@ public class CursorController : MonoBehaviour
 
 
                 Sheep.GetComponent<Transform>().rotation = Sheep.GetComponent<BlockDirection>().StartRotation;
+                Sheep.gameObject.transform.localRotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
+
                 //Sheep.GetComponent<BlockDirection>().enabled = false;
 
                 Clock.GetComponent<Alarm_Clock>().enabled = true;
                 Clock.GetComponent<Transform>().rotation = Clock.GetComponent<BlockDirection>().StartRotation;
+                Clock.gameObject.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+
                 //Clock.GetComponent<BlockDirection>().enabled = false;
                 Player.GetComponent<Player>().GravityReset();
                 Player.GetComponent<Player>().CursorMode = -1;
