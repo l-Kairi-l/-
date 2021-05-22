@@ -13240,7 +13240,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bbf0778f23582b468f365d95ab04736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClearTexture: {fileID: 1804014996}
+  Camera: {fileID: 0}
+  gameclear: {fileID: 0}
 --- !u!1001 &1935629321
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13726,6 +13727,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cfd048af428ed4d8ad917750130d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  filepath: []
+  save: []
 --- !u!114 &2021771964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13738,8 +13741,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3968c7eb96b34394d9cdefcff4db4111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WorldNumber: 1
-  StageNumber: 1
+  WorldNumber: 3
+  StageNumber: 8
+  data:
+    WorldNumber: 0
+    ClearStar: 000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!114 &2021771965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13865,6 +13871,7 @@ MonoBehaviour:
   Count: 0
   RotateBoard: {fileID: 2534190992282312191, guid: 725b5bbf0a5297c4d8ad14961e078fc1,
     type: 3}
+  Cursor2: {fileID: 0}
 --- !u!4 &2021771974
 Transform:
   m_ObjectHideFlags: 0
@@ -14661,6 +14668,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee799fb1368747b489a6fde75a1711cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  refCamera: {fileID: 2104236845}
+  width: 1920
+  height: 1080
+  pixelPerUnit: 100
 --- !u!81 &2104236844
 AudioListener:
   m_ObjectHideFlags: 0
@@ -14696,7 +14707,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 0
-  orthographic size: 15
+  orthographic size: 5.4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
