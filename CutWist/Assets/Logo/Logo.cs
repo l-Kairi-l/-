@@ -25,9 +25,9 @@ public class Logo : MonoBehaviour
         }
         if (flag)
         {
-            GetComponent<SpriteRenderer>().color += new Color(0.0f, 0.0f, 0.0f, -0.002f);
+            GetComponent<SpriteRenderer>().color += new Color(0.0f, 0.0f, 0.0f, -0.002f* (Time.deltaTime * 60));
 
-
+            
         }
     }
 

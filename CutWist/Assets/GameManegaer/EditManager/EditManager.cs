@@ -17,7 +17,7 @@ public class EditManager : MonoBehaviour
     public int WorldNumber;
     public int StageNumber;
 
-    SaveData data;
+    public SaveData data;
 
     void Start()
     {

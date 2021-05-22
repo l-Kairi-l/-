@@ -18,6 +18,20 @@ public class World : MonoBehaviour
         renderer = GetComponent<Renderer>();
         renderer.material.color = new Color(0.5f, 0.5f, 0.5f, 1.0f);
         audioSource = GetComponent<AudioSource>();
+
+        if (number > 1)
+        {
+            int StarValue = 0;
+            for (int i = 0; i < 9; i++)
+            {
+                StarValue += GameObject.Find("GameManager").GetComponent<SaveDataManager>().GetData(number - 1).ClearStar[i];
+            }
+            if (StarValue < 20)
+            {
+                GetComponent<BoxCollider2D>().enabled = false;
+            }
+        }
+
     }
 
     // Update is called once per frame

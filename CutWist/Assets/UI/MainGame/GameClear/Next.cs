@@ -32,7 +32,6 @@ public class Next : MonoBehaviour
                 //    manager.GetComponent<EditManager>().SetClearNumber(cleargauge.GetComponent<ClearGauge>().GetStarCount());
                 //}
                 manager.GetComponent<EditManager>().SetData();
-
                 // プレハブをGameObject型で取得
                 GameObject obj = (GameObject)Resources.Load("Transition_1");
                 string s_worldname = "W" + manager.GetComponent<EditManager>().WorldNumber;

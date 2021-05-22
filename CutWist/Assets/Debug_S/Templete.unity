@@ -9442,6 +9442,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1122298879}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1163270587 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5793918459877187749, guid: 819bd33f5bb7ca44297bb81986db8198,
+    type: 3}
+  m_PrefabInstance: {fileID: 5793918459591303868}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1163270590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163270587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e17f41dc4dd95549abc5f0357e4951a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1164374520
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14352,6 +14370,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cfd048af428ed4d8ad917750130d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  filepath: []
+  save: []
 --- !u!114 &1979583308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14430,6 +14450,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WorldNumber: 1
   StageNumber: 1
+  data:
+    WorldNumber: 0
+    ClearStar: 000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!1001 &1995175210
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15637,12 +15660,12 @@ PrefabInstance:
     - target: {fileID: 6332794832729238920, guid: 819bd33f5bb7ca44297bb81986db8198,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21
+      value: -19.28
       objectReference: {fileID: 0}
     - target: {fileID: 6332794832729238920, guid: 819bd33f5bb7ca44297bb81986db8198,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10
+      value: -5.48
       objectReference: {fileID: 0}
     - target: {fileID: 6332794832729238920, guid: 819bd33f5bb7ca44297bb81986db8198,
         type: 3}

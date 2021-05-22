@@ -29,7 +29,7 @@ public class StageSelect_stage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        add_a = 0.003f;
+        add_a = 0.03f;
         trigger = false;
 
         Select.GetComponent<SpriteRenderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
@@ -73,15 +73,15 @@ public class StageSelect_stage : MonoBehaviour
         if (trigger)
         {
 
-            Select.GetComponent<SpriteRenderer>().material.color += new Color(0.0f, 0.0f, 0.0f, add_a);
+            Select.GetComponent<SpriteRenderer>().material.color += new Color(0.0f, 0.0f, 0.0f, add_a* (Time.deltaTime * 60));
 
             if (Select.GetComponent<SpriteRenderer>().material.color.a >= 0.5f)
             {
-                add_a = -0.003f;
+                add_a = -0.03f * (Time.deltaTime * 60);
             }
             if (Select.GetComponent<SpriteRenderer>().material.color.a <= 0.1f)
             {
-                add_a = 0.003f;
+                add_a = 0.03f * (Time.deltaTime * 60);
             }
             if (Input.GetMouseButtonDown(0))
             {
