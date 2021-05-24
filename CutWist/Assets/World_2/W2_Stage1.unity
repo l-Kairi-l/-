@@ -1283,7 +1283,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &295726077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8242,6 +8242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cfd048af428ed4d8ad917750130d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  filepath: []
+  save: []
 --- !u!114 &1516275294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8256,6 +8258,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WorldNumber: 2
   StageNumber: 1
+  data:
+    WorldNumber: 0
+    ClearStar: 000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!114 &1516275295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9356,6 +9361,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee799fb1368747b489a6fde75a1711cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  refCamera: {fileID: 1795193784}
+  width: 1920
+  height: 1080
+  pixelPerUnit: 100
 --- !u!81 &1795193783
 AudioListener:
   m_ObjectHideFlags: 0
@@ -9391,7 +9400,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 0
-  orthographic size: 15
+  orthographic size: 5.4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

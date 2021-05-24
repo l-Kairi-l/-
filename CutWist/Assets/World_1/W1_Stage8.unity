@@ -8255,6 +8255,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cfd048af428ed4d8ad917750130d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  filepath: []
+  save: []
 --- !u!114 &981149615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8268,7 +8270,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WorldNumber: 1
-  StageNumber: 1
+  StageNumber: 8
+  data:
+    WorldNumber: 0
+    ClearStar: 000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!114 &981149616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13243,6 +13248,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee799fb1368747b489a6fde75a1711cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  refCamera: {fileID: 1705403593}
+  width: 1920
+  height: 1080
+  pixelPerUnit: 100
 --- !u!81 &1705403592
 AudioListener:
   m_ObjectHideFlags: 0
@@ -13278,7 +13287,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 0
-  orthographic size: 15
+  orthographic size: 5.4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

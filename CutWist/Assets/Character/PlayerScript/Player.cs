@@ -361,6 +361,9 @@ public class Player : KinematicObject
                 other.gameObject.GetComponent<Animator>().SetBool("Clear", true);
                 GetComponent<Animator>().SetBool("Goal", true);
                 transform.localRotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
+                move = new Vector2(0.0f, 0.0f);
+                targetVelocity = move * maxSpeed;
+
                 other.gameObject.transform.localRotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
             }
             else

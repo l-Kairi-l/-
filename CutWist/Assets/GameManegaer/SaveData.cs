@@ -8,6 +8,7 @@ namespace PlayData
     [System.Serializable]
     public class SaveData
     {
+        public bool active;
         public int WorldNumber;
         public int[] ClearStar = new int[9];
 
@@ -21,6 +22,8 @@ namespace PlayData
             }
             //ワールド番号の設定
             WorldNumber = world;
+
+            active = (world == 0) ? true : false;
         }
 
     }

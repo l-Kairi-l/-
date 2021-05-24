@@ -31,7 +31,7 @@ public class WorldFrame : MonoBehaviour
             int StarValue = 0;
             for (int i = 0; i < 9; i++)
             {
-                StarValue += GameObject.Find("GameManager").GetComponent<SaveDataManager>().GetData(number - 1).ClearStar[i];
+                StarValue += GameObject.Find("GameManager").GetComponent<SaveDataManager>().GetData(number - 2).ClearStar[i];
             }
             if (StarValue < 20)
             {

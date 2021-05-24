@@ -1499,6 +1499,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stage1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1020890759009001964, guid: 25d7f38de2152fa48bdfab12bb454a66,
+        type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 1086938101}
+    - target: {fileID: 1020890759009001964, guid: 25d7f38de2152fa48bdfab12bb454a66,
+        type: 3}
+      propertyPath: stagenumber
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020890759009001964, guid: 25d7f38de2152fa48bdfab12bb454a66,
+        type: 3}
+      propertyPath: worldnumber
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1020890759009001967, guid: 25d7f38de2152fa48bdfab12bb454a66,
         type: 3}
       propertyPath: m_RootOrder
@@ -1882,6 +1897,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Stage1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020890759009001964, guid: 25d7f38de2152fa48bdfab12bb454a66,
+        type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 1086938101}
+    - target: {fileID: 1020890759009001964, guid: 25d7f38de2152fa48bdfab12bb454a66,
+        type: 3}
+      propertyPath: worldnumber
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1020890759009001967, guid: 25d7f38de2152fa48bdfab12bb454a66,
         type: 3}
@@ -4367,6 +4392,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Stage1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020890759009001964, guid: 25d7f38de2152fa48bdfab12bb454a66,
+        type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 1086938101}
+    - target: {fileID: 1020890759009001964, guid: 25d7f38de2152fa48bdfab12bb454a66,
+        type: 3}
+      propertyPath: stagenumber
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020890759009001964, guid: 25d7f38de2152fa48bdfab12bb454a66,
+        type: 3}
+      propertyPath: worldnumber
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1020890759009001967, guid: 25d7f38de2152fa48bdfab12bb454a66,
         type: 3}
