@@ -122,6 +122,7 @@
     <Compile Include="Assets\Title\LoadStart.cs" />
     <Compile Include="Assets\Title\NewStart.cs" />
     <Compile Include="Assets\Title\Title.cs" />
+    <Compile Include="Assets\Title\TitleBlock.cs" />
     <Compile Include="Assets\UI\CursolPoint\CursolPoint3D.cs" />
     <Compile Include="Assets\UI\CursolPoint\CursorPoint.cs" />
     <Compile Include="Assets\UI\MainGame\ClearGauge.cs" />
@@ -148,7 +149,9 @@
     <Compile Include="Assets\WorldSelect\WorldUI\World.cs" />
     <Compile Include="Assets\WorldSelect\WorldUI\WorldFrame.cs" />
     <None Include="Assets\CasualGameBGM02\ReadMe.txt" />
+    <None Include="Assets\UI\StageSelect\StageSelectBG.shader" />
     <None Include="Assets\CasualGameBGM05\ReadMe.txt" />
+    <None Include="Assets\StageObject\BackGround\BackGround.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.20f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

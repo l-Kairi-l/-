@@ -5973,6 +5973,7 @@ MonoBehaviour:
   WorldNumber: 2
   StageNumber: 4
   data:
+    active: 0
     WorldNumber: 0
     ClearStar: 000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!114 &1035551355
@@ -10638,7 +10639,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 1.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
