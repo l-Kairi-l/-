@@ -4235,7 +4235,7 @@ MonoBehaviour:
   c2: {fileID: 2058373871}
   c3: {fileID: 961094564}
   star: {fileID: 1488940618}
-  key: {fileID: 0}
+  key: {fileID: 700271316}
 --- !u!212 &2096651906
 SpriteRenderer:
   m_ObjectHideFlags: 0
