@@ -68,21 +68,39 @@ public class ClearGauge : MonoBehaviour
         }
 
         int mode = player.GetComponent<Player>().CursorMode;
-        if (mode != 0 && mode != 1) return;
-        if (GaugeLife == StarOneCount + StarTwoCount)
+        if (mode == 0 || mode == 1)
         {
-            ShiningStar1.color = new Color(1.0f, 1.0f, 1.0f, StarDiffuseAlpha);
+            if (GaugeLife == StarOneCount + StarTwoCount)
+            {
+                ShiningStar1.color = new Color(1.0f, 1.0f, 1.0f, StarDiffuseAlpha);
 
-        }
-        else if (GaugeLife == StarOneCount)
-        {
-            ShiningStar2.color = new Color(1.0f, 1.0f, 1.0f, StarDiffuseAlpha);
+            }
+            else if (GaugeLife == StarOneCount)
+            {
+                ShiningStar2.color = new Color(1.0f, 1.0f, 1.0f, StarDiffuseAlpha);
 
+            }
+            else if (GaugeLife == 1 && FullGauge.fillAmount == TargetAmount)
+            {
+                FullGauge.color = new Color(1.0f, 1.0f, 1.0f, StarDiffuseAlpha);
+            }
         }
-        else if (GaugeLife == 1 && FullGauge.fillAmount == TargetAmount)
+        else
         {
-            FullGauge.color = new Color(1.0f, 1.0f, 1.0f, StarDiffuseAlpha);
+            if (GaugeLife >= StarOneCount + StarTwoCount)
+            {
+                ShiningStar1.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+                ShiningStar2.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+
+            }
+            else if (GaugeLife >= StarOneCount)
+            {
+                ShiningStar2.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+
+            }
+           
         }
+       
 
         //if(FullGauge.fillAmount <= 0.0f)
         //{
