@@ -30,7 +30,7 @@ public class Transition : MonoBehaviour
 
 
             }
-            Size -= 3.0f;
+            Size -= 8.0f*(Time.deltaTime*60);
         }
         else
         {
@@ -39,7 +39,7 @@ public class Transition : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-            Size += 3.0f;
+            Size += 8.0f * (Time.deltaTime * 60);
 
         }
 
