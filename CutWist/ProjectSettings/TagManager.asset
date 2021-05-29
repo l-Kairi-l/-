@@ -13,6 +13,7 @@ TagManager:
   - Manager
   - Bound
   - Sound
+  - Transition
   layers:
   - Default
   - TransparentFX

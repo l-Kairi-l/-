@@ -18,7 +18,7 @@ namespace PlayData
             //ステージのクリアデータの初期化
             for (int i = 0; i < 9; i++)
             {
-                ClearStar[i]=0;
+                ClearStar[i]=3;
             }
             //ワールド番号の設定
             WorldNumber = world;

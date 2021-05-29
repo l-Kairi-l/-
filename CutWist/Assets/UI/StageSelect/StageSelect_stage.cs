@@ -60,7 +60,7 @@ public class StageSelect_stage : MonoBehaviour
         }
         else
         {
-            GetComponent<BoxCollider2D>().enabled = false;
+           // GetComponent<BoxCollider2D>().enabled = false;
 
             GetComponent<SpriteRenderer>().sprite = ClearNot;
             Star1.GetComponent<SpriteRenderer>().enabled = false;
@@ -69,7 +69,11 @@ public class StageSelect_stage : MonoBehaviour
 
         }
 
+        //ここにEXステージの判定を入れる
+        if (worldnumber == 4)
+        {
 
+        }
     }
 
     // Update is called once per frame

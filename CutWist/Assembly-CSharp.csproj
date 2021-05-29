@@ -129,6 +129,7 @@
     <Compile Include="Assets\Title\TitleBlock.cs" />
     <Compile Include="Assets\UI\CursolPoint\CursolPoint3D.cs" />
     <Compile Include="Assets\UI\CursolPoint\CursorPoint.cs" />
+    <Compile Include="Assets\UI\GameUI_Option.cs" />
     <Compile Include="Assets\UI\MainGame\ClearGauge.cs" />
     <Compile Include="Assets\UI\MainGame\GameClear\GameClear.cs" />
     <Compile Include="Assets\UI\MainGame\GameClear\Next.cs" />
@@ -143,6 +144,7 @@
     <Compile Include="Assets\UI\Number\Number.cs" />
     <Compile Include="Assets\UI\Number\NumberResources.cs" />
     <Compile Include="Assets\UI\Number\NumberUI.cs" />
+    <Compile Include="Assets\UI\Opening_Skip.cs" />
     <Compile Include="Assets\UI\ReturnButton.cs" />
     <Compile Include="Assets\UI\StageSelect\StageSelectClearUI.cs" />
     <Compile Include="Assets\UI\StageSelect\StageSelect_stage.cs" />

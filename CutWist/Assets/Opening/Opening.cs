@@ -9,6 +9,7 @@ public class Opening : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         // プレハブをGameObject型で取得
         GameObject obj = (GameObject)Resources.Load("Transition_1");
         obj.GetComponent<Transition>().SetinScene();
@@ -17,6 +18,15 @@ public class Opening : MonoBehaviour
         Instantiate(obj, new Vector3(0.0f, 0.0f, -90.0f), Quaternion.identity);
 
         frame = 0.0f;
+        GameObject titlesound = GameObject.FindGameObjectWithTag("Sound");
+        if (titlesound != null)
+        {
+            Destroy(titlesound);
+        }
+
+        GameObject sound = (GameObject)Resources.Load("Opening");
+        Instantiate(sound, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
+
     }
 
     // Update is called once per frame
@@ -25,16 +35,21 @@ public class Opening : MonoBehaviour
 
         if (frame > 1300)
         {
-            // プレハブをGameObject型で取得
-            GameObject obj = (GameObject)Resources.Load("Transition_1");
-            obj.GetComponent<Transition>().SetNextScene("WorldSelect");
+            if (GameObject.FindGameObjectWithTag("Transition") == null)
+            {
 
-            // プレハブを元に、インスタンスを生成、
-            Instantiate(obj, new Vector3(0.0f, 0.0f, -90.0f), Quaternion.identity);
+                // プレハブをGameObject型で取得
+                GameObject obj = (GameObject)Resources.Load("Transition_1");
+                obj.GetComponent<Transition>().SetNextScene("WorldSelect");
+
+                // プレハブを元に、インスタンスを生成、
+                Instantiate(obj, new Vector3(0.0f, 0.0f, -90.0f), Quaternion.identity);
+            }
             frame = -1;
         }
         if (frame >= 0)
         {
+
             frame += 1.0f * (Time.deltaTime * 60.0f);
         }
     }
