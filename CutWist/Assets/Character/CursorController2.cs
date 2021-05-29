@@ -11,7 +11,7 @@ public class CursorController2 : MonoBehaviour
     public int Count;
     public GameObject RotateBoard;
 
-    private uint Frame;
+    private float Frame;
 
 
     // Start is called before the first frame update
@@ -37,9 +37,30 @@ public class CursorController2 : MonoBehaviour
             GetComponent<World1CursorEffect>().SetType(false, false, 0);
             GetComponent<World2CursorEffect>().SetType(false, false, 0);
             GetComponent<World3CursorEffect>().SetType(false, false, 0);
+
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+            {
+
+                Cursor.transform.position += new Vector3(0, 2.0f, 0);
+
+                GetComponent<World1CursorEffect>().SetType(true, false, 1);
+                GetComponent<World2CursorEffect>().SetType(true, false, 1);
+                GetComponent<World3CursorEffect>().SetType(true, false, 1);
+
+            }
+            else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+            {
+
+                Cursor.transform.position += new Vector3(0, -2.0f, 0);
+                GetComponent<World1CursorEffect>().SetType(true, false, -1);
+                GetComponent<World2CursorEffect>().SetType(true, false, -1);
+                GetComponent<World3CursorEffect>().SetType(true, false, -1);
+
+            }
+
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
-                if (Frame % 8 == 0)
+                if ((int)Frame > 10)
                 {
 
                     Cursor.transform.position += new Vector3(0, 2.0f, 0);
@@ -47,21 +68,33 @@ public class CursorController2 : MonoBehaviour
                     GetComponent<World1CursorEffect>().SetType(true, false, 1);
                     GetComponent<World2CursorEffect>().SetType(true, false, 1);
                     GetComponent<World3CursorEffect>().SetType(true, false, 1);
+                    Frame = 1.0f * (Time.deltaTime * 60);
+
                 }
-                Frame++;
+                else
+                {
+                    Frame += 1.0f * (Time.deltaTime * 60);
+
+                }
 
             }
             else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
-                if (Frame % 8 == 0)
+                if ((int)Frame > 10)
                 {
 
                     Cursor.transform.position += new Vector3(0, -2.0f, 0);
                     GetComponent<World1CursorEffect>().SetType(true, false, -1);
                     GetComponent<World2CursorEffect>().SetType(true, false, -1);
                     GetComponent<World3CursorEffect>().SetType(true, false, -1);
+                    Frame = 1.0f * (Time.deltaTime * 60);
+
                 }
-                Frame++;
+                else
+                {
+                    Frame += 1.0f * (Time.deltaTime * 60);
+
+                }
 
             }
             else

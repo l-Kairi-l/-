@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Platformer.Mechanics;
 
+
 public class CursorController : MonoBehaviour
 {
     public GameObject Cursor;
@@ -16,14 +17,14 @@ public class CursorController : MonoBehaviour
 
     static public int rotatecount = 0;
 
-    private uint Frame;
+    private float Frame;
 
     public GameObject Cursor2;
 
     // Start is called before the first frame update
     void Start()
     {
-        Frame = 0;
+        Frame = 0.0f;
     }
 
     // Update is called once per frame
@@ -52,33 +53,62 @@ public class CursorController : MonoBehaviour
 
             GetComponent<World3CursorEffect>().SetType(false, true, 0);
 
+            if (Input.GetKeyDown(KeyCode.D)|| Input.GetKeyDown(KeyCode.RightArrow)){
+                Cursor.transform.position += new Vector3(2.0f, 0, 0);
+                GetComponent<World1CursorEffect>().SetType(true, true, 1);
+
+                GetComponent<World3CursorEffect>().SetType(true, true, 1);
+
+            }
+            else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+
+                Cursor.transform.position += new Vector3(-2.0f, 0, 0);
+                GetComponent<World1CursorEffect>().SetType(true, true, -1);
+
+                GetComponent<World3CursorEffect>().SetType(true, true, 1);
+
+            }
+
+
             if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
-                if (Frame % 8 == 0)
+                if ((int)Frame > 10)
                 {
                     Cursor.transform.position += new Vector3(2.0f, 0, 0);
                     GetComponent<World1CursorEffect>().SetType(true, true, 1);
 
                     GetComponent<World3CursorEffect>().SetType(true, true, 1);
+                    Frame = 1.0f * (Time.deltaTime * 60);
+
                 }
-                Frame++;
+                else
+                {
+                    Frame += 1.0f * (Time.deltaTime * 60);
+                }
             }
             else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
-                if (Frame % 8 == 0)
+                if ((int)Frame >10)
                 {
 
                     Cursor.transform.position += new Vector3(-2.0f, 0, 0);
                     GetComponent<World1CursorEffect>().SetType(true, true, -1);
 
                     GetComponent<World3CursorEffect>().SetType(true, true, 1);
+
+                    Frame = 1.0f * (Time.deltaTime * 60);
+
+                }
+                else
+                {
+                    Frame += 1.0f* (Time.deltaTime * 60);
                 }
 
-                Frame++;
             }
             else
             {
-                Frame = 0;
+                Frame = 0.0f;
             }
             //--------可動域-------//
             if (Cursor.transform.position.x <= -22.0f)
@@ -108,7 +138,8 @@ public class CursorController : MonoBehaviour
                     //if (objects[i].name == "GoalSheep" || objects[i].name == "alarm_clock") continue;
 
                     //切り取り線を参照しプレイヤーと異なる側のブロックを反転
-                    if (objects[i].transform.position.x <= Cursor.transform.position.x && TranLeft || objects[i].transform.position.x > Cursor.transform.position.x && !TranLeft)
+                    if ((objects[i].transform.position.x <= Player.transform.position.x- 1.5  && objects[i].transform.position.x <= Cursor.transform.position.x) && TranLeft
+                        || (objects[i].transform.position.x >= Player.transform.position.x + 1.5 && objects[i].transform.position.x >= Cursor.transform.position.x) && !TranLeft)
                     {
                         BlockSelectedEffect bse = objects[i].GetComponent<BlockSelectedEffect>();
                         if (bse)
@@ -189,13 +220,25 @@ public class CursorController : MonoBehaviour
                         objects[i].GetComponent<Alarm_Clock>().enabled = false;
                     }
 
+                        if (objects[i].GetComponent<FallBlock>())
+                        {
+                        objects[i].GetComponent<FallBlock>().enabled = false;
+                        }
+
+                    //else if (objects[i].name == "3DFallBlock 1")
+                    //{
+
+                    //    objects[i].GetComponent<FallBlock>().enabled = false;
+                    //}
+
                     Component rigi = objects[i].GetComponent<Rigidbody2D>();
                     if (rigi != null)
                     {
                         objects[i].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
                     }
                     //切り取り線を参照しプレイヤーと異なる側のブロックを反転
-                    if (objects[i].transform.position.x <= Cursor.transform.position.x && TranLeft || objects[i].transform.position.x > Cursor.transform.position.x && !TranLeft)
+                    if ((objects[i].transform.position.x <= Player.transform.position.x - 1.5 && objects[i].transform.position.x <= Cursor.transform.position.x) && TranLeft
+                        || (objects[i].transform.position.x >= Player.transform.position.x + 1.5 && objects[i].transform.position.x >= Cursor.transform.position.x) && !TranLeft)
                     {
                         //objects[i].transform.position = new Vector3(objects[i].transform.position.x, objects[i].transform.position.y * -1.0f, objects[i].transform.position.z);
                         //上下反転だから上か下に向いてるブロックの向きだけを反転するようにする
@@ -278,19 +321,23 @@ public class CursorController : MonoBehaviour
 
                 foreach (GameObject obj in objects)
                 {
-                    Component rigi = obj.GetComponent<Rigidbody2D>();
-                    if (rigi != null)
+                    //Component rigi = obj.GetComponent<Rigidbody2D>();
+                    if (obj.GetComponent<FallBlock>())
                     {
-                        obj.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                        obj.GetComponent<FallBlock>().enabled=true;
                     }
-                }
 
-                //Sheep.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                    }
 
+            //        Count = objects.Length;
+            //    for (int i = 0; i < Count; i++) { 
 
+            //    if (objects[i].name == "3DFallBlock 1")
+            //    {
 
-
-
+            //        objects[i].GetComponent<FallBlock>().enabled = true;
+            //    }
+            //}
 
                 Sheep.GetComponent<Transform>().rotation = Sheep.GetComponent<BlockDirection>().StartRotation;
                 Sheep.gameObject.transform.localRotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);

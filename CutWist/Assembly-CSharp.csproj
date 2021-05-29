@@ -90,6 +90,7 @@
     <Compile Include="Assets\GameManegaer\SceneMagegerPrt.cs" />
     <Compile Include="Assets\GameManegaer\SceneManeger.cs" />
     <Compile Include="Assets\Logo\Logo.cs" />
+    <Compile Include="Assets\Opening\Opening.cs" />
     <Compile Include="Assets\Stage0\Resources\Cloud.cs" />
     <Compile Include="Assets\Stage0\Resources\CloudResources.cs" />
     <Compile Include="Assets\StageObject\BackGround\BackGround.cs" />

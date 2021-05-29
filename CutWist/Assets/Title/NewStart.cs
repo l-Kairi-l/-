@@ -11,7 +11,7 @@ public class NewStart : MonoBehaviour
 
     public GameObject UI;
     AudioSource audioSource;
-    private SaveData[] data = new SaveData[3];
+    private SaveData[] data = new SaveData[4];
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +26,7 @@ public class NewStart : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < 4; i++)
                 {
                     data[i] = UI.GetComponent<SaveDataManager>().GetData(i);
                     data[i].Init(i);
@@ -36,7 +36,7 @@ public class NewStart : MonoBehaviour
                 audioSource.Play();
                 // プレハブをGameObject型で取得
                 GameObject obj = (GameObject)Resources.Load("Transition_1");
-                obj.GetComponent<Transition>().SetNextScene("WorldSelect");
+                obj.GetComponent<Transition>().SetNextScene("Opening");
 
                 // プレハブを元に、インスタンスを生成、
                 Instantiate(obj, new Vector3(0.0f, 0.0f, -90.0f), Quaternion.identity);

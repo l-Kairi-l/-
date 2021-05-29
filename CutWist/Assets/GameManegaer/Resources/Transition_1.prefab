@@ -97,3 +97,4 @@ MonoBehaviour:
   Size: 0
   NextStageName: 
   Type: 0
+  black: {fileID: 21300000, guid: aac201e2433b4f147af9fe5b7a91927d, type: 3}

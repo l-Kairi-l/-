@@ -11,7 +11,7 @@ public class StageSelect_stage : MonoBehaviour
     public GameObject Star1;
     public GameObject Star2;
     public GameObject Star3;
-
+    
     //public GameObject Sound1;
     //public GameObject Sound2;
     //public GameObject Sound3;
@@ -52,10 +52,16 @@ public class StageSelect_stage : MonoBehaviour
         }
         if (data.ClearStar[stagenumber - 1] >= 1)
         {
+            if (worldnumber == 4)
+            {
+               transform.root.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            }
             Star1.GetComponent<Star>().SetTexture(true);
         }
         else
         {
+            GetComponent<BoxCollider2D>().enabled = false;
+
             GetComponent<SpriteRenderer>().sprite = ClearNot;
             Star1.GetComponent<SpriteRenderer>().enabled = false;
             Star2.GetComponent<SpriteRenderer>().enabled = false;

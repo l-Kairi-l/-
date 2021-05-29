@@ -9,6 +9,9 @@ public class Transition : MonoBehaviour
     public float Size;
     public string NextStageName;
     public bool Type;
+
+    public Sprite black;
+
     void Start()
     {
         Debug.Log(Type);
@@ -28,6 +31,7 @@ public class Transition : MonoBehaviour
 
                transform.localScale = new Vector3(2.0f, 2.0f, 1.0f);
 
+                GetComponent<SpriteRenderer>().sprite = black;
 
             }
             Size -= 8.0f*(Time.deltaTime*60);

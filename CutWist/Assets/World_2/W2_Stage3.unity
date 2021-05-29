@@ -12194,6 +12194,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 3DSkeletonBlock 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7305536702911473865, guid: 6365d694290832d488e9a5ca97bc2ae4,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.01125
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6365d694290832d488e9a5ca97bc2ae4, type: 3}
 --- !u!1001 &949374944

@@ -119,4 +119,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/World_EX/W4_Stage3.unity
     guid: a0530326926417140b6da7d3ee37726a
+  - enabled: 1
+    path: Assets/Opening/Opening.unity
+    guid: 5f524348b6c457340a8dddc8c34da4de
   m_configObjects: {}

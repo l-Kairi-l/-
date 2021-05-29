@@ -190,9 +190,12 @@ public class Player : KinematicObject
         {
             //モード変更時
 
+            //ポジションを正規化する
+            float vecx = (int)(gameObject.transform.position.x + 0.5f) + (int)(gameObject.transform.position.x + 0.5f)%2;
+
             CursorMode = CursorMode == -1 ? 0 : -1;
             Cursor1.GetComponent<Transform>().position = CursorMode == -1 ? new Vector3(-30.0f, Cursor1.GetComponent<Transform>().position.y, Cursor1.GetComponent<Transform>().position.z) :
-                new Vector3(gameObject.transform.position.x, Cursor1.GetComponent<Transform>().position.y, Cursor1.GetComponent<Transform>().position.z);
+                new Vector3(vecx, Cursor1.GetComponent<Transform>().position.y, Cursor1.GetComponent<Transform>().position.z);
             Cursor2.GetComponent<Transform>().position = new Vector3(Cursor2.GetComponent<Transform>().position.x, -20.0f, Cursor2.GetComponent<Transform>().position.z);
             BlockDirection.RotateMode = CursorMode == -1 ? BlockDirection.RotateMode : 0;
 
@@ -333,6 +336,9 @@ public class Player : KinematicObject
             GameObject gov = Instantiate(gameover, new Vector3(0, 0, 0), Quaternion.identity);
 
             CursorMode = -2;
+
+            GetComponent<Animator>().SetBool("Die", true);
+
             //string s_name = "World";
             //string s_number = "" + 1;
 
