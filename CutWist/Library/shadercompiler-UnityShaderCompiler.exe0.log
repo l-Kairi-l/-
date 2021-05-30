@@ -1,8 +1,2 @@
-Base path: 'D:/unityhub/2019.4.20f1/Editor/Data', plugins path 'D:/unityhub/2019.4.20f1/Editor/Data/PlaybackEngines'
+Base path: 'C:/Program Files/Unity/Hub/Editor/2019.4.20f1/Editor/Data', plugins path 'C:/Program Files/Unity/Hub/Editor/2019.4.20f1/Editor/Data/PlaybackEngines'
 Cmd: initializeCompiler
-Cmd: preprocess
-  error: 1 plat 21 at (17): Unrecognized #pragma surface directive: :
-  error: 1 plat 21 at (17): Unrecognized #pragma surface directive: fade
-  insize=1792 outsize=1109 ok=1
-Cmd: preprocess
-  insize=1813 outsize=1229 ok=1
