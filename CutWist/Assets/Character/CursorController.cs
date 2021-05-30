@@ -220,10 +220,6 @@ public class CursorController : MonoBehaviour
                         objects[i].GetComponent<Alarm_Clock>().enabled = false;
                     }
 
-                        if (objects[i].GetComponent<FallBlock>())
-                        {
-                        objects[i].GetComponent<FallBlock>().enabled = false;
-                        }
 
                     //else if (objects[i].name == "3DFallBlock 1")
                     //{
@@ -322,22 +318,25 @@ public class CursorController : MonoBehaviour
                 foreach (GameObject obj in objects)
                 {
                     //Component rigi = obj.GetComponent<Rigidbody2D>();
-                    if (obj.GetComponent<FallBlock>())
+                    if (obj.name== "3DFallBlock 1")
                     {
-                        obj.GetComponent<FallBlock>().enabled=true;
-                    }
+                    //    obj.GetComponent<FallBlock>().enabled=true;
+                        obj.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
 
                     }
+
+                }
+               
 
             //        Count = objects.Length;
             //    for (int i = 0; i < Count; i++) { 
 
-            //    if (objects[i].name == "3DFallBlock 1")
-            //    {
+                //    if (objects[i].name == "3DFallBlock 1")
+                //    {
 
-            //        objects[i].GetComponent<FallBlock>().enabled = true;
-            //    }
-            //}
+                //        objects[i].GetComponent<FallBlock>().enabled = true;
+                //    }
+                //}
 
                 Sheep.GetComponent<Transform>().rotation = Sheep.GetComponent<BlockDirection>().StartRotation;
                 Sheep.gameObject.transform.localRotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);

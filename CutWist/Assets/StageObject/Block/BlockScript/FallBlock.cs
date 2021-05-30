@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using Platformer.Mechanics;
 
-public class FallBlock : KinematicObject
+public class FallBlock : MonoBehaviour /*: KinematicObject*/
 {
     // Start is called before the first frame update
 
-    public bool move;
+    public bool AddPlayer;
+    
     void Awake()
     {
-        move = true;
+        AddPlayer = true;
     }
 
     // Update is called once per frame
-    protected override void Update()
+    void Update()
     {
     }
 
@@ -28,7 +29,7 @@ public class FallBlock : KinematicObject
             float vec = 0.0f;
 
 
-            if (player.GetComponent<Player>().transform.position.x < transform.position.x)
+            if (player.GetComponent<Player>().transform.position.x < transform.parent.gameObject.transform.position.x)
             {
                 vec = 0.1f * (60 * Time.deltaTime);
 
@@ -46,16 +47,40 @@ public class FallBlock : KinematicObject
             //{
             //}
 
-            if (!move)
+            if (!AddPlayer)
             {
                 vec = 0;
             }
 
-           transform.position += new Vector3(vec, 0.0f, 0.0f);
+            transform.parent.gameObject.transform.position += new Vector3(vec, 0.0f, 0.0f);
         }
         if(other.gameObject.tag == "Object")
         {
-            move = false;
+            //if (player.GetComponent<Player>().transform.position.x < transform.parent.gameObject.transform.position.x)
+            //{
+            //    if (other.gameObject.transform.position.x < transform.parent.gameObject.transform.position.x)
+            //    {
+            //        AddPlayer = true;
+            //    }
+            //    else
+            //    {
+            //        AddPlayer = false;
+            //    }
+            //}
+            //else
+            //{
+            //    if (other.gameObject.transform.position.x > transform.parent.gameObject.transform.position.x)
+            //    {
+            //        AddPlayer = true;
+            //    }
+            //    else
+            //    {
+            //        AddPlayer = false;
+            //    }
+
+            //}
+
+            AddPlayer = false;
         }
     }
 
@@ -63,7 +88,7 @@ public class FallBlock : KinematicObject
     {
         if (other.gameObject.tag == "Object")
         {
-            move = true;
+            AddPlayer = true;
         }
 
     }

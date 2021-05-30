@@ -105,6 +105,7 @@
     <Compile Include="Assets\StageObject\Block\BlockScript\ExChangeButtonBlock.cs" />
     <Compile Include="Assets\StageObject\Block\BlockScript\ExChangeDoorBlock.cs" />
     <Compile Include="Assets\StageObject\Block\BlockScript\FallBlock.cs" />
+    <Compile Include="Assets\StageObject\Block\BlockScript\FallBlockUnder.cs" />
     <Compile Include="Assets\StageObject\Block\BlockScript\SkeletonBlock.cs" />
     <Compile Include="Assets\StageObject\Block\NewBehaviourScript.cs" />
     <Compile Include="Assets\StageObject\CursorBehavior1.cs" />
@@ -147,10 +148,12 @@
     <Compile Include="Assets\UI\Opening_Skip.cs" />
     <Compile Include="Assets\UI\ReturnButton.cs" />
     <Compile Include="Assets\UI\StageSelect\StageSelectClearUI.cs" />
+    <Compile Include="Assets\UI\StageSelect\StageSelectUI_EX.cs" />
     <Compile Include="Assets\UI\StageSelect\StageSelect_stage.cs" />
     <Compile Include="Assets\UI\StageSelect\Star.cs" />
     <Compile Include="Assets\UI\StageSelect\WorldSelectUI.cs" />
     <Compile Include="Assets\UI\UI_ReSize.cs" />
+    <Compile Include="Assets\WorldSelect\WorldSelectKey.cs" />
     <Compile Include="Assets\WorldSelect\WorldSelectPrt.cs" />
     <Compile Include="Assets\WorldSelect\WorldUI\World.cs" />
     <Compile Include="Assets\WorldSelect\WorldUI\WorldFrame.cs" />

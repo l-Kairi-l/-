@@ -10081,7 +10081,7 @@ PrefabInstance:
     - target: {fileID: 1585293273785643192, guid: e789191d3301dc24fba6272c02e530e1,
         type: 3}
       propertyPath: m_Name
-      value: GameUI_1
+      value: GameUI_4
       objectReference: {fileID: 0}
     - target: {fileID: 1585293274566253077, guid: e789191d3301dc24fba6272c02e530e1,
         type: 3}
@@ -13384,11 +13384,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3968c7eb96b34394d9cdefcff4db4111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WorldNumber: 1
+  WorldNumber: 4
   StageNumber: 1
   data:
+    active: 0
     WorldNumber: 0
     ClearStar: 000000000000000000000000000000000000000000000000000000000000000000000000
+    EX_Stage: 0
 --- !u!114 &1799163232
 MonoBehaviour:
   m_ObjectHideFlags: 0

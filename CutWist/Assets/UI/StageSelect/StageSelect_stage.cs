@@ -20,6 +20,7 @@ public class StageSelect_stage : MonoBehaviour
     public int worldnumber;
 
     public Sprite ClearNot;
+    public Sprite Clear;
 
     public GameObject Select;
 
@@ -39,12 +40,12 @@ public class StageSelect_stage : MonoBehaviour
         Star2.GetComponent<Star>().SetTexture(false);
         Star3.GetComponent<Star>().SetTexture(false);
 
-        SaveData data =manager.GetComponent<SaveDataManager>().GetData(worldnumber-1);
+        SaveData data = manager.GetComponent<SaveDataManager>().GetData(worldnumber - 1);
 
 
-        if (data.ClearStar[stagenumber-1]==3)
+        if (data.ClearStar[stagenumber - 1] == 3)
         {
-                Star3.GetComponent<Star>().SetTexture(true);
+            Star3.GetComponent<Star>().SetTexture(true);
         }
         if (data.ClearStar[stagenumber - 1] >= 2)
         {
@@ -54,15 +55,15 @@ public class StageSelect_stage : MonoBehaviour
         {
             if (worldnumber == 4)
             {
-               transform.root.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                // transform.root.gameObject.GetComponent<SpriteRenderer>().enabled = false;
             }
             Star1.GetComponent<Star>().SetTexture(true);
         }
         else
         {
-           // GetComponent<BoxCollider2D>().enabled = false;
 
             GetComponent<SpriteRenderer>().sprite = ClearNot;
+
             Star1.GetComponent<SpriteRenderer>().enabled = false;
             Star2.GetComponent<SpriteRenderer>().enabled = false;
             Star3.GetComponent<SpriteRenderer>().enabled = false;
@@ -72,6 +73,16 @@ public class StageSelect_stage : MonoBehaviour
         //ここにEXステージの判定を入れる
         if (worldnumber == 4)
         {
+            if (!GameObject.Find("GameManager").GetComponent<SaveDataManager>().GetData(stagenumber - 1).EX_Stage)
+            {
+                 GetComponent<BoxCollider2D>().enabled = false;
+                GetComponent<SpriteRenderer>().sprite = ClearNot;
+
+                Star1.GetComponent<SpriteRenderer>().enabled = false;
+                Star2.GetComponent<SpriteRenderer>().enabled = false;
+                Star3.GetComponent<SpriteRenderer>().enabled = false;
+
+            }
 
         }
     }
@@ -116,6 +127,56 @@ public class StageSelect_stage : MonoBehaviour
             }
         }
     }
+
+    public void ResetStage()
+    {
+        GetComponent<BoxCollider2D>().enabled = true;
+
+        Star1.GetComponent<SpriteRenderer>().enabled = true;
+        Star2.GetComponent<SpriteRenderer>().enabled = true;
+        Star3.GetComponent<SpriteRenderer>().enabled = true;
+
+        Select.GetComponent<SpriteRenderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+        Select.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+
+        Star1.GetComponent<Star>().SetTexture(false);
+        Star2.GetComponent<Star>().SetTexture(false);
+        Star3.GetComponent<Star>().SetTexture(false);
+
+        SaveData data = manager.GetComponent<SaveDataManager>().GetData(worldnumber - 1);
+
+
+        if (data.ClearStar[stagenumber - 1] == 3)
+        {
+            Star3.GetComponent<Star>().SetTexture(true);
+        }
+        if (data.ClearStar[stagenumber - 1] >= 2)
+        {
+            Star2.GetComponent<Star>().SetTexture(true);
+        }
+        if (data.ClearStar[stagenumber - 1] >= 1)
+        {
+            if (worldnumber == 4)
+            {
+                // transform.root.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            }
+            Star1.GetComponent<Star>().SetTexture(true);
+            GetComponent<SpriteRenderer>().sprite = Clear;
+
+        }
+        else
+        {
+
+            GetComponent<SpriteRenderer>().sprite = ClearNot;
+
+            Star1.GetComponent<SpriteRenderer>().enabled = false;
+            Star2.GetComponent<SpriteRenderer>().enabled = false;
+            Star3.GetComponent<SpriteRenderer>().enabled = false;
+
+        }
+
+    }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {

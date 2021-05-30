@@ -10,16 +10,16 @@ public class StageSelectClearUI : MonoBehaviour
     public GameObject Number1;
     public int WorldNumber;
     public int StarValue;
-
+    bool trigger;
     void Start()
     {
         for (int i = 0; i < 9; i++)
         {
-            StarValue+=GameObject.Find("GameManager").GetComponent<SaveDataManager>().GetData(WorldNumber-1).ClearStar[i];
+            StarValue += GameObject.Find("GameManager").GetComponent<SaveDataManager>().GetData(WorldNumber - 1).ClearStar[i];
         }
 
-        Number10.GetComponent<Number>().SetType(StarValue/10);
-        Number1.GetComponent<Number>().SetType(StarValue %10);
+        Number10.GetComponent<Number>().SetType(StarValue / 10);
+        Number1.GetComponent<Number>().SetType(StarValue % 10);
 
 
     }
@@ -27,6 +27,32 @@ public class StageSelectClearUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (trigger && Input.GetMouseButtonDown(0))
+        {
+
+        }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "CoursolPoint")
+        {
+            trigger = true;
+
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "CoursolPoint")
+        {
+            trigger = false;
+
+        }
+    }
+    
 }
+
