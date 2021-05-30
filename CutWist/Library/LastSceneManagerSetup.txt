@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/World_EX/W4_Stage1.unity
+- path: Assets/WorldSelect/WorldSelect.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

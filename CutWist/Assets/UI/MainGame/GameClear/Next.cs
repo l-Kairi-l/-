@@ -32,14 +32,36 @@ public class Next : MonoBehaviour
                 //    manager.GetComponent<EditManager>().SetClearNumber(cleargauge.GetComponent<ClearGauge>().GetStarCount());
                 //}
                 manager.GetComponent<EditManager>().SetData();
-                // プレハブをGameObject型で取得
-                GameObject obj = (GameObject)Resources.Load("Transition_1");
-                string s_worldname = "W" + manager.GetComponent<EditManager>().WorldNumber;
-                string s_stagename = "_Stage" + (manager.GetComponent<EditManager>().StageNumber + 1);
-                obj.GetComponent<Transition>().SetNextScene(s_worldname + s_stagename);
 
-                // プレハブを元に、インスタンスを生成、
-                Instantiate(obj, new Vector3(0.0f, 0.0f, -90.0f), Quaternion.identity);
+                if(manager.GetComponent<EditManager>().WorldNumber == 4)
+                {
+                    GameObject sound = GameObject.FindGameObjectWithTag("Sound");
+                    if (sound != null)
+                    {
+                        Destroy(sound);
+                    }
+                    GameObject sd = (GameObject)Resources.Load("SoundTitle");
+                    Instantiate(sd, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
+
+                    // プレハブをGameObject型で取得
+                    GameObject obj = (GameObject)Resources.Load("Transition_1");
+                    obj.GetComponent<Transition>().SetNextScene("WorldSelect");
+
+                    // プレハブを元に、インスタンスを生成、
+                    Instantiate(obj, new Vector3(0.0f, 0.0f, -90.0f), Quaternion.identity);
+                }
+                else
+                {
+                    // プレハブをGameObject型で取得
+                    GameObject obj = (GameObject)Resources.Load("Transition_1");
+                    string s_worldname = "W" + manager.GetComponent<EditManager>().WorldNumber;
+                    string s_stagename = "_Stage" + (manager.GetComponent<EditManager>().StageNumber + 1);
+                    obj.GetComponent<Transition>().SetNextScene(s_worldname + s_stagename);
+
+                    // プレハブを元に、インスタンスを生成、
+                    Instantiate(obj, new Vector3(0.0f, 0.0f, -90.0f), Quaternion.identity);
+                }
+               
             }
 
         }

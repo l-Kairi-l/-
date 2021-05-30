@@ -13,11 +13,12 @@ public class WorldSelectKey : MonoBehaviour
 
     private bool animetion;
     public int StageNum;
-
+    AudioSource audioSource;
 
     void Start()
     {
         animetion = false;
+        audioSource = GetComponent<AudioSource>();
 
     }
 
@@ -62,7 +63,7 @@ public class WorldSelectKey : MonoBehaviour
                     Select.GetComponent<SpriteRenderer>().color = new Color(0.0f, 0.0f, 0.0f,0.0f);
 
                     animetion = true;
-
+                    audioSource.Play();
                     SaveData data = GameObject.Find("GameManager").GetComponent<SaveDataManager>().GetData(StageNum - 1);
                     data.EX_Stage = true;
 
@@ -95,7 +96,7 @@ public class WorldSelectKey : MonoBehaviour
         if (other.gameObject.tag == "CoursolPoint")
         {
             trigger = true;
-
+            
         }
     }
 
