@@ -4737,6 +4737,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameUI_2
       objectReference: {fileID: 0}
+    - target: {fileID: 3962437699662957773, guid: d8e04cbb57d99ae41998c7a42286c9ba,
+        type: 3}
+      propertyPath: StarThreeCount
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3962437699662957774, guid: d8e04cbb57d99ae41998c7a42286c9ba,
         type: 3}
       propertyPath: m_Camera
@@ -10153,6 +10158,7 @@ MonoBehaviour:
     active: 0
     WorldNumber: 0
     ClearStar: 000000000000000000000000000000000000000000000000000000000000000000000000
+    EX_Stage: 0
 --- !u!114 &718956417
 MonoBehaviour:
   m_ObjectHideFlags: 0

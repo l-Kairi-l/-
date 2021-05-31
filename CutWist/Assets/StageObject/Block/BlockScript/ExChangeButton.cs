@@ -14,16 +14,16 @@ public class ExChangeButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+      
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player" || other.gameObject.tag == "Object")
         {
-            transform.root.gameObject.GetComponent<Animator>().SetBool("On", true);
+            transform.parent.gameObject.GetComponent<Animator>().SetBool("On", true);
 
-            transform.root.gameObject.GetComponent<ExChangeButtonBlock>().Set(true);
+            transform.parent.gameObject.GetComponent<ExChangeButtonBlock>().Set(true);
         }
     }
 
@@ -31,9 +31,9 @@ public class ExChangeButton : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" || other.gameObject.tag == "Object")
         {
-            transform.root.gameObject.GetComponent<Animator>().SetBool("On", false);
+            transform.parent.gameObject.GetComponent<Animator>().SetBool("On", false);
 
-            transform.root.gameObject.GetComponent<ExChangeButtonBlock>().Set(false);
+            transform.parent.gameObject.GetComponent<ExChangeButtonBlock>().Set(false);
         }
     }
 }
